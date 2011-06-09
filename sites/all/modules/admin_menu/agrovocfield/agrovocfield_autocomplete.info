@@ -1,0 +1,10 @@
+; $Id:$
+name = Agrovoc CCK Autocomplete
+description =  Defines a autocomplete widget type for Agrovoc CCK field
+dependencies[] = agrovocfield
+dependencies[] = content
+dependencies[] = agrovoc_api
+dependencies[] = taxonomy
+dependencies[] = i18ntaxonomy
+package = CCK
+core = 6.x

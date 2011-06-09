@@ -1,0 +1,655 @@
+html {
+ 
+  background-color: white;
+
+}
+
+
+
+#header {
+  /*background: url("../images/banner.jpg") no-repeat scroll 0 0  ;*/
+  height: 136px; 
+}
+
+#navigation .form-submit {
+  height: 23px;
+  width:  23px;
+  background: url("../images/btn_buscar.png") no-repeat scroll 0 0 ;
+  border: none;
+}
+
+#site-name a:link, #site-name a:visited {
+  color: #52A8A;
+  font-family: trebuchet MS;
+  text-align: left;
+  text-decoration: none;
+  color:#582A8A;
+}
+
+#edit-search-theme-form-1 {
+  color: gray;
+  font-style: normal;
+}
+
+#header .section #left-header {
+  float:left;
+}
+
+#header .section #right-header {
+  float:left;
+  margin-left: 9em;
+  margin-top: 3.4em;
+  position: relative;
+}
+
+#name-and-slogan {
+/*  padding: 2em 1em 1em 2em;
+  margin-right: 30em;*/
+  font-size:15pt;
+
+  
+}
+
+#right-header {
+  float: left;
+  margin-left: 9em;
+  margin-top: 3.4em;
+/*  position: relative;*/
+}
+
+#main-wrapper .breadcrumb a {
+  text-decoration: none;
+}
+
+#navigation {
+  background-color: #52A8A;	
+
+}
+
+#navigation #main-menu {
+ /* padding-left: 190px;
+  padding-top: 7px;
+  padding-bottom:10px;
+  background-color: #582a8a;
+*/
+  background-color: #582A8A;
+    display: inline;
+    padding-bottom: 10px;
+    padding-left: 190px;
+    padding-top: 7px;
+    width: 400px;
+}
+
+
+
+#navigation #main-menu a {
+  text-decoration: none;
+  color: white;
+}
+
+#navigation #main-menu a.active {
+  font-weight: bold;
+}
+
+#navigation .section {
+  background-color: #582A8A;
+}
+
+#search {
+float:right;
+
+}
+
+#main-menu .menu-1096 a {
+ /* border-left: 1px solid #FFFFFF;*/
+  padding-left: 9px;
+}
+
+#main-menu .menu-1095 a {
+  border-left: 1px solid #FFFFFF;
+  padding-left: 9px;
+}
+
+#main-menu .menu-1094 a {
+  border-left: 1px solid #FFFFFF;
+  padding-left: 9px;
+
+}
+
+.view-instituciones-logos .item-list ul li {
+float:left;
+list-style: none;
+padding:10px;
+
+}
+
+.pane-menu-menu-proyectos .menu li {
+float:left;
+
+
+padding:10px 3px;
+/*
+padding-bottom:10px;
+padding-top:10px;
+padding-left:5px;
+padding-right:5px;
+*/
+list-style:none;
+border: 1px solid #CCCCCC;
+/*margin:10px;*/
+margin:2px;
+}
+.pane-menu-menu-proyectos .menu li a {
+text-decoration:none;
+font-weight:bold;
+}
+
+
+.panels-flexible-region-home-region_home_bottom{
+border: 1px solid #582A8A;
+
+}
+
+
+
+
+
+.view-Investigadores-listado .views-field-field-picture-fid {
+float:left;
+padding:10px;
+color:black;
+}
+
+.view-Investigadores-listado .views-row label {
+font-weight:bold;
+color:black;
+}
+
+.view-Investigadores-listado .views-field-title{
+padding-left:120px;
+}
+
+.view-Investigadores-listado .views-field-title a{
+text-decoration:none;
+font-weight:bold;
+color:black;
+font-size:9pt;
+}
+
+.view-Investigadores-listado .views-field-body{
+padding-left:120px;
+
+}
+
+.view-Investigadores-listado .views-row {
+padding-bottom: 20px;
+color:black;
+font-size:7pt;
+display:table;
+}
+
+.view-Investigadores-listado .views-field-field-email-value {
+padding-left:120px;
+}
+
+.view-Investigadores-listado .views-field-field-related-institution-nid {
+padding-left:120px;
+padding-bottom:5px;
+}
+
+.view-Investigadores-listado .views-label-field-related-institution-nid{
+float:left;
+padding-right:5px;
+}
+
+
+
+
+.view-aliados-listado .views-row {
+padding-bottom: 20px;
+padding-left:20px;
+color:black;
+font-size:7pt;
+display:table;
+}
+
+.view-aliados-listado .views-row .views-field-field-related-institution-nid{
+display:inline;
+float:left;
+}
+
+.view-aliados-listado .views-field-field-logo-fid {
+float:left;
+}
+
+
+#block-menu-menu-proyectos h2{
+float:right;
+color:#582A8A;
+padding-top:10px;
+}
+
+
+#block-menu-menu-proyectos ul {
+display:-moz-grid-line;
+}
+
+.page-views #block-menu-menu-proyectos ul {
+display:block;
+}
+
+
+#block-menu-menu-proyectos li{
+list-style:none;
+text-align:center;
+padding:10px;
+margin:2px;
+border: 1px solid #CCCCCC;
+/*float:left;*/
+}
+
+#block-menu-menu-proyectos {
+display:block;
+}
+
+#block-menu-menu-proyectos a{
+list-style:none;
+text-align:center;
+text-decoration:none;
+
+}
+#block-views-recursos_listado-block_1 {
+display:block;
+
+}
+
+
+
+#views_slideshow_thumbnailhover_teaser_section_novedades_listado-page_2 {
+
+float:left;
+}
+
+#views_slideshow_thumbnailhover_teaser_section_novedades_listado-page_2 .views-field-field-picture-fid {
+position:absolute;
+}
+
+.view-novedades-listado .views-content-field-picture-fid img {
+-moz-border-radius: 10px 10px 10px 10px;
+position:absolute;
+margin-left:10px
+}
+
+#views_slideshow_thumbnailhover_teaser_section_novedades_listado-page_2 .views-field-title {
+background:#000000;
+position:absolute;
+margin-top:200px;
+
+}
+#views_slideshow_thumbnailhover_teaser_section_novedades_listado-page_2 .views-field-title a {
+color:#fff;
+ position: absolute;
+    /*width: 432px;*/
+    width:390px;
+font-weight:bold;
+  font-family: trebuchet MS;
+  text-decoration:none;
+  
+}
+
+#views_slideshow_thumbnailhover_main_novedades_listado-block_1 .views-field-title a {
+color:#fff;
+ position: absolute;
+font-weight:bold;
+  font-family: trebuchet MS;
+  text-decoration:none;
+  width:400px;
+  margin-top:195px;
+  padding-left:30px;
+  }
+
+#views_slideshow_thumbnailhover_main_novedades_listado-block_1 .views-field-body {
+     color: #FFFFFF;
+    margin-top: 200px;
+    position: absolute;
+  font-family: trebuchet MS;
+  padding-left:30px;
+  font-size:9pt;
+  
+  }
+  
+
+#views_slideshow_thumbnailhover_teaser_section_novedades_listado-page_2 .views-field-body {
+
+     color: #FFFFFF;
+    margin-top: 210px;
+    position: absolute;
+    width: 432px;
+  font-family: trebuchet MS;
+}
+/*
+#views_slideshow_thumbnailhover_breakout_teasers_novedades_listado-page_2  {
+padding-left:470px;
+}
+
+#views_slideshow_thumbnailhover_breakout_teasers_novedades_listado-page_2  a{
+color: #fff;
+font-weight:bold;
+text-decoration:none;
+  font-family: trebuchet MS;
+  
+  background: url("images/sprites/general.png") no-repeat scroll -288px -145px 
+  
+}
+*/
+
+/*
+#views_slideshow_thumbnailhover_teaser_section_novedades_listado-page_2 {
+ height: 288px;
+    width: 432px;
+
+}
+*/
+.views-slideshow-controls-bottom {
+display:inline-block;
+}
+
+.block-views-novedades_listado-block_1 .views-content-title {
+font-size:9pt;
+font-family:trebuchet MS;
+padding-left:120px;
+}
+
+.block-views-novedades_listado-block_1 a {
+font-size:9pt;
+font-family:trebuchet MS;
+}
+
+
+
+#block-views-novedades_listado-block_1 {
+/*width:832px;*/
+width:700px;
+background: none repeat scroll 0 0 #D6D6D6;
+}
+
+#block-views-novedades_listado-block_1 h2.title {
+color:#582A8A;
+/*
+padding-left:640px;
+*/
+padding-left:550px;
+background: none repeat scroll 0 0 #D6D6D6;
+
+}
+
+
+#views_slideshow_thumbnailhover_teaser_section_novedades_listado-block_1{
+float:left;
+width:430px;
+
+}
+
+
+#views_slideshow_thumbnailhover_breakout_teasers_novedades_listado-block_1{
+width:400px;
+margin-left:432px;
+}
+
+
+
+
+
+.view-novedades-listado .views_slideshow_thumbnailhover_slide .views-field-title  a{
+color: black;
+font-size: 8pt;
+font-weight: bold;
+font-family:trebuchet MS;
+}
+.view-novedades-listado .views_slideshow_thumbnailhover_breakout_teasers .views-field-title a {
+    color: black;
+    font-size: 8pt;
+    font-weight: bold;
+    line-height: 36pt;
+    padding-left: 40px;
+    text-decoration: none;
+font-family:trebuchet MS;
+background: url("../images/flecha2.jpg")no-repeat scroll 20px 0 transparent; 
+  
+
+}
+.view-novedades-listado {
+
+height:310px;
+}
+
+
+.view-novedades-listado .views-field-body {
+
+font-family:trebuchet MS;
+color:black;
+width:400px;
+
+}
+.more-link {
+margin-top:20px;
+margin-right:50px;
+}
+
+
+.view-novedades-listado .more-link a{
+font-weight:bold;
+text-decoration:none;
+background-color:#582A8A;
+color:#fff;
+padding:8px 8px 8px 8px;
+-moz-border-radius: 5px 5px 5px 5px;
+}
+
+.view-recursos-listado .more-link a {
+    -moz-border-radius: 5px 5px 5px 5px;
+    background-color: #582A8A;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}
+
+
+#block-menu-menu-mquienessomos ul {
+/*background: url("../images/tab-bar.png") repeat-x scroll left bottom transparent;*/
+border-bottom: 1px inset #582A8A;
+}
+
+
+#block-menu-menu-mquienessomos li {
+display: inline;
+list-style: none outside none;
+
+
+}
+
+#block-menu-menu-mquienessomos ul.menu a {
+text-decoration:none;
+color:#582A8A;
+float:letf;
+ padding-left: 8px;
+ padding-right: 8px;
+ padding-top: 8px;
+-moz-border-radius: 5px 5px 0 0;
+background: none repeat scroll 0 0 #D6D6D6;
+
+}
+#block-menu-menu-mquienessomos ul.menu a.active {
+color:#fff;
+background: none repeat scroll 0 0 #582A8A;
+ padding-left: 8px;
+ padding-right: 8px;
+ padding-top: 8px;
+-moz-border-radius: 5px 5px 0 0;
+
+}
+
+/*
+.section-aliados #content-area {
+border-left: 1px inset #582A8A;
+border-right: 1px inset #582A8A;
+border-bottom: 1px inset #582A8A;
+
+}
+*/
+
+.view-aliados-listado .views-row-1 .views-field-title  {
+color:#220090;
+font-weight:bold;
+}
+.view-aliados-listado .views-row-2  .views-field-title {
+color:#990036;
+font-weight:bold;
+}
+.view-aliados-listado .views-row-3 .views-field-title {
+color:#770099;
+font-weight:bold;
+}
+.view-aliados-listado .views-row-4  .views-field-title{
+color:#a1006a;
+font-weight:bold;
+}
+
+.page-aliados .region-content-bottom #block-views-instituciones_logos-block_2 .view-id-instituciones_logos {
+padding-left:120px;
+}
+
+.section-investigadores .region-highlight ul.primary li a .tab {
+font-weight:bold;
+}
+.section-investigadores .region-highlight ul.primary li a{
+font-weight:normal;
+}
+
+
+
+#footer-message {
+width:550px;
+margin-left:200px;
+margin-right:200px;
+text-align:center;
+font-size:10px;
+}
+
+.page-recursos-andesbdc .view-id-recursos_listado {
+width:400px;
+background: none repeat scroll 0 0 #D6D6D6;
+-moz-border-radius: 5px 5px 0 0;
+}
+
+.page-recursos-andesbdc .view-id-recursos_listado  .views-row {
+display:table;
+padding-bottom:10px;
+}
+
+.page-recursos-andesbdc .view-id-recursos_listado .views-field-field-picture-fid {
+float:left;
+padding-right:10px;
+}
+
+
+.page-recursos-andesbdc .view-id-recursos_listado .views-field-title {
+padding-left:120px;
+}
+.page-recursos-andesbdc .view-id-recursos_listado .views-field-title a{
+color:black;
+font-weight:bold;
+text-decoration:none;
+}
+
+.page-recursos-andesbdc .view-id-recursos_listado .views-field-body {
+padding-left:120px;
+color:black;
+}
+
+.page-recursos-andesbdc .view-id-recursos_listado .more-link a{
+font-weight:bold;
+text-decoration:none;
+background-color:#582A8A;
+color:#fff;
+padding:8px 8px 8px 8px;
+-moz-border-radius: 5px 5px 5px 5px;
+}
+/*
+ proyecto an1 -->color #770099
+  proyecto de coordinacion  #a1006a
+  agua y andes   #220090
+  compandes   #990036
+
+ naranja  #f37021  
+verde  #1bb045
+azul #2875d5
+hueso  #ede6d5
+marron #835e48
+celeste #c9e0fd
+gris claro #e5e5e5
+*/
+
+
+#views_slideshow_thumbnailhover_main_recursos_listado-block_1 {
+width: 400px;
+float:left;
+
+}
+
+#views_slideshow_thumbnailhover_main_recursos_listado-block_1 .views-content-field-picture-fid{
+float:left;
+padding-right:10px;
+}
+
+#views_slideshow_thumbnailhover_main_recursos_listado-block_1 .views-content-body{
+margin-left:90px;
+}
+
+
+#views_slideshow_thumbnailhover_breakout_teasers_recursos_listado-block_1 {
+width:300px;
+}
+
+#views_slideshow_thumbnailhover_breakout_teasers_recursos_listado-block_1 .views-field-title a {
+line-height:34pt;
+}
+
+.view-recursos-listado .views-field-title a {
+text-decoration:none;
+font-weight:bold;
+color:black;
+}
+#block-views-recursos_listado-block_1 h2.title {
+color:#582A8A;
+padding-left:550px;
+background: none repeat scroll 0 0 #D6D6D6;
+
+}
+
+
+
+#block-views-recursos_listado-block_1 {
+width:700px; 
+}
+
+.view-recursos-listado {
+font-size:9pt;
+color:black;
+font-family:trebuchet MS;
+background: none repeat scroll 0 0 #D6D6D6;
+}
+
+#block-views-recursos_listado-block_3 h2.title {
+color:#582A8A;
+padding-left:230px;
+background: none repeat scroll 0 0 #D6D6D6;
+}
+
+#block-views-recursos_listado-block_3 {
+width:350px;
+
+}
+
+
