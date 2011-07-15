@@ -1,5 +1,4 @@
 <?php
-// $Id: page.inc,v 1.17.2.4 2010/08/30 22:07:52 merlinofchaos Exp $
 
 /**
  * @file

@@ -1,5 +1,4 @@
 <?php
-// $Id: views_content_plugin_style_ctools_context.inc,v 1.1.2.1 2010/07/20 00:17:09 merlinofchaos Exp $
 /**
  * @file
  * Contains the default style plugin.

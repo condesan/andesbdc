@@ -1,5 +1,4 @@
 <?php
-// $Id: user_view.inc,v 1.3.2.3 2010/07/05 20:20:50 merlinofchaos Exp $
 
 /**
  * Specialized implementation of hook_page_manager_task_tasks(). See api-task.html for

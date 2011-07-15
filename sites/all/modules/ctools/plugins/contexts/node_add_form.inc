@@ -1,5 +1,4 @@
 <?php
-// $Id: node_add_form.inc,v 1.9.2.3 2010/07/20 20:49:21 merlinofchaos Exp $
 
 /**
  * @file

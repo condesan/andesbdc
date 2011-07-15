@@ -1,5 +1,4 @@
 <?php
-// $Id: views_content_plugin_display_panel_pane.inc,v 1.3.2.3 2010/07/09 01:02:24 merlinofchaos Exp $
 
 /**
  * The plugin that handles a panel_pane.

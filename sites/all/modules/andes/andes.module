@@ -1,0 +1,198 @@
+<?php
+/**
+ * @file andes.module
+ * TODO: Enter file description here.
+ */
+
+/**
+ * Implementation of hook_block().
+ */
+function andes_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+
+    case 'list':
+      $blocks[0]['info'] = t('Block 1');
+      // OPTIONAL: Add additional block descriptions here, if required.
+      return $blocks;
+    case 'view':
+      if ($delta == 0) {
+        $block['subject'] = t('Block 1 title');
+        $block['content'] = _andes_display_content_block();
+      }
+      // OPTIONAL: Enter additional cases for each additional block, if defined.
+
+      return $block;
+  }    
+}
+
+
+function _andes_display_content_block() {
+  $sql = "SELECT nid FROM {node} ORDER BY created DESC LIMIT 0,1";  
+  $nid = db_result(db_query($sql));
+  $node = node_load($nid);
+  //dsm($node);
+  switch($node->type){
+    case 'page': $output = "page ultimo"; break;
+    case 'story': $output = "story ultimo"; break;
+    }
+  return $output;
+  }
+
+
+
+/*
+
+function _andes_display_content_block() {
+  $sql = "SELECT nid FROM {node} ORDER BY created DESC LIMIT 0,1";  
+  $nid = db_result(db_query($sql));
+  $node = node_load($nid);
+  dsm($node);
+  switch($node->type_resource){
+    case 'Video': $output = "Video"; break;
+    case 'Audio': $output =  "audio"; break;  
+    case 'publicación': $output =  "publicacion"; break;  
+      
+    }
+  return $output;
+  }
+*/
+
+/**
+ * @file andes.module
+ * TODO: Enter file description here.
+ */
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function andes_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  switch ($op) {
+    case 'alter':
+      // OPTIONAL: the $node->content array has been rendered, so the node body or
+      // teaser is filtered and now contains HTML. This op should only be used when
+      // text substitution, filtering, or other raw text operations are necessary.
+      break;
+    case 'delete':
+      // OPTIONAL: The node is being deleted.
+      break;
+    case 'delete revision':
+      // OPTIONAL: The revision of the node is deleted. You can delete data
+      // associated with that revision.
+      break;
+    case 'insert':
+      // OPTIONAL: The node is being created (inserted in the database).
+      break;
+    case 'load':
+      // OPTIONAL: The node is about to be loaded from the database. This hook
+      // can be used to load additional data at this time.
+      break;
+    case 'prepare':
+      // OPTIONAL: The node is about to be shown on the add/edit form.
+      break;
+    case 'prepare translation':
+      // OPTIONAL: The node is being cloned for translation. Load
+      // additional data or copy values from $node->translation_source.
+      break;
+    case 'print':
+      // OPTIONAL: Prepare a node view for printing. Used for printer-friendly
+      // view in book_module
+      break;
+    case 'rss item':
+      // OPTIONAL: An RSS feed is generated. The module can return properties
+      // to be added to the RSS item generated for this node. See comment_nodeapi()
+      // and upload_nodeapi() for examples. The $node passed can also be modified
+      // to add or remove contents to the feed item.
+      break;
+    case 'search result':
+      // OPTIONAL: The node is displayed as a search result. If you
+      // want to display extra information with the result, return it.
+      break;
+    case 'presave':
+      // OPTIONAL: The node passed validation and is about to be saved. Modules may
+      //  use this to make changes to the node before it is saved to the database.
+      break;
+    case 'update':
+      // OPTIONAL: The node is being updated.
+      break;
+    case 'update index':
+      // OPTIONAL: The node is being indexed. If you want additional
+      // information to be indexed which is not already visible through
+      // nodeapi "view", then you should return it here.
+      break;
+    case 'validate':
+      // OPTIONAL: The user has just finished editing the node and is
+      // trying to preview or submit it. This hook can be used to check
+      // the node data. Errors should be set with form_set_error().
+      break;
+    case 'view':
+      // OPTIONAL: The node content is being assembled before rendering. The module
+      // may add elements $node->content prior to rendering. This hook will be
+      // called after hook_view().  The format of $node->content is the same as
+      // used by Forms API.
+      if($node->type == 'sitio_cuenca'){
+          $node->content['tabs'] = array(
+          '#title' => 'jugador',
+          '#value' => _andes_get_tabs($node)         
+          );
+          unset($node->content['body']['#value']);
+        }
+        
+      
+      
+      
+      if($node->type == 'proyecto'){
+       unset($node->content['body']['#value']);
+      }  
+
+      
+      break;
+  }
+}
+
+function _andes_get_tabs($node){
+
+
+
+$tabs['first'] = array(
+  'title' => t('Qué Hacemos'),
+  'type' => 'freetext',
+  'text' => $node->body
+  );
+
+
+$tabs['second'] = array(
+  'title' => t('Descripción Ambiental'),
+  'type' => 'freetext',
+  'text' => $node->field_desc_ambiental[0]['value']
+  );
+
+$tabs['third'] = array(
+  'title' => t('Descripción Social'),
+  'type' => 'freetext',
+  'text' => $node->field_desc_social[0]['value']
+);
+
+$tabs['fourth'] = array(
+  'title' => t('Geografía'),
+  'type' => 'freetext',
+  'text' => $node->field_desc_geografica[0]['value']
+);
+
+
+
+
+$tabs['fifth'] = array(
+ 'title' => t('Actores'),
+  'type' => 'view',
+  'vid' => 'cuencas',
+  'display' => 'page_4',
+  'args' => $node->nid,
+);
+
+$quicktabs['qtid'] = 'tabs-cuencas';
+$quicktabs['tabs'] = $tabs;
+$quicktabs['style'] = 'Basic';
+$quicktabs['ajax'] = FALSE;
+return theme('quicktabs', $quicktabs);  
+
+}

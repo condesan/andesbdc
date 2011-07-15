@@ -1,9 +1,0 @@
-; $Id:$
-name = Agrovoc CCK
-description = CCK field that fetched and stored terms from AGROVOC thesaurus in several languages.
-dependencies[] = content
-dependencies[] = agrovoc_api
-dependencies[] = taxonomy
-dependencies[] = i18ntaxonomy
-package = CCK
-core = 6.x
