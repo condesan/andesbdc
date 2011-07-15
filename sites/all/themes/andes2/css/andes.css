@@ -2096,6 +2096,8 @@ color: black;
 #block-views-recursos_listado-block_3 {
 width:400px;
 float:left;
+height:280px;
+background:#D6D6D6;
 font-family: trebuchet MS;
 }
 
@@ -2104,7 +2106,7 @@ font-family: trebuchet MS;
 float:right;
 width:360px;
 background:#c3bec9;
-height:275px;
+height:280px;
 font-family: trebuchet MS;
 }
 
@@ -2127,11 +2129,12 @@ font-family: trebuchet MS;
 
 
 #block-views-proyectos-block_9 .views-field-body {
-padding-left: 100px;
+padding-left: 110px;
 font-family: trebuchet MS;
 }
 
 
- .region-content-top {
+.region-content-top {
 background:none repeat scroll 0 0 #D6D6D6;
 }
+
