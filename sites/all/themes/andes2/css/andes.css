@@ -1947,6 +1947,8 @@ background:#D6D6D6;
 color:#582A8A;
    font-family: trebuchet MS;
    margin-left:10px;
+   margin-top:10px;
+   margin-bottom:10px;
 }
 
 
@@ -1977,10 +1979,10 @@ margin-left:220px;
 
 
 #block-views-cuencas-block_2 {
-
+height:490px;
 float:left;
 margin-top:20px;
-width: 400px;
+width: 410px;
 background:#d8d8d8;
 }
 
@@ -1994,7 +1996,7 @@ margin-top:20px;
 #block-views-cuencas-block_1 .views-field-title {
  -moz-border-radius: 0 0 16px 16px;
     background: none repeat scroll 0 0 black;
-    margin-left: 9px;
+    margin-left: 10px;
     margin-top: 182px;
     opacity: 0.5;
     padding-bottom: 20px;
@@ -2053,13 +2055,15 @@ color:#582A8A;
 font-family: trebuchet MS;
 margin-top:10px;
 margin-left:245px;
+
 }
 
 #block-views-cuencas-block_3 {
 float:right;
 width:350px;
 background:#d8d8d8;
-height:auto;
+height:210px;
+margin-top:-15px;
 }
 
 #block-views-proyectos-block_5 .views-row a {
@@ -2138,3 +2142,81 @@ font-family: trebuchet MS;
 background:none repeat scroll 0 0 #D6D6D6;
 }
 
+#block-views-proyectos-block_5 {
+width:379px;
+float:left;
+background:none repeat scroll 0 0 #D6D6D6;
+height:280px;
+}
+
+
+#block-views-proyectos-block_5 .more-link {
+margin-top:40px;
+}
+
+#block-views-proyectos-block_5 .views-field-body {
+
+margin-left:110px;
+
+}
+
+#block-views-proyectos-block_10 {
+width:380px;
+font-family: trebuchet MS;
+float:right;
+background:none repeat scroll 0 0 #D6D6D6;
+height:280px;
+}
+
+
+#block-views-proyectos-block_10 .views-field-body {
+padding-left:100px;
+padding-right:10px;
+}
+
+#block-views-proyectos-block_10 .view-footer {
+margin-left: 260px;
+    margin-top: 18px;
+}
+
+
+#block-views-proyectos-block_10 .views-field-title a {
+font-family: trebuchet MS;
+text-decoration:none;
+color:black;
+font-weight:bold;
+}
+#block-views-proyectos-block_10 .view-footer a {
+    -moz-border-radius: 5px 5px 5px 5px;
+    background: none repeat scroll 0 0 #582A8A;
+    color: white;
+    padding: 7px 7px 7px 7px;
+    text-decoration: none;
+}
+
+
+.node-type-proyecto .region-content-bottom {
+background:none repeat scroll 0 0 #D6D6D6;
+
+}
+
+
+#block-views-proyectos-block_10 h2.title {
+color:#582A8A;
+font-family: trebuchet MS;
+margin-top:10px;
+margin-bottom:10px;
+margin-left:150px;
+}
+#block-views-proyectos-block_9 .view-footer {
+margin-left: 260px;
+    margin-top: 30px;
+}
+#block-views-proyectos-block_9 .view-footer a {
+    -moz-border-radius: 5px 5px 5px 5px;
+    background-color: #582A8A;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 8px;
+    text-decoration: none;
+}

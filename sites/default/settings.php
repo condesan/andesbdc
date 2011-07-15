@@ -90,9 +90,9 @@
  */
  
  
-//$db_url = 'mysqli://root:123456@127.0.0.1/andesbdc';
+$db_url = 'mysqli://root:123456@127.0.0.1/andesbdc';
 
-$db_url = 'mysqli://devcond_admin:admin@localhost/devcond_andesbdc';
+//$db_url = 'mysqli://devcond_admin:admin@localhost/devcond_andesbdc';
 
 $db_prefix = '';
 
