@@ -675,7 +675,10 @@ padding-bottom:15px;
 
 #block-views-recursos_listado-block_3 h2.title {
 color:#582A8A;
-padding-left:230px;
+/*
+padding-left:230px;*/
+
+padding-left:20px;
 }
 
 #block-views-recursos_listado-block_3 {
@@ -2090,3 +2093,45 @@ color: black;
    
 }
 
+#block-views-recursos_listado-block_3 {
+width:400px;
+float:left;
+font-family: trebuchet MS;
+}
+
+
+#block-views-proyectos-block_9 {
+float:right;
+width:360px;
+background:#c3bec9;
+height:275px;
+font-family: trebuchet MS;
+}
+
+
+#block-views-proyectos-block_9  h2.title {
+color:#582A8A;
+padding-left:20px;
+font-family: trebuchet MS;
+margin-bottom:10px;
+}
+
+
+#block-views-proyectos-block_9 .views-field-title a{
+color:black;
+text-decoration:none;
+font-weight:bold;
+font-family: trebuchet MS;
+}
+
+
+
+#block-views-proyectos-block_9 .views-field-body {
+padding-left: 100px;
+font-family: trebuchet MS;
+}
+
+
+ .region-content-top {
+background:none repeat scroll 0 0 #D6D6D6;
+}
