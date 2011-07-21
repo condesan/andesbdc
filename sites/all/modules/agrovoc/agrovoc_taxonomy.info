@@ -1,0 +1,14 @@
+name = Agrovoc Taxonomy
+description = Allows you to fill in a taxonomy using calls to the Agrovoc Web Service
+core = 6.x
+package = "Agrovoc"
+dependencies[] = agrovoc_api
+dependencies[] = taxonomy
+dependencies[] = i18ntaxonomy
+
+; Information added by drupal.org packaging script on 2011-03-09
+version = "6.x-1.1"
+core = "6.x"
+project = "agrovoc"
+datestamp = "1299669366"
+

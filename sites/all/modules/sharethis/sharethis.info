@@ -1,0 +1,12 @@
+name = ShareThis
+description = "Provides the ShareThis web service for Service Links."
+core = 6.x
+dependencies[] = service_links
+package = Service Links
+
+; Information added by drupal.org packaging script on 2011-02-25
+version = "6.x-2.x-dev"
+core = "6.x"
+project = "sharethis"
+datestamp = "1298620161"
+
