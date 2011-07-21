@@ -1,0 +1,8 @@
+files
+*.tar.gz
+*.zip
+*.mysql
+*.sql
+*.tgz
+*.rar
+settings.php
