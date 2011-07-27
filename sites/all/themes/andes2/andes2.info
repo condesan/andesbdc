@@ -66,6 +66,7 @@ regions[navigation]     = Navigation bar
 regions[highlight]      = Highlighted content
 regions[content_top]    = Content top
 regions[content_bottom] = Content bottom
+regions[content_bottom2] = Content bottom2
 regions[header]         = Header
 regions[footer]         = Footer
 regions[page_closure]   = Page closure
@@ -76,6 +77,7 @@ layouts[default][description] = "Default"
 layouts[default][stylesheet] = "Default.css"
 layouts[default][template] = "page"
 layouts[default][regions][] = "content_bottom"
+layouts[default][regions][] = "content_bottom2"
 layouts[default][regions][] = "sidebar_second"
 
 ; Layout: Home
@@ -89,6 +91,7 @@ layouts[columns][regions][] = "navigation"
 layouts[columns][regions][] = "highlight"
 layouts[columns][regions][] = "content_top"
 layouts[columns][regions][] = "content_bottom"
+layouts[columns][regions][] = "content_bottom2"
 layouts[columns][regions][] = "header"
 layouts[columns][regions][] = "footer"
     

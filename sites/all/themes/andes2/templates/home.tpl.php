@@ -158,7 +158,7 @@
   <ul class="menu">
    <div class="RSS">
     <li class="rss">
-         <a title="" href="http://www.rss.com">rss</a>
+         <a title="" href="http://dev.condesan.org/andesbdc/rss">rss</a>
     </li>
     </div>
     <div class="facebook">
@@ -228,7 +228,7 @@
         </div>
 
         <?php print $content_bottom; ?>
-
+	<?php print $content_bottom2; ?>
         <?php if ($feed_icons): ?>
           <div class="feed-icons"><?php print $feed_icons; ?></div>
         <?php endif; ?>

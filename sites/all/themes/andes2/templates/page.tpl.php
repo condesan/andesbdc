@@ -185,6 +185,7 @@
         </div>
 
         <?php print $content_bottom; ?>
+<?php print $content_bottom2; ?>
 
         <?php if ($feed_icons): ?>
           <div class="feed-icons"><?php print $feed_icons; ?></div>
