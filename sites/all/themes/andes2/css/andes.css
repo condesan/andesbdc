@@ -401,6 +401,7 @@ position:absolute;
   margin-top: 222px;
   position: absolute;
   width: 430px;
+  height: 78px;
   opacity:0.555;
 }
   
@@ -622,12 +623,19 @@ padding-bottom:10px;
 
 .page-recursos-andesbdc .view-id-recursos_listado .views-field-field-picture-fid {
 float:left;
-padding-right:10px;
+padding-left: 5px;
+padding-right:5px;
 }
 
 
+.page-recursos-andesbdc .view-id-recursos_listado .views-field-field-youtube-embed {
+float: left;
+padding-right: 5px;	
+padding-left: 5px
+	}
+
 .page-recursos-andesbdc .view-id-recursos_listado .views-field-title {
-padding-left:100px;
+padding-left:130px;
 }
 .page-recursos-andesbdc .view-id-recursos_listado .views-field-title a{
 color:black;
@@ -636,7 +644,7 @@ text-decoration:none;
 }
 
 .page-recursos-andesbdc .view-id-recursos_listado .views-field-body {
-padding-left:100px;
+padding-left:130px;
 color:black;
 }
 
@@ -802,7 +810,7 @@ text-decoration:none;
 }
 
 .page-novedades-andesbdc .view-novedades-listado .views-field-body {
-
+padding-right: 5px;
     padding-left: 100px;
 }
 
@@ -811,7 +819,7 @@ text-decoration:none;
 
 .page-novedades-andesbdc .view-novedades-listado .views-row {
  clear: both;
-    display: block;
+ display: block;
 }
 
 
@@ -1493,8 +1501,8 @@ float:left;
 }
 
 .page-novedades-andesbdc .view-novedades-listado .views-field-field-picture-fid img {
-border: 5px solid #ffffff;
--moz-border-radius: 11px 11px 11px 11px;
+ /* border: 5px solid #ffffff;
+-moz-border-radius: 11px 11px 11px 11px; */
 }
 
 .view-recursos-listado .views-field-field-picture-fid img {
@@ -1772,6 +1780,11 @@ border-top: 3px solid #582A8A;
 .page-aliados .view-aliados-listado .views-row {
 border-left:3px solid #582A8A;
 border-right:3px solid #582A8A;
+
+}
+
+.page-aliados .view-aliados-listado .views-row-last {
+border-bottom:3px solid #582A8A;
 
 }
 
@@ -2709,6 +2722,15 @@ margin-left: 385px;
 	padding-top: 20px;
 	
 	}
+
+.view-cuencas .views-field-title {
+	
+}
+
+.node-type-sitio-cuenca .quicktabs_tabpage__fifth .view-cuencas .views-field-field-picture-fid {
+float: left;	
+}
+
 .page-mapa-cuenca .view-cuencas .views-field-field-picture2-fid  {
 	text-align: center;
 	font-family: trebuchet MS;
@@ -2780,7 +2802,7 @@ margin-right: 5px;
 	.region-content-bottom2 p {
 
 text-align: center;
-font-size: 8px;
+font-size: 11px;
 margin: 0px;
 
 }
@@ -2794,7 +2816,7 @@ float: left;
 
 
 .page-aliados #block-views-otras_vistas-block_1 {
-    border: 2px solid #582A8A;
+    border: none;
     height: auto;
     margin-top: 0px;
     padding-bottom: 10px;
@@ -2855,7 +2877,7 @@ float: left;
 
 
 .page-colaboradores #block-views-otras_vistas-block_1 {
-    border: 2px solid #582A8A;
+    border: none;
     height: auto;
     margin-top: 0px;
     padding-bottom: 10px;
@@ -2895,13 +2917,203 @@ float: left;
     width: 758px;
 }
 .page-nuestras-cuencas	 #block-views-otras_vistas-block_1 {
-    border: 2px solid #582A8A;
+   /* border: 2px solid #582A8A;
     height: 100px;
-    margin-top: 600px;
+    margin-top: 600px;*/
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: static;
+    width: 758px;
+    
+}
+
+
+.node-type-sitio-cuenca #block-block-3 {
+/* margin-top: 560px;	*/
+height: auto;
+padding-top:0px;
+}
+
+
+.node-type-sitio-cuenca #block-views-otras_vistas-block_1 {
+margin-top: 0px;	
+border: none;
+	}
+
+.node-type-sitio-cuenca .region-content-bottom2 {
+	margin-top: 700px;
+height: 200px;
+border: 2px solid #582A8A;
+}
+
+
+.page-nuestros-proyectos .region-content-bottom2 {
+	margin-top: 805px;
+height: 200px;
+border: 2px solid #582A8A;
+}
+
+.page-nuestros-proyectos #block-views-otras_vistas-block_1 {
+    border: none;
+    height: 100px;
+    margin-top: 0px;
+}
+
+.page-nuestros-proyectos #block-block-3 {
+    height: auto;
+    margin-top:0px;
+    padding-top: 50px;
+    position: static;
+    width: 758px;
+}
+
+.page-nuestras-cuencas  #block-block-3 {
+    height: auto;
+    margin-top:0px;
+    padding-top: 50px;
+    position: static;
+    width: 758px;
+}
+
+.page-nuestras-cuencas #block-views-otras_vistas-block_1 {
+    border: none;
+    height: 100px;
+    margin-top: 0px;
+}
+.page-nuestras-cuencas .region-content-bottom2 {
+margin-top: 805px;
+height: 200px;
+border: 2px solid #582A8A;
+}
+
+.page-node-112 #block-views-otras_vistas-block_1 {
+     border: none;
+    height: 100px;
+    margin-top: 0px;
     padding-bottom: 10px;
     padding-top: 10px;
     position: static;
     width: 758px;
 }
 
+.page-node-112 #block-block-3 {
+    height: auto;
+    margin-top:0px;
+    padding-top: 50px;
+    position: static;
+    width: 758px;
+}
 
+.page-node-112 #block-views-otras_vistas-block_1 {
+     border: none;
+    height: 100px;
+    margin-top: 0px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: static;
+    width: 758px;
+}
+
+.page-node-112 .region-content-bottom2 {
+margin-top: 5px;
+height: 200px;
+border: 2px solid #582A8A;
+}
+
+.page-aliados #block-block-3 {
+    height: auto;
+    margin-top:0px;
+    padding-top: 50px;
+    position: static;
+    width: 758px;
+}
+
+.page-aliados .region-content-bottom2 {
+margin-top: 5px;
+height: 200px;
+border: 2px solid #582A8A;
+}
+
+.page-colaboradores .region-content-bottom2 {
+margin-top: 5px;
+height: 200px;
+border: 2px solid #582A8A;
+}
+
+.page-colaboradores #block-block-3 {
+    height: auto;
+    margin-top:0px;
+    padding-top: 50px;
+    position: static;
+    width: 758px;
+}
+
+.page-colaboradores .region-content-bottom2 {
+margin-top: 5px;
+height: 200px;
+border: 2px solid #582A8A;
+}
+
+.page-novedades-andesbdc .region-content-bottom2 {
+margin-top: 905px;
+height: 200px;
+border: 2px solid #582A8A;
+}
+
+.page-novedades-andesbdc #block-block-3 {
+    height: auto;
+    margin-top:0px;
+    padding-top: 50px;
+    position: static;
+    width: 758px;
+}
+
+
+.page-novedades-andesbdc #block-views-otras_vistas-block_1 {
+    border: none;
+    height: 100px;
+    margin-top: 0px;
+}
+
+
+.page-recursos-andesbdc .region-content-bottom2 {
+margin-top: 905px;
+height: 200px;
+border: 2px solid #582A8A;
+}
+
+.page-recursos-andesbdc #block-block-3 {
+    height: auto;
+    margin-top:0px;
+    padding-top: 50px;
+    position: static;
+    width: 758px;
+}
+
+
+.page-recursos-andesbdc #block-views-otras_vistas-block_1 {
+    border: none;
+    height: 100px;
+    margin-top: 0px;
+}
+
+
+#block-block-3 {
+    height: auto;
+    margin-top:0px;
+    padding-top: 50px;
+    position: static;
+    width: 758px;
+}
+
+#block-views-otras_vistas-block_1 {
+    border: none;
+    height: 100px;
+    margin-top: 0px;
+}
+
+.region-content-bottom2 {
+margin-top: 300px;
+height: 200px;
+border: 2px solid #582A8A;
+}
