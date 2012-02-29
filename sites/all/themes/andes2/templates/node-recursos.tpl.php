@@ -98,8 +98,11 @@
     </div>
   <?php endif; ?>
 
-<div class="content">
-
+  <div class="content">
+  <div class="barra_andesbdc">
+  <?php> print "Andes BDC";?>
+  </div>
+  
 <div class="izquierda_recurso">
   <div class="imagen_recuros">
   <?php 
@@ -176,10 +179,31 @@
 <div class="Enlaces">
   <?php print $links; ?>
   
+  <?php
+global $language;
+if($language->language=="es"){
+?>
+  
   <div class="linkvolver">
-	<IMG src="/andesbdc/sites/all/themes/andes2/images/btn_volver.png">
-	<a id="volverrecursos" class="volver"  title="" href="/andesbdc/recursos_andesbdc" >Volver al menú de Recursos</a>
+	<IMG src="/andesbdc/sites/all/themes/andes2/images/volver21.gif">
+	<a id="volverrecursos" class="volver"  title="" href="/andesbdc/recursos_andesbdc" >Volver al menú de recursos</a>
+  </div>  
+
+
+<?php
+}
+else{
+?>
+ 
+   <div class="linkvolver">
+	<IMG src="/andesbdc/sites/all/themes/andes2/images/volver21.gif">
+	<a id="volverrecursos" class="volver"  title="" href="/andesbdc/recursos_andesbdc" >Back to resources menu</a>
   </div>
+ 
+<?php
+}
+?>
+
 </div>  
 
   <?php //print $links; ?>

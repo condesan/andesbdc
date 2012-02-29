@@ -77,7 +77,8 @@
   <?php print $user_picture; ?>
 
   <?php if (!$page): ?>
-    <h2 class="title"><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+    <h2 class="title"><a href="<?php //print $node_url; ?>"><?php //print $title; ?></a></h2>
+   xxxxxx
   <?php endif; ?>
 
   <?php if ($unpublished): ?>
@@ -87,6 +88,10 @@
 
 
   <div class="content">
+  <div class="barra_andesbdc">
+  <?php> print "Andes BDC";?>
+  </div>
+  
   <div id="left" class="news_left" style="max-width: 350px">
     <div >
     <?php 
@@ -123,11 +128,31 @@
 <div class="Enlaces">
   <?php print $links; ?>
   
+  <?php
+global $language;
+if($language->language=="es"){
+?>  
+  
   <div class="linkvolver">
-	<IMG src="/andesbdc/sites/all/themes/andes/images/btn_volver.png">
-	<a id="volvernews" class="volver"  title="" href="/andesbdc/Novedades_andesbdc" >Volver al menú de Novedades</a>
+	<IMG src="/andesbdc/sites/all/themes/andes2/images/volver21.gif">
+	<a id="volvernews" class="volver"  title="" href="/andesbdc/Novedades_andesbdc" >Volver al menu Novedades </a>
   </div>
+  
+<?php
+}
+else{
+?>  
+  
+  <div class="linkvolver">
+	<IMG src="/andesbdc/sites/all/themes/andes2/images/volver21.gif">
+	<a id="volvernews" class="volver"  title="" href="/andesbdc/Novedades_andesbdc" >Back to news menu</a>
+  </div>
+  
+<?php
+}
+?>
+  
+  
 </div>  
     
 </div> <!-- /.node -->
- 

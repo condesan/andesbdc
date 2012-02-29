@@ -158,20 +158,20 @@
   <ul class="menu">
    <div class="RSS">
     <li class="rss">
-         <a title="" href="http://dev.condesan.org/andesbdc/rss">rss</a>
+         <a title="" target="_blank" href="http://dev.condesan.org/andesbdc/rss">rss</a>
     </li>
     </div>
     <div class="facebook">
     <li class="facebook">
    
-      <a title="" href="http://www.facebook.com">facebook</a>
+      <a title="" href="http://www.facebook.com/pages/CGIAR-Challenge-Program-on-Water-and-Food-CPWF/163005603787865">facebook</a>
   
     </li>
       </div>
         <div class="twitter">
     <li class="twitter">
     
-      <a title="" href="http://www.twitter.com">twitter</a>
+      <a title="" target="_blank" href="http://twitter.com/#!/Waterandfood">twitter</a>
 
     </li>
           </div>
@@ -185,14 +185,14 @@
           <div class="flickr">
 
     <li class="flickr">
-        <a title="" href="/andesbdc/">flickr</a>
+        <a title="" target="_blank" href="http://www.slideshare.net/CPWF">flickr</a>
 
     </li>
         </div>
             <div class="zzzz">
     <li class="zzzz">
 
-    <a title="" href="/andesbdc/">zzzz</a>
+    <a title="" href="">zzzz</a>
 
     </li>
         </div>

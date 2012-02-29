@@ -156,3 +156,35 @@ function andes2_preprocess_block(&$vars, $hook) {
 
 
 
+function andes2_quicktabs_tabs($quicktabs, $active_tab = 'none'){
+  $output = '';
+  $tabs_count = count($quicktabs['tabs']);
+  if ($tabs_count <= 0) {
+    return $output;
+  }
+
+  $index = 1;
+  $output .= '<ul class="quicktabs_tabs quicktabs-style-'. drupal_strtolower($quicktabs['style']) .'">';
+  foreach ($quicktabs['tabs'] as $tabkey => $tab) {
+    $class = 'qtab-'. $tabkey;
+    // Add first, last and active classes to the list of tabs to help out themers.
+    $class .= ($tabkey == $active_tab ? ' active' : '');
+    $class .= ($index == 1 ? ' first' : '');
+    $class .= ($index == $tabs_count ? ' last': '');
+    $attributes_li = drupal_attributes(array('class' => $class));
+    $options = _quicktabs_construct_link_options($quicktabs, $tabkey);
+    $options = array_merge($options, array('html' => TRUE));
+
+    // Support for translatable tab titles with i18nstrings.module.
+    if (module_exists('i18nstrings')) {
+      $tab['title'] = tt("quicktabs:tab:$quicktabs[qtid]--$tabkey:title", $tab['title']);
+    }
+    $output .= '<li'. $attributes_li .'>'. l('<div class = "tabs'.$tabkey.'">'.t($tab['title']).'</div>', $_GET['q'], $options) .'</li>';
+//$output .= '<li'. $attributes_li .'><div id = "q_tabs">'. l('<div id="qtabs_link_a_'.$tabkey.'" class = "tabs">'.$tab['title'].'</div>', $_GET['q'], $options) .'</div></li>';
+    $index++;
+  }
+  $output .= '</ul>';
+  
+  return $output;
+
+}

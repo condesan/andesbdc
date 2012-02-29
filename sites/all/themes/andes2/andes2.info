@@ -139,4 +139,5 @@ settings[zen_wireframes]           = 0
 
 stylesheets[all][]   = css/default.css
 stylesheets[all][]   = css/andes.css
+stylesheets[all][]   = css/andes2.css
 scripts[] = js/andes.js
