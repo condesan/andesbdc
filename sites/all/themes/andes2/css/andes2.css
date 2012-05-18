@@ -1,6 +1,6 @@
 .region-content-bottom2 {
     border: 2px solid #582A8A;
-    height: 140px;
+    /*height: 140px;*/
     margin-top: 320px;
 }
 
@@ -301,7 +301,7 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset {
   margin-top:20px
 }
 .page-node-165 .region-content-bottom2 {
-  height: 130px;
+  /*height: 130px;*/
   margin-top:20px;
 }
 .page-node-112 #block-block-3 , .page-node-165 #block-block-3{
@@ -313,11 +313,11 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset {
 }
 
 .page-aliados .region-content-bottom2 {
-  height: 130px;
+  /*height: 130px;*/
   margin-top: 20px;
 }
 .page-colaboradores .region-content-bottom2 {
-  height: 130px;
+  /*height: 130px;*/
   margin-top: 20px;
 }
 .page-colaboradores #block-block-3 {
@@ -329,11 +329,11 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset {
 }
 
 .page-nuestros-proyectos .region-content-bottom2 {
-  height: 130px;
+ /* height: 130px;*/
 }
 
 .node-type-sitio-cuenca .region-content-bottom2 {
-    height: 130px;
+   /* height: 130px;*/
     margin-top:580px;
 }
 
@@ -395,12 +395,13 @@ padding-right:10px;
 }
 
 .node-type-investigador .linkvolver img {
-  margin-left: 290px;
+  margin-left: 390px;
   vertical-align: top;
   
 }
 .node-type-investigador .linkvolver {
 margin-bottom:20px;
+margin-top:20px;
 }
 
  /*
@@ -1775,7 +1776,7 @@ border:2px solid #D6D6D6;
 }
 
 
-p, ul, ol, dl, pre, table, fieldset {
+ul, ol, dl, pre, table, fieldset {
     margin: 0;
 }
 
