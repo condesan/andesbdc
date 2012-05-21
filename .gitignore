@@ -5,4 +5,4 @@ files
 *.sql
 *.tgz
 *.rar
-settings.php
+sites/default/settings.php
