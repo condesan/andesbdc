@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Implementation of hook_views_default_views().
  */
@@ -6429,6 +6430,10 @@ print l(t(\'See all\'),\'novedades_andesbdc\');
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('header', 'Andes BDC is a program from CGIAR Challenge Program on Water and Food | Email: andesbdc@cpwf.org
+Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400');
+  $handler->override_option('header_format', '2');
+  $handler->override_option('header_empty', 0);
   $handler->override_option('items_per_page', 11);
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);

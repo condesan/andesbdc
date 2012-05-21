@@ -796,18 +796,6 @@ function exportables_all_context_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => 1,
         ),
-        'block-3' => array(
-          'module' => 'block',
-          'delta' => 3,
-          'region' => 'content_bottom2',
-          'weight' => 0,
-        ),
-        'views-otras_vistas-block_1' => array(
-          'module' => 'views',
-          'delta' => 'otras_vistas-block_1',
-          'region' => 'content_bottom2',
-          'weight' => 1,
-        ),
         'locale-0' => array(
           'module' => 'locale',
           'delta' => 0,
@@ -819,6 +807,12 @@ function exportables_all_context_context_default_contexts() {
           'delta' => 0,
           'region' => 'header',
           'weight' => 1,
+        ),
+        'views-otras_vistas-block_1' => array(
+          'module' => 'views',
+          'delta' => 'otras_vistas-block_1',
+          'region' => 'footer',
+          'weight' => 0,
         ),
       ),
       'layout' => 'columns',

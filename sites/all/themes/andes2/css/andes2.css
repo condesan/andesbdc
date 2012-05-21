@@ -20,7 +20,7 @@
 }
 
 .view-novedades-listado .views_slideshow_thumbnailhover_breakout_teasers .views-field-title a {
-    background: url("../images/icono-flecha.gif") no-repeat scroll 0 -10px transparent;
+    background: url("../images/icono-flecha.gif") no-repeat scroll 0 5% transparent;
     color: black;
     font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
     font-size: 15px;
@@ -870,11 +870,6 @@ h2 {
 
 #block-locale-0 ul li.active a {
   font-weight:bold;
-}
-
-.view-otras-vistas {
-  margin-left:40px;
-  margin-right:40px;
 }
 
 .node-type-recursos .node {
