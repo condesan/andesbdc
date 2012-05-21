@@ -784,29 +784,17 @@ function exportables_all_context_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'menu-menu-menuproyectoscuencas' => array(
-          'module' => 'menu',
-          'delta' => 'menu-menuproyectoscuencas',
-          'region' => 'sidebar_second',
-          'weight' => 0,
-        ),
-        'cumulus-0' => array(
-          'module' => 'cumulus',
-          'delta' => 0,
-          'region' => 'sidebar_second',
-          'weight' => 1,
-        ),
         'block-2' => array(
           'module' => 'block',
           'delta' => 2,
           'region' => 'sidebar_second',
-          'weight' => 2,
+          'weight' => 0,
         ),
         'views-calendar-calendar_block_1' => array(
           'module' => 'views',
           'delta' => 'calendar-calendar_block_1',
           'region' => 'sidebar_second',
-          'weight' => 3,
+          'weight' => 1,
         ),
         'block-3' => array(
           'module' => 'block',
