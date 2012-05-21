@@ -20,7 +20,7 @@
 }
 
 .view-novedades-listado .views_slideshow_thumbnailhover_breakout_teasers .views-field-title a {
-    background: url("../images/icono-flecha.gif") no-repeat scroll 0 -10px transparent;
+    background: url("../images/icono-flecha.gif") no-repeat scroll 0 5% transparent;
     color: black;
     font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
     font-size: 15px;
@@ -138,10 +138,6 @@
 
 .view-content .calendar-calendar .date-nav {
   min-height: 2px;
-}
-
-#block-views-recursos_listado-block_3 .view-recursos-listado .view-content .views-row {
-  margin-left: 12px;
 }
 
 body, caption, th, td, input, textarea, select, option, legend, fieldset {
@@ -771,43 +767,6 @@ h2 {
   padding-top: 0px;
 }
 
-#block-views-recursos_listado-block_3 .view-recursos-listado .view-content .views-row {
-  margin-left: 25px;
-}
-
-#block-views-recursos_listado-block_3 .view-recursos-listado .view-content .views-row .publicacion_recurso {
-  background:url("../images/ico_publicacion.gif") no-repeat scroll 0px 0px transparent;
-}
-
-#block-views-recursos_listado-block_3 .view-recursos-listado .view-content .views-row .publicacion_recurso a {
- /* padding-left:30px;*/
-  text-decoration:none;
-  color:black;
-  font-size:15px
-}
- 
-#block-views-recursos_listado-block_3 .view-recursos-listado .view-content .views-row .video_recurso {
-  background:url("../images/ico_video.gif") no-repeat scroll 0px 3px transparent;
-}
-
-#block-views-recursos_listado-block_3 .view-recursos-listado .view-content .views-row .video_recurso a {
-  padding-left:30px;
-  text-decoration:none;
-  color:black;
-  font-size:15px
-}
- 
-#block-views-recursos_listado-block_3 .view-recursos-listado .view-content .views-row .audio_recurso {
-  background:url("../images/ico_audio.gif") no-repeat scroll 0px 0px transparent;
-}  
-
-#block-views-recursos_listado-block_3 .view-recursos-listado .view-content .views-row .audio_recurso a {
-  padding-left:30px;
-  text-decoration:none;
-  color:black;
-  font-size:15px
-}  
-
 #block-views-recursos_listado-block_3 .view-footer  {
   position:absolute;
   -moz-border-radius: 5px 5px 5px 5px;
@@ -911,11 +870,6 @@ h2 {
 
 #block-locale-0 ul li.active a {
   font-weight:bold;
-}
-
-.view-otras-vistas {
-  margin-left:40px;
-  margin-right:40px;
 }
 
 .node-type-recursos .node {
@@ -1869,60 +1823,6 @@ font-size:12px;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* *******************************************************************/
-/*
-
-.page-quienes-somos .views-field-phpcode .titulo_proyecto a {
-font-weight:bold;
-font-size:23px;
-color:#582A8A;
-background:#d6d6d6;
-text-decoration:none;
-line-height:20pt;
-
-
-}
-
-
-.page-quienes-somos .views-field-phpcode {
-  background: none repeat scroll 0 0 #D6D6D6;
-  border: 2px solid #D6D6D6;
-  margin-left: -22px;
-  margin-top: -90px;
-  padding-left: 20px;
-  padding-right: 20px;
-  position: absolute;
-  width: 717px;
-}
-
-.page-quienes-somos-2 .views-field-phpcode2 .views-body  {
-  -moz-border-radius: 11px 11px 11px 11px;
-  -moz-box-shadow: 0px 0px 0px black;
-  -webkit-border-radius: 11px 11px 11px 11px;
-  -webkit-box-shadow: 0px 0px 0px black;
-  
-  text-decoration: none;
-  font-weight:bold;
-  font-size:11px;
-  line-height:20pt;
-  list-style: square;
-  
-}
-
-*/
 
 
 

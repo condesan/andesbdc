@@ -10,7 +10,7 @@ function exportables_all_views_views_default_views() {
   $view = new view;
   $view->name = 'Investigadores_listado';
   $view->description = '';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -749,7 +749,7 @@ function exportables_all_views_views_default_views() {
   $view = new view;
   $view->name = 'Listado_edicion';
   $view->description = '';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -905,7 +905,7 @@ function exportables_all_views_views_default_views() {
   $view = new view;
   $view->name = 'aliados_listado';
   $view->description = 'aliados_listado';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -1604,1080 +1604,12 @@ function exportables_all_views_views_default_views() {
   $views[$view->name] = $view;
 
   /*
-   * View 'archive'
-   */
-  $view = new view;
-  $view->name = 'archive';
-  $view->description = 'Display a list of months that link to content for that month.';
-  $view->tag = 'default';
-  $view->view_php = '';
-  $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('sorts', array(
-    'created' => array(
-      'id' => 'created',
-      'table' => 'node',
-      'field' => 'created',
-      'order' => 'DESC',
-      'granularity' => 'second',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('arguments', array(
-    'created_year_month' => array(
-      'id' => 'created_year_month',
-      'table' => 'node',
-      'field' => 'created_year_month',
-      'default_action' => 'summary desc',
-      'style_plugin' => 'default_summary',
-      'style_options' => array(
-        'count' => 1,
-        'override' => 1,
-        'items_per_page' => '30',
-      ),
-      'wildcard' => 'all',
-      'wildcard_substitution' => 'All',
-      'title' => '%1',
-      'relationship' => 'none',
-      'validate_type' => 'none',
-      'validate_fail' => 'not found',
-      'default_argument_type' => 'fixed',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'status' => array(
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'operator' => '=',
-      'value' => 1,
-      'group' => 0,
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-    'role' => array(),
-    'perm' => '',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('title', 'Monthly archive');
-  $handler->override_option('use_pager', '1');
-  $handler->override_option('row_plugin', 'node');
-  $handler->override_option('row_options', array(
-    'teaser' => TRUE,
-    'links' => TRUE,
-  ));
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->override_option('path', 'archive');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler = $view->new_display('block', 'Block', 'block');
-  $handler->override_option('arguments', array(
-    'created_year_month' => array(
-      'id' => 'created_year_month',
-      'table' => 'node',
-      'field' => 'created_year_month',
-      'default_action' => 'summary asc',
-      'style_plugin' => 'default_summary',
-      'style_options' => array(
-        'count' => 1,
-        'override' => 0,
-        'items_per_page' => '30',
-      ),
-      'wildcard' => 'all',
-      'wildcard_substitution' => 'All',
-      'title' => '%1',
-      'relationship' => 'none',
-      'validate_type' => 'none',
-      'validate_fail' => 'not found',
-      'default_argument_type' => 'fixed',
-    ),
-  ));
-  $handler->override_option('block_description', 'Archive list');
-  $handler->override_option('block_caching', -1);
-  $views[$view->name] = $view;
-
-  /*
-   * View 'audio'
-   */
-  $view = new view;
-  $view->name = 'audio';
-  $view->description = 'Audio nodes';
-  $view->tag = 'audio';
-  $view->view_php = '';
-  $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('fields', array(
-    'title' => array(
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-    ),
-  ));
-  $handler->override_option('sorts', array(
-    'created' => array(
-      'id' => 'created',
-      'table' => 'node',
-      'field' => 'created',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'type' => array(
-      'operator' => 'in',
-      'value' => array(
-        'audio' => 'audio',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'type',
-      'table' => 'node',
-      'field' => 'type',
-      'relationship' => 'none',
-    ),
-    'status' => array(
-      'operator' => '=',
-      'value' => 1,
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'perm',
-    'perm' => 'access content',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('title', 'Audio');
-  $handler->override_option('header_format', '1');
-  $handler->override_option('footer_format', '1');
-  $handler->override_option('empty_format', '1');
-  $handler->override_option('items_per_page', '10');
-  $handler->override_option('use_pager', TRUE);
-  $handler->override_option('row_plugin', 'node');
-  $handler->override_option('row_options', array(
-    'teaser' => TRUE,
-    'links' => TRUE,
-  ));
-  $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->override_option('path', 'audio');
-  $handler->override_option('menu', array(
-    'type' => 'normal',
-    'title' => 'Audio',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => '0',
-    'name' => 'navigation',
-  ));
-  $handler = $view->new_display('block', 'Block', 'block_1');
-  $handler->override_option('title', 'Recent audio');
-  $handler->override_option('items_per_page', '5');
-  $handler->override_option('style_plugin', 'list');
-  $handler->override_option('style_options', array(
-    'type' => 'ul',
-  ));
-  $handler->override_option('row_plugin', 'fields');
-  $handler->override_option('block_description', '');
-  $handler->override_option('block_caching', -1);
-  $handler = $view->new_display('feed', 'Feed', 'feed_1');
-  $handler->override_option('style_plugin', 'rss');
-  $handler->override_option('style_options', array(
-    'mission_description' => FALSE,
-    'description' => '',
-  ));
-  $handler->override_option('row_plugin', 'node_rss');
-  $handler->override_option('row_options', array(
-    'item_length' => 'default',
-  ));
-  $handler->override_option('path', 'audio/feed');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('displays', array(
-    'default' => 'default',
-    'page_1' => 'page_1',
-    'block_1' => 'block_1',
-  ));
-  $handler->override_option('sitename_title', FALSE);
-  $views[$view->name] = $view;
-
-  /*
-   * View 'audio_random'
-   */
-  $view = new view;
-  $view->name = 'audio_random';
-  $view->description = 'Random audio nodes';
-  $view->tag = 'audio';
-  $view->view_php = '';
-  $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('fields', array(
-    'title' => array(
-      'label' => '',
-      'link_to_node' => 1,
-      'exclude' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('sorts', array(
-    'random' => array(
-      'order' => 'ASC',
-      'id' => 'random',
-      'table' => 'views',
-      'field' => 'random',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'type' => array(
-      'operator' => 'in',
-      'value' => array(
-        'audio' => 'audio',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'type',
-      'table' => 'node',
-      'field' => 'type',
-      'relationship' => 'none',
-    ),
-    'status' => array(
-      'operator' => '=',
-      'value' => 1,
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'perm',
-    'perm' => 'access content',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('title', 'Random audio');
-  $handler->override_option('header_format', '1');
-  $handler->override_option('footer_format', '1');
-  $handler->override_option('empty_format', '1');
-  $handler->override_option('items_per_page', 5);
-  $handler->override_option('style_plugin', 'list');
-  $handler->override_option('style_options', array(
-    'grouping' => '',
-    'type' => 'ul',
-  ));
-  $handler = $view->new_display('block', 'Block', 'block_1');
-  $handler->override_option('items_per_page', '5');
-  $handler->override_option('style_options', array(
-    'type' => 'ul',
-  ));
-  $handler->override_option('block_description', '');
-  $handler->override_option('block_caching', -1);
-  $views[$view->name] = $view;
-
-  /*
-   * View 'audio_user'
-   */
-  $view = new view;
-  $view->name = 'audio_user';
-  $view->description = 'Audio user feed';
-  $view->tag = 'audio';
-  $view->view_php = '';
-  $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('sorts', array(
-    'created' => array(
-      'order' => 'ASC',
-      'granularity' => 'second',
-      'id' => 'created',
-      'table' => 'node',
-      'field' => 'created',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('arguments', array(
-    'uid' => array(
-      'default_action' => 'summary asc',
-      'style_plugin' => 'default_summary',
-      'style_options' => array(
-        'count' => 1,
-        'override' => 0,
-        'items_per_page' => '25',
-      ),
-      'wildcard' => 'all',
-      'wildcard_substitution' => 'All',
-      'title' => '',
-      'default_argument_type' => 'fixed',
-      'default_argument' => '',
-      'validate_type' => 'none',
-      'validate_fail' => 'not found',
-      'break_phrase' => 0,
-      'not' => 0,
-      'id' => 'uid',
-      'table' => 'users',
-      'field' => 'uid',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-      'default_options_div_prefix' => '',
-      'default_argument_user' => 0,
-      'default_argument_fixed' => '',
-      'default_argument_php' => '',
-      'validate_argument_node_type' => array(
-        'blog' => 0,
-        'poll' => 0,
-        'audio' => 0,
-        'image' => 0,
-        'book' => 0,
-        'page' => 0,
-        'story' => 0,
-        'video' => 0,
-      ),
-      'validate_argument_node_access' => 0,
-      'validate_argument_nid_type' => 'nid',
-      'validate_argument_vocabulary' => array(
-        '1' => 0,
-      ),
-      'validate_argument_type' => 'tid',
-      'validate_argument_php' => '',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'type' => array(
-      'operator' => 'in',
-      'value' => array(
-        'audio' => 'audio',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'type',
-      'table' => 'node',
-      'field' => 'type',
-      'relationship' => 'none',
-    ),
-    'status' => array(
-      'operator' => '=',
-      'value' => 1,
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'perm',
-    'perm' => 'access content',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('title', 'User\'s Audio');
-  $handler->override_option('header_format', '1');
-  $handler->override_option('footer_format', '1');
-  $handler->override_option('empty_format', '1');
-  $handler->override_option('items_per_page', '10');
-  $handler->override_option('use_pager', TRUE);
-  $handler->override_option('row_plugin', 'node');
-  $handler->override_option('row_options', array(
-    'teaser' => 1,
-    'links' => 1,
-    'comments' => 0,
-  ));
-  $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->override_option('path', 'audio/user');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler = $view->new_display('feed', 'Feed', 'feed_1');
-  $handler->override_option('style_plugin', 'rss');
-  $handler->override_option('style_options', array(
-    'mission_description' => FALSE,
-    'description' => '',
-  ));
-  $handler->override_option('row_plugin', 'node_rss');
-  $handler->override_option('row_options', array(
-    'item_length' => 'default',
-  ));
-  $handler->override_option('path', 'user/%/feed');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('displays', array(
-    'default' => 'default',
-    'page_1' => 'page_1',
-  ));
-  $handler->override_option('sitename_title', FALSE);
-  $views[$view->name] = $view;
-
-  /*
-   * View 'backlinks'
-   */
-  $view = new view;
-  $view->name = 'backlinks';
-  $view->description = 'Displays a list of nodes that link to the node, using the search backlinks table.';
-  $view->tag = 'default';
-  $view->view_php = '';
-  $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('fields', array(
-    'title' => array(
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'label' => '',
-      'relationship' => 'none',
-      'link_to_node' => 1,
-    ),
-  ));
-  $handler->override_option('arguments', array(
-    'nid' => array(
-      'id' => 'nid',
-      'table' => 'search_node_links_to',
-      'field' => 'nid',
-      'default_action' => 'not found',
-      'style_plugin' => 'default_summary',
-      'style_options' => array(
-        'count' => TRUE,
-        'override' => FALSE,
-        'items_per_page' => 25,
-      ),
-      'wildcard' => '',
-      'wildcard_substitution' => '',
-      'title' => 'Pages that link to %1',
-      'default_argument_type' => 'fixed',
-      'default_argument' => '',
-      'validate_type' => 'node',
-      'validate_fail' => 'not found',
-      'relationship' => 'none',
-      'default_argument_fixed' => '',
-      'default_argument_php' => '',
-      'validate_argument_node_type' => array(),
-      'validate_argument_php' => '',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'status' => array(
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'operator' => '=',
-      'value' => 1,
-      'group' => 0,
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-    'role' => array(),
-    'perm' => '',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('empty', 'No backlinks found.');
-  $handler->override_option('empty_format', '1');
-  $handler->override_option('items_per_page', 30);
-  $handler->override_option('use_pager', '1');
-  $handler->override_option('style_plugin', 'list');
-  $handler->override_option('style_options', array(
-    'type' => 'ol',
-  ));
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->override_option('path', 'node/%/backlinks');
-  $handler->override_option('menu', array(
-    'type' => 'tab',
-    'title' => 'What links here',
-    'description' => '',
-    'weight' => '0',
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler = $view->new_display('block', 'Block', 'block');
-  $handler->override_option('arguments', array(
-    'nid' => array(
-      'id' => 'nid',
-      'table' => 'search_node_links_to',
-      'field' => 'nid',
-      'default_action' => 'default',
-      'style_plugin' => 'default_summary',
-      'style_options' => array(
-        'count' => TRUE,
-        'override' => FALSE,
-        'items_per_page' => 25,
-      ),
-      'wildcard' => '',
-      'wildcard_substitution' => '',
-      'title' => 'What links here',
-      'default_argument_type' => 'node',
-      'default_argument' => '',
-      'validate_type' => 'node',
-      'validate_fail' => 'not found',
-      'relationship' => 'none',
-      'default_argument_fixed' => '',
-      'default_argument_php' => 'return ($node = menu_get_object()) ? $node->nid : FALSE;',
-      'validate_argument_node_type' => array(
-        'album' => 0,
-        'artist' => 0,
-        'book' => 0,
-        'page' => 0,
-        'story' => 0,
-        'track' => 0,
-      ),
-      'validate_argument_php' => '',
-      'default_argument_user' => 0,
-      'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '4' => 0,
-        '1' => 0,
-        '5' => 0,
-        '2' => 0,
-      ),
-      'validate_argument_type' => 'tid',
-    ),
-  ));
-  $handler->override_option('items_per_page', 6);
-  $handler->override_option('use_more', 1);
-  $handler->override_option('style_options', array(
-    'type' => 'ul',
-  ));
-  $handler->override_option('block_description', 'What links here');
-  $handler->override_option('block_caching', -1);
-  $views[$view->name] = $view;
-
-  /*
-   * View 'calendar'
-   */
-  $view = new view;
-  $view->name = 'calendar';
-  $view->description = 'A multi-dimensional calendar view with back/next navigation.';
-  $view->tag = 'Calendar';
-  $view->view_php = '';
-  $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('fields', array(
-    'title' => array(
-      'label' => '',
-      'link_to_node' => 1,
-      'exclude' => 0,
-      'id' => 'title',
-      'field' => 'title',
-      'table' => 'node',
-      'relationship' => 'none',
-    ),
-    'changed' => array(
-      'label' => '',
-      'link_to_node' => 0,
-      'exclude' => 0,
-      'id' => 'changed',
-      'field' => 'changed',
-      'table' => 'node',
-      'relationship' => 'none',
-      'date_format' => 'small',
-    ),
-  ));
-  $handler->override_option('sorts', array(
-    'changed' => array(
-      'order' => 'ASC',
-      'delta' => '-1',
-      'id' => 'changed',
-      'table' => 'node',
-      'field' => 'changed',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('arguments', array(
-    'date_argument' => array(
-      'default_action' => 'default',
-      'style_plugin' => 'default_summary',
-      'style_options' => array(),
-      'wildcard' => 'all',
-      'wildcard_substitution' => 'All',
-      'title' => '',
-      'default_argument_type' => 'date',
-      'default_argument' => '',
-      'validate_type' => 'none',
-      'validate_fail' => 'not found',
-      'date_fields' => array(
-        'node.changed' => 'node.changed',
-      ),
-      'year_range' => '-3:+3',
-      'date_method' => 'OR',
-      'granularity' => 'month',
-      'id' => 'date_argument',
-      'table' => 'node',
-      'field' => 'date_argument',
-      'relationship' => 'none',
-      'default_argument_user' => 0,
-      'default_argument_fixed' => '',
-      'default_argument_php' => '',
-      'validate_argument_node_type' => array(),
-      'validate_argument_node_access' => 0,
-      'validate_argument_nid_type' => 'nid',
-      'validate_argument_vocabulary' => array(),
-      'validate_argument_type' => 'tid',
-      'validate_argument_php' => '',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'default_options_div_prefix' => '',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'status' => array(
-      'operator' => '=',
-      'value' => 1,
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-    'role' => array(),
-    'perm' => '',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('title', 'Calendar');
-  $handler->override_option('header_empty', 1);
-  $handler->override_option('items_per_page', 0);
-  $handler->override_option('use_more', 0);
-  $handler->override_option('style_plugin', 'calendar_nav');
-  $handler = $view->new_display('calendar', 'Calendar page', 'calendar_1');
-  $handler->override_option('row_plugin', '');
-  $handler->override_option('row_options', NULL);
-  $handler->override_option('path', 'calendar');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('calendar_colors', array(
-    '0' => array(),
-  ));
-  $handler->override_option('calendar_colors_vocabulary', array());
-  $handler->override_option('calendar_colors_taxonomy', array());
-  $handler->override_option('calendar_colors_group', array());
-  $handler->override_option('calendar_popup', 0);
-  $handler->override_option('calendar_date_link', '');
-  $handler = $view->new_display('calendar_block', 'Calendar block', 'calendar_block_1');
-  $handler->override_option('title', 'Events');
-  $handler->override_option('row_plugin', '');
-  $handler->override_option('row_options', NULL);
-  $handler->override_option('block_description', 'Calendar');
-  $handler->override_option('block_caching', -1);
-  $handler = $view->new_display('calendar_period', 'Year view', 'calendar_period_1');
-  $handler->override_option('style_plugin', 'calendar_style');
-  $handler->override_option('style_options', array(
-    'display_type' => 'year',
-    'name_size' => 1,
-    'max_items' => 0,
-  ));
-  $handler->override_option('attachment_position', 'after');
-  $handler->override_option('inherit_arguments', TRUE);
-  $handler->override_option('inherit_exposed_filters', TRUE);
-  $handler->override_option('inherit_pager', FALSE);
-  $handler->override_option('render_pager', TRUE);
-  $handler->override_option('displays', array(
-    'calendar_1' => 'calendar_1',
-    'default' => 0,
-    'calendar_block_1' => 0,
-  ));
-  $handler->override_option('calendar_type', 'year');
-  $handler = $view->new_display('calendar_period', 'Month view', 'calendar_period_2');
-  $handler->override_option('style_plugin', 'calendar_style');
-  $handler->override_option('style_options', array(
-    'display_type' => 'month',
-    'name_size' => '99',
-    'with_weekno' => '1',
-    'date_fields' => NULL,
-    'max_items' => 0,
-  ));
-  $handler->override_option('attachment_position', 'after');
-  $handler->override_option('inherit_arguments', TRUE);
-  $handler->override_option('inherit_exposed_filters', TRUE);
-  $handler->override_option('inherit_pager', FALSE);
-  $handler->override_option('render_pager', TRUE);
-  $handler->override_option('displays', array(
-    'calendar_1' => 'calendar_1',
-    'default' => 0,
-    'calendar_block_1' => 0,
-  ));
-  $handler->override_option('calendar_type', 'month');
-  $handler = $view->new_display('calendar_period', 'Day view', 'calendar_period_3');
-  $handler->override_option('style_plugin', 'calendar_style');
-  $handler->override_option('style_options', array(
-    'name_size' => '99',
-    'with_weekno' => 0,
-    'max_items' => 0,
-    'max_items_behavior' => 'more',
-    'groupby_times' => 'hour',
-    'groupby_times_custom' => '',
-    'groupby_field' => '',
-  ));
-  $handler->override_option('attachment_position', 'after');
-  $handler->override_option('inherit_arguments', TRUE);
-  $handler->override_option('inherit_exposed_filters', TRUE);
-  $handler->override_option('inherit_pager', FALSE);
-  $handler->override_option('render_pager', TRUE);
-  $handler->override_option('displays', array(
-    'calendar_1' => 'calendar_1',
-    'default' => 0,
-    'calendar_block_1' => 0,
-  ));
-  $handler->override_option('calendar_type', 'day');
-  $handler = $view->new_display('calendar_period', 'Week view', 'calendar_period_4');
-  $handler->override_option('style_plugin', 'calendar_style');
-  $handler->override_option('style_options', array(
-    'name_size' => '99',
-    'with_weekno' => 0,
-    'max_items' => 0,
-    'max_items_behavior' => 'more',
-    'groupby_times' => 'hour',
-    'groupby_times_custom' => '',
-    'groupby_field' => '',
-  ));
-  $handler->override_option('attachment_position', 'after');
-  $handler->override_option('inherit_arguments', TRUE);
-  $handler->override_option('inherit_exposed_filters', TRUE);
-  $handler->override_option('inherit_pager', FALSE);
-  $handler->override_option('render_pager', TRUE);
-  $handler->override_option('displays', array(
-    'calendar_1' => 'calendar_1',
-    'default' => 0,
-    'calendar_block_1' => 0,
-  ));
-  $handler->override_option('calendar_type', 'week');
-  $handler = $view->new_display('calendar_period', 'Block view', 'calendar_period_5');
-  $handler->override_option('style_plugin', 'calendar_style');
-  $handler->override_option('style_options', array(
-    'display_type' => 'month',
-    'name_size' => '1',
-  ));
-  $handler->override_option('attachment_position', 'after');
-  $handler->override_option('inherit_arguments', TRUE);
-  $handler->override_option('inherit_exposed_filters', TRUE);
-  $handler->override_option('inherit_pager', FALSE);
-  $handler->override_option('render_pager', TRUE);
-  $handler->override_option('displays', array(
-    'calendar_1' => 0,
-    'default' => 0,
-    'calendar_block_1' => 'calendar_block_1',
-  ));
-  $handler->override_option('calendar_type', 'month');
-  $handler = $view->new_display('calendar_ical', 'iCal feed', 'calendar_ical_1');
-  $handler->override_option('arguments', array());
-  $handler->override_option('filters', array(
-    'status' => array(
-      'operator' => '=',
-      'value' => 1,
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'relationship' => 'none',
-    ),
-    'date_filter' => array(
-      'operator' => '>=',
-      'value' => array(
-        'value' => NULL,
-        'min' => NULL,
-        'max' => NULL,
-        'default_date' => 'now',
-        'default_to_date' => '',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'date_fields' => array(
-        'node.changed' => 'node.changed',
-      ),
-      'granularity' => 'day',
-      'form_type' => 'date_select',
-      'default_date' => 'now',
-      'default_to_date' => '',
-      'id' => 'date_filter',
-      'table' => 'node',
-      'field' => 'date_filter',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('style_plugin', 'ical');
-  $handler->override_option('style_options', array(
-    'mission_description' => FALSE,
-    'description' => '',
-    'summary_field' => 'node_title',
-    'description_field' => '',
-    'location_field' => '',
-  ));
-  $handler->override_option('row_plugin', '');
-  $handler->override_option('path', 'calendar/ical');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('displays', array(
-    'calendar_1' => 'calendar_1',
-    'default' => 0,
-    'calendar_block_1' => 'calendar_block_1',
-  ));
-  $handler->override_option('sitename_title', FALSE);
-  $handler = $view->new_display('block', 'Upcoming', 'block_1');
-  $handler->override_option('fields', array(
-    'title' => array(
-      'label' => '',
-      'link_to_node' => 1,
-      'exclude' => 0,
-      'id' => 'title',
-      'field' => 'title',
-      'table' => 'node',
-      'relationship' => 'none',
-      'format' => 'default',
-    ),
-    'changed' => array(
-      'label' => '',
-      'link_to_node' => 0,
-      'exclude' => 0,
-      'id' => 'changed',
-      'field' => 'changed',
-      'table' => 'node',
-      'relationship' => 'none',
-      'date_format' => 'small',
-      'format' => 'default',
-    ),
-  ));
-  $handler->override_option('arguments', array());
-  $handler->override_option('filters', array(
-    'status' => array(
-      'operator' => '=',
-      'value' => 1,
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'relationship' => 'none',
-    ),
-    'date_filter' => array(
-      'operator' => '>=',
-      'value' => array(
-        'value' => NULL,
-        'min' => NULL,
-        'max' => NULL,
-        'default_date' => 'now',
-        'default_to_date' => '',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'date_fields' => array(
-        'node.changed' => 'node.changed',
-      ),
-      'granularity' => 'day',
-      'form_type' => 'date_select',
-      'default_date' => 'now',
-      'default_to_date' => '',
-      'id' => 'date_filter',
-      'table' => 'node',
-      'field' => 'date_filter',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('title', 'Upcoming');
-  $handler->override_option('items_per_page', 5);
-  $handler->override_option('use_more', 1);
-  $handler->override_option('style_plugin', 'list');
-  $handler->override_option('style_options', array(
-    'grouping' => '',
-    'type' => 'ul',
-  ));
-  $handler->override_option('block_description', 'Upcoming');
-  $handler->override_option('block_caching', -1);
-  $views[$view->name] = $view;
-
-  /*
    * View 'conocelosandes'
    */
   $view = new view;
   $view->name = 'conocelosandes';
   $view->description = 'conocelosandes';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -3542,7 +2474,7 @@ function exportables_all_views_views_default_views() {
   $view = new view;
   $view->name = 'cuencas';
   $view->description = 'cuencas';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -5599,405 +4531,12 @@ function exportables_all_views_views_default_views() {
   $views[$view->name] = $view;
 
   /*
-   * View 'date_browser'
-   */
-  $view = new view;
-  $view->name = 'date_browser';
-  $view->description = 'Browse through nodes by year, month, day, or week. Date browser attachment adds back/next navigation to the top of the page.';
-  $view->tag = 'Date';
-  $view->view_php = '';
-  $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('arguments', array(
-    'date_argument' => array(
-      'default_action' => 'default',
-      'style_plugin' => 'default_summary',
-      'style_options' => array(),
-      'wildcard' => 'all',
-      'wildcard_substitution' => 'All',
-      'title' => '',
-      'default_argument_type' => 'date',
-      'default_argument' => '',
-      'validate_type' => 'none',
-      'validate_fail' => 'not found',
-      'date_fields' => array(
-        'node.changed' => 'node.changed',
-      ),
-      'year_range' => '-3:+3',
-      'date_method' => 'OR',
-      'granularity' => 'month',
-      'id' => 'date_argument',
-      'table' => 'node',
-      'field' => 'date_argument',
-      'relationship' => 'none',
-      'default_argument_user' => 0,
-      'default_argument_fixed' => '',
-      'default_argument_php' => '',
-      'validate_argument_node_type' => array(),
-      'validate_argument_node_access' => 0,
-      'validate_argument_nid_type' => 'nid',
-      'validate_argument_vocabulary' => array(),
-      'validate_argument_type' => 'tid',
-      'validate_argument_php' => '',
-      'default_options_div_prefix' => '',
-      'validate_argument_signup_status' => 'any',
-      'validate_argument_signup_node_access' => 0,
-      'override' => array(
-        'button' => 'Override',
-      ),
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-    'role' => array(),
-    'perm' => '',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('items_per_page', 0);
-  $handler->override_option('use_pager', '1');
-  $handler->override_option('row_plugin', 'node');
-  $handler->override_option('row_options', array(
-    'teaser' => 1,
-    'links' => 1,
-    'comments' => 0,
-  ));
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->override_option('path', 'date-browser');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler = $view->new_display('date_nav', 'Date browser', 'date_nav_1');
-  $handler->override_option('style_plugin', 'date_nav');
-  $handler->override_option('row_plugin', 'fields');
-  $handler->override_option('row_options', array());
-  $handler->override_option('attachment_position', 'before');
-  $handler->override_option('inherit_arguments', TRUE);
-  $handler->override_option('inherit_exposed_filters', TRUE);
-  $handler->override_option('inherit_pager', FALSE);
-  $handler->override_option('render_pager', TRUE);
-  $handler->override_option('displays', array(
-    'page' => 'page',
-    'default' => 0,
-  ));
-  $views[$view->name] = $view;
-
-  /*
-   * View 'frontpage'
-   */
-  $view = new view;
-  $view->name = 'frontpage';
-  $view->description = 'Emulates the default Drupal front page; you may set the default home page path to this view to make it your front page.';
-  $view->tag = 'default';
-  $view->view_php = '';
-  $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('sorts', array(
-    'sticky' => array(
-      'id' => 'sticky',
-      'table' => 'node',
-      'field' => 'sticky',
-      'order' => 'DESC',
-    ),
-    'created' => array(
-      'id' => 'created',
-      'table' => 'node',
-      'field' => 'created',
-      'order' => 'DESC',
-      'relationship' => 'none',
-      'granularity' => 'second',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'promote' => array(
-      'id' => 'promote',
-      'table' => 'node',
-      'field' => 'promote',
-      'operator' => '=',
-      'value' => '1',
-      'group' => 0,
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-    ),
-    'status' => array(
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'operator' => '=',
-      'value' => '1',
-      'group' => 0,
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-    'role' => array(),
-    'perm' => '',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('header_format', '1');
-  $handler->override_option('footer_format', '1');
-  $handler->override_option('empty_format', '1');
-  $handler->override_option('use_pager', '1');
-  $handler->override_option('row_plugin', 'node');
-  $handler->override_option('row_options', array(
-    'teaser' => 1,
-    'links' => 1,
-  ));
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->override_option('path', 'frontpage');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler = $view->new_display('feed', 'Feed', 'feed');
-  $handler->override_option('title', 'Front page feed');
-  $handler->override_option('style_plugin', 'rss');
-  $handler->override_option('style_options', array(
-    'mission_description' => 1,
-    'description' => '',
-  ));
-  $handler->override_option('row_plugin', 'node_rss');
-  $handler->override_option('row_options', array(
-    'item_length' => 'default',
-  ));
-  $handler->override_option('path', 'rss.xml');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('displays', array(
-    'default' => 'default',
-    'page' => 'page',
-  ));
-  $handler->override_option('sitename_title', '1');
-  $views[$view->name] = $view;
-
-  /*
-   * View 'glossary'
-   */
-  $view = new view;
-  $view->name = 'glossary';
-  $view->description = 'A list of all content, by letter.';
-  $view->tag = 'default';
-  $view->view_php = '';
-  $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('fields', array(
-    'title' => array(
-      'label' => 'Title',
-      'link_to_node' => 1,
-      'exclude' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-    ),
-    'name' => array(
-      'label' => 'Author',
-      'link_to_user' => 1,
-      'exclude' => 0,
-      'id' => 'name',
-      'table' => 'users',
-      'field' => 'name',
-      'relationship' => 'none',
-    ),
-    'changed' => array(
-      'label' => 'Last update',
-      'date_format' => 'large',
-      'custom_date_format' => '',
-      'exclude' => 0,
-      'id' => 'changed',
-      'table' => 'node',
-      'field' => 'changed',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('arguments', array(
-    'title' => array(
-      'default_action' => 'default',
-      'style_plugin' => 'default_summary',
-      'style_options' => array(),
-      'wildcard' => 'all',
-      'wildcard_substitution' => 'All',
-      'title' => '',
-      'default_argument_type' => 'fixed',
-      'default_argument' => '',
-      'validate_type' => 'none',
-      'validate_fail' => 'not found',
-      'glossary' => 1,
-      'limit' => '1',
-      'case' => 'upper',
-      'path_case' => 'lower',
-      'transform_dash' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-      'default_argument_user' => 0,
-      'default_argument_fixed' => 'a',
-      'default_argument_php' => '',
-      'validate_argument_vocabulary' => array(),
-      'validate_argument_type' => 'tid',
-      'validate_argument_php' => '',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-    'role' => array(),
-    'perm' => '',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('use_ajax', '1');
-  $handler->override_option('items_per_page', 36);
-  $handler->override_option('use_pager', '1');
-  $handler->override_option('style_plugin', 'table');
-  $handler->override_option('style_options', array(
-    'grouping' => '',
-    'override' => 1,
-    'sticky' => 0,
-    'order' => 'asc',
-    'columns' => array(
-      'title' => 'title',
-      'name' => 'name',
-      'changed' => 'changed',
-    ),
-    'info' => array(
-      'title' => array(
-        'sortable' => 1,
-        'separator' => '',
-      ),
-      'name' => array(
-        'sortable' => 1,
-        'separator' => '',
-      ),
-      'changed' => array(
-        'sortable' => 1,
-        'separator' => '',
-      ),
-    ),
-    'default' => 'title',
-  ));
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->override_option('path', 'glossary');
-  $handler->override_option('menu', array(
-    'type' => 'normal',
-    'title' => 'Glossary',
-    'description' => '',
-    'weight' => '0',
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler = $view->new_display('attachment', 'Attachment', 'attachment');
-  $handler->override_option('arguments', array(
-    'title' => array(
-      'default_action' => 'summary asc',
-      'style_plugin' => 'unformatted_summary',
-      'style_options' => array(
-        'count' => 1,
-        'override' => 0,
-        'items_per_page' => '25',
-        'inline' => 1,
-        'separator' => ' | ',
-      ),
-      'wildcard' => 'all',
-      'wildcard_substitution' => 'All',
-      'title' => '',
-      'default_argument_type' => 'fixed',
-      'default_argument' => '',
-      'validate_type' => 'none',
-      'validate_fail' => 'not found',
-      'glossary' => 1,
-      'limit' => '1',
-      'case' => 'upper',
-      'path_case' => 'lower',
-      'transform_dash' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-      'default_argument_user' => 0,
-      'default_argument_fixed' => 'a',
-      'validate_argument_vocabulary' => array(),
-      'validate_argument_php' => '',
-    ),
-  ));
-  $handler->override_option('attachment_position', 'before');
-  $handler->override_option('inherit_arguments', 0);
-  $handler->override_option('inherit_exposed_filters', FALSE);
-  $handler->override_option('inherit_pager', FALSE);
-  $handler->override_option('render_pager', TRUE);
-  $handler->override_option('displays', array(
-    'default' => 'default',
-    'page' => 'page',
-  ));
-  $views[$view->name] = $view;
-
-  /*
    * View 'instituciones_logos'
    */
   $view = new view;
   $view->name = 'instituciones_logos';
   $view->description = 'instituciones_logos';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -6178,7 +4717,7 @@ function exportables_all_views_views_default_views() {
   $view = new view;
   $view->name = 'listados_addnodo';
   $view->description = '';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -6265,7 +4804,7 @@ function exportables_all_views_views_default_views() {
   $view = new view;
   $view->name = 'novedades_listado';
   $view->description = '';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -6370,6 +4909,13 @@ function exportables_all_views_views_default_views() {
       'field' => 'body',
       'relationship' => 'none',
     ),
+    'created' => array(
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+    ),
+  ));
+  $handler->override_option('sorts', array(
     'created' => array(
       'id' => 'created',
       'table' => 'node',
@@ -6557,9 +5103,6 @@ function exportables_all_views_views_default_views() {
 <div class=title_new>
 [title] 
 </div>
-<div class=title_new>
-[body] 
-</div>
 </div>
 ',
         'make_link' => 0,
@@ -6585,6 +5128,19 @@ function exportables_all_views_views_default_views() {
       'id' => 'phpcode',
       'table' => 'customfield',
       'field' => 'phpcode',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'created' => array(
+      'order' => 'DESC',
+      'granularity' => 'second',
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
       'override' => array(
         'button' => 'Use default',
       ),
@@ -7208,7 +5764,7 @@ print l(t(\'See all\'),\'novedades_andesbdc\');
   $view = new view;
   $view->name = 'novedades_listado2';
   $view->description = '';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -7752,7 +6308,7 @@ print l(t(\'See all\'),\'novedades_andesbdc\');
   $view = new view;
   $view->name = 'otras_vistas';
   $view->description = 'otras_vistas';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -7874,6 +6430,10 @@ print l(t(\'See all\'),\'novedades_andesbdc\');
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('header', 'Andes BDC is a program from CGIAR Challenge Program on Water and Food | Email: andesbdc@cpwf.org
+Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400');
+  $handler->override_option('header_format', '2');
+  $handler->override_option('header_empty', 0);
   $handler->override_option('items_per_page', 11);
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);
@@ -7885,7 +6445,7 @@ print l(t(\'See all\'),\'novedades_andesbdc\');
   $view = new view;
   $view->name = 'proyectos';
   $view->description = 'proyectos';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -12399,7 +10959,7 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
   $view = new view;
   $view->name = 'recursos_listado';
   $view->description = 'recursos_listado';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -12577,7 +11137,7 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
   $handler->override_option('empty', array());
   $handler->override_option('use_more', 0);
   $handler->override_option('use_more_always', 0);
-  $handler->override_option('use_more_text', 'Ver más');
+  $handler->override_option('use_more_text', '');
   $handler = $view->new_display('block', 'Block_slideshow', 'block_1');
   $handler->override_option('fields', array(
     'field_picture_fid' => array(
@@ -13165,7 +11725,6 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
   $handler->override_option('title', 'Andes BDC');
   $handler->override_option('items_per_page', 5);
   $handler->override_option('use_pager', 'mini');
-  $handler->override_option('use_more_text', '');
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);
   $handler = $view->new_display('page', 'Page', 'page_3');
@@ -13186,11 +11745,45 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
   ));
   $handler = $view->new_display('block', 'block_recursos_ultimos_home', 'block_3');
   $handler->override_option('fields', array(
-    'title' => array(
+    'name' => array(
       'label' => '',
       'alter' => array(
         'alter_text' => 0,
         'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_taxonomy' => 0,
+      'exclude' => 1,
+      'id' => 'name',
+      'table' => 'term_data',
+      'field' => 'name',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+    'title' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 1,
+        'text' => '[title] <br />
+[[name]] ',
         'make_link' => 0,
         'path' => '',
         'link_class' => '',
@@ -13210,7 +11803,7 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'hide_empty' => 0,
       'empty_zero' => 0,
       'link_to_node' => 1,
-      'exclude' => 1,
+      'exclude' => 0,
       'id' => 'title',
       'table' => 'node',
       'field' => 'title',
@@ -13220,12 +11813,12 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
         'button' => 'Use default',
       ),
     ),
-    'phpcode' => array(
+    'body' => array(
       'label' => '',
       'alter' => array(
         'alter_text' => 0,
         'text' => '',
-        'make_link' => 1,
+        'make_link' => 0,
         'path' => '',
         'link_class' => '',
         'alt' => '',
@@ -13233,50 +11826,27 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
         'suffix' => '',
         'target' => '',
         'help' => '',
-        'trim' => 0,
-        'max_length' => '',
+        'trim' => 1,
+        'max_length' => '60',
         'word_boundary' => 1,
         'ellipsis' => 1,
-        'html' => 0,
+        'html' => 1,
         'strip_tags' => 0,
       ),
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
-      'value' => '<?php
-$nod = node_load($data->nid);
-$taxo = $nod->taxonomy;
-//dsm($taxo);
-foreach($taxo as $index){
-//dsm($index);
-$control = $index->tid;
-$vocabulario = $index->vid;
-switch($control){
-	case \'306\':
-		print \'<div class="video_recurso">\'.l($nod->title, \'/node/\' . $nod->nid).\'</div>\';
-		break;
-	case \'304\':
-		print \'<div class="publicacion_recurso">\'.l($nod->title, \'/node/\' . $nod->nid).\'</div>\';
-//print l($nod->title, \'/node/\' . $nod->nid);
-		break;
-	case \'305\':
-		print \'<div class="audio_recursos">\'.l($nod->title, \'/node/\' . $nod->nid).\'</div>\';
-//print l($nod->title, \'/node/\' . $nod->nid);
-		break;	
-}
-}
-
-?>',
       'exclude' => 0,
-      'id' => 'phpcode',
-      'table' => 'customfield',
-      'field' => 'phpcode',
+      'id' => 'body',
+      'table' => 'node_revisions',
+      'field' => 'body',
       'override' => array(
         'button' => 'Use default',
       ),
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('css_class', 'view-html-list');
   $handler->override_option('footer', '<?php
 print l(t(\'See all\'),\'recursos_andesbdc\');
 ?>
@@ -13284,7 +11854,8 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
 ');
   $handler->override_option('footer_format', '3');
   $handler->override_option('footer_empty', 0);
-  $handler->override_option('items_per_page', 4);
+  $handler->override_option('items_per_page', 3);
+  $handler->override_option('style_plugin', 'list');
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);
   $handler = $view->new_display('block', 'Block_recurso_destacado_home', 'block_4');
@@ -13433,7 +12004,7 @@ print l(t(\'Ver más\'),/recursos_andesbdc\'\');
   $view = new view;
   $view->name = 'rss_novedades_recursos';
   $view->description = 'rss_novedades_recursos';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
@@ -13612,211 +12183,12 @@ print l(t(\'Ver más\'),/recursos_andesbdc\'\');
   $views[$view->name] = $view;
 
   /*
-   * View 'taxonomy_term'
-   */
-  $view = new view;
-  $view->name = 'taxonomy_term';
-  $view->description = 'A view to emulate Drupal core\'s handling of taxonomy/term; it also emulates Views 1\'s handling by having two possible feeds.';
-  $view->tag = 'default';
-  $view->view_php = '';
-  $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('sorts', array(
-    'sticky' => array(
-      'id' => 'sticky',
-      'table' => 'node',
-      'field' => 'sticky',
-      'order' => 'DESC',
-      'relationship' => 'none',
-    ),
-    'created' => array(
-      'id' => 'created',
-      'table' => 'node',
-      'field' => 'created',
-      'order' => 'DESC',
-      'granularity' => 'second',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('arguments', array(
-    'term_node_tid_depth' => array(
-      'id' => 'term_node_tid_depth',
-      'table' => 'node',
-      'field' => 'term_node_tid_depth',
-      'default_action' => 'not found',
-      'style_plugin' => 'default_summary',
-      'style_options' => array(
-        'count' => TRUE,
-        'override' => FALSE,
-        'items_per_page' => 25,
-      ),
-      'wildcard' => 'all',
-      'wildcard_substitution' => 'All',
-      'title' => '%1',
-      'default_argument_type' => 'fixed',
-      'default_argument' => '',
-      'validate_type' => 'taxonomy_term',
-      'validate_fail' => 'not found',
-      'depth' => '0',
-      'break_phrase' => 1,
-      'relationship' => 'none',
-      'default_argument_fixed' => '',
-      'default_argument_php' => '',
-      'validate_argument_node_type' => array(
-        'album' => 0,
-        'artist' => 0,
-        'book' => 0,
-        'page' => 0,
-        'story' => 0,
-        'track' => 0,
-      ),
-      'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '4' => 0,
-        '1' => 0,
-        '5' => 0,
-        '2' => 0,
-      ),
-      'validate_argument_type' => 'tids',
-      'validate_argument_php' => '',
-    ),
-    'term_node_tid_depth_modifier' => array(
-      'id' => 'term_node_tid_depth_modifier',
-      'table' => 'node',
-      'field' => 'term_node_tid_depth_modifier',
-      'default_action' => 'ignore',
-      'style_plugin' => 'default_summary',
-      'style_options' => array(
-        'count' => TRUE,
-        'override' => FALSE,
-        'items_per_page' => 25,
-      ),
-      'wildcard' => 'all',
-      'wildcard_substitution' => 'All',
-      'title' => '',
-      'default_argument_type' => 'fixed',
-      'default_argument' => '',
-      'validate_type' => 'none',
-      'validate_fail' => 'not found',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'status_extra' => array(
-      'id' => 'status_extra',
-      'table' => 'node',
-      'field' => 'status_extra',
-      'operator' => '=',
-      'value' => '',
-      'group' => 0,
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-    'role' => array(),
-    'perm' => '',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('use_pager', '1');
-  $handler->override_option('row_plugin', 'node');
-  $handler->override_option('row_options', array(
-    'teaser' => TRUE,
-    'links' => TRUE,
-  ));
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->override_option('path', 'taxonomy/term/%');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler = $view->new_display('feed', 'Core feed', 'feed');
-  $handler->override_option('items_per_page', 15);
-  $handler->override_option('style_plugin', 'rss');
-  $handler->override_option('style_options', array(
-    'mission_description' => FALSE,
-    'description' => '',
-  ));
-  $handler->override_option('row_plugin', 'node_rss');
-  $handler->override_option('row_options', array(
-    'item_length' => 'default',
-  ));
-  $handler->override_option('path', 'taxonomy/term/%/%/feed');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('displays', array(
-    'page' => 'page',
-    'default' => 0,
-  ));
-  $handler->override_option('sitename_title', FALSE);
-  $handler = $view->new_display('feed', 'Views 1 feed', 'feed_1');
-  $handler->override_option('items_per_page', 15);
-  $handler->override_option('style_plugin', 'rss');
-  $handler->override_option('style_options', array(
-    'mission_description' => FALSE,
-    'description' => '',
-  ));
-  $handler->override_option('row_plugin', 'node_rss');
-  $handler->override_option('row_options', array(
-    'item_length' => 'default',
-  ));
-  $handler->override_option('path', 'taxonomy/term/%/feed');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('displays', array());
-  $handler->override_option('sitename_title', FALSE);
-  $views[$view->name] = $view;
-
-  /*
    * View 'vista_rss'
    */
   $view = new view;
   $view->name = 'vista_rss';
   $view->description = 'vista_rss';
-  $view->tag = '';
+  $view->tag = 'andes';
   $view->view_php = '';
   $view->base_table = 'aggregator_item';
   $view->is_cacheable = FALSE;
@@ -14009,6 +12381,5 @@ print l(t(\'Ver más\'),/recursos_andesbdc\'\');
 
   return $views;
 }
-
 
 
