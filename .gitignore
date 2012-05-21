@@ -6,3 +6,4 @@ files
 *.tgz
 *.rar
 sites/default/settings.php
+sites/default/default.settings.php
