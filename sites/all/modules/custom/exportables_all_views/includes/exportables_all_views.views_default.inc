@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Implementation of hook_views_default_views().
  */
@@ -6376,6 +6375,13 @@ function exportables_all_views_views_default_views() {
       'field' => 'created',
     ),
   ));
+  $handler->override_option('sorts', array(
+    'created' => array(
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+    ),
+  ));
   $handler->override_option('filters', array(
     'type' => array(
       'operator' => 'in',
@@ -6557,9 +6563,6 @@ function exportables_all_views_views_default_views() {
 <div class=title_new>
 [title] 
 </div>
-<div class=title_new>
-[body] 
-</div>
 </div>
 ',
         'make_link' => 0,
@@ -6585,6 +6588,19 @@ function exportables_all_views_views_default_views() {
       'id' => 'phpcode',
       'table' => 'customfield',
       'field' => 'phpcode',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'created' => array(
+      'order' => 'DESC',
+      'granularity' => 'second',
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
       'override' => array(
         'button' => 'Use default',
       ),
@@ -12577,7 +12593,7 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
   $handler->override_option('empty', array());
   $handler->override_option('use_more', 0);
   $handler->override_option('use_more_always', 0);
-  $handler->override_option('use_more_text', 'Ver más');
+  $handler->override_option('use_more_text', '');
   $handler = $view->new_display('block', 'Block_slideshow', 'block_1');
   $handler->override_option('fields', array(
     'field_picture_fid' => array(
@@ -13165,7 +13181,6 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
   $handler->override_option('title', 'Andes BDC');
   $handler->override_option('items_per_page', 5);
   $handler->override_option('use_pager', 'mini');
-  $handler->override_option('use_more_text', '');
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);
   $handler = $view->new_display('page', 'Page', 'page_3');
@@ -14009,6 +14024,5 @@ print l(t(\'Ver más\'),/recursos_andesbdc\'\');
 
   return $views;
 }
-
 
 
