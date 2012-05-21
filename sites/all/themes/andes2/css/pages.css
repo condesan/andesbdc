@@ -111,6 +111,7 @@ div#site-name /* The name of the website */ {
 }
 
 #content .section {
+margin-top:2.3em;
 }
 
 #mission /* The mission statement of the site (displayed on homepage) */ {
@@ -235,6 +236,7 @@ ul.links li {
 }
 
 .region-sidebar-second .section {
+margin-top:2.3em;
 }
 
 /*
