@@ -28,7 +28,7 @@
     border-style: solid solid none;
     border-width: 1px;
     height: auto;
-    margin-right: 0.5em;
+    margin-right: 0em;
     padding: 0 1em;
     text-decoration: none;
     color:#FFF;
@@ -43,7 +43,7 @@
     border-color: #582A8A #582A8A #FFFFFF;
     border-style: solid;
     border-width: 1px;
-    color:#582A8A;    
+    color:#582A8A;  
 }
 #block-menu-menu-mquienessomos  ul.menu li a:hover {
     background-color: transparent;

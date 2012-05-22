@@ -320,23 +320,6 @@ color: #582A8A;
   padding-right:5px;
 }
 
-.view-aliados-listado .views-row {
-  padding-bottom: 20px;
-  padding-left:20px;
-  color:black;
-  font-size:12px;
-  display:table;
-}
-
-.view-aliados-listado .views-row .views-field-field-related-institution-nid{
-  display:inline;
-  float:left;
-}
-
-.view-aliados-listado .views-field-field-logo-fid {
-  float:left;
-}
-
 #block-menu-menu-proyectos h2{
   color:#582A8A;
   padding-top:10px;
@@ -482,30 +465,6 @@ float:right;
 .view-novedades-listado .views-field-body {
   font-family:Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
   color:black;
-}
-
-.view-aliados-listado .views-field-title  {
-  color:black;
-  font-weight:bold;
-  padding-left:80px;
-  font-size:13px;
-}
-
-.view-aliados-listado .views-field-field-logo-fid {
-  margin:6px;
- /* border: 1px solid #582A8A;*/
-}
-
-.view-aliados-listado .views-field-body {
-  padding-left:80px;
-}
-
-.view-aliados-listado .views-field-field-url-value {
-  padding-left:80px;
-}
-
-.page-aliados .region-content-bottom #block-views-instituciones_logos-block_2 .view-id-instituciones_logos {
-  padding-left:120px;
 }
 
 .section-investigadores .region-highlight ul.primary li a .tab {
@@ -2627,12 +2586,6 @@ padding:10px;
 text-align:center;
 }
 
-#aliados{
-margin-right:20px;
-clear:both;
-border-top: solid 1px #d9d9d9;
-}
-
 /*(adam) views frontpage*/
 
 .view-html-list ul li.views-row {
@@ -2729,3 +2682,28 @@ font-weight:bold;
 float:left;
 margin-right:10px;
 }
+
+table td .views-field-field-logo-fid {
+float:left;
+margin-right:10px;
+}
+
+.view-content table td {
+vertical-align:top;
+padding-bottom:20px;
+}
+
+.view-content table tr {
+}
+
+.view-content table td .views-field-title {
+margin-bottom:5px;
+}
+
+.view-content table td .views-field-title a {
+font-size:1.1em;
+}
+
+
+
+
