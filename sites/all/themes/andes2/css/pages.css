@@ -180,6 +180,7 @@ div.tabs /* See also the tabs.css file. */ {
 }
 
 #content-area /* Wrapper for the actual page content */ {
+padding:0px 10px;
 }
 
 ul.links /* List of links */ {

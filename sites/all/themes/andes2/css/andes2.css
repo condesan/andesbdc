@@ -219,11 +219,6 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset {
   margin-top: 370px;
 }
 
-#content-area .node-type-page {
-  background: none repeat scroll 0 0 #D6D6D6;
-  border: 1px solid #582A8A;
-}
-
 .page-node-112 .section h1 ,.page-node-165 .section h1{
   text-indent: -9999px;
   display: none;

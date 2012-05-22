@@ -104,7 +104,6 @@ function andes2_preprocess_page(&$vars, $hook) {
   if ($vars['node']->type == 'recursos') {
       $vars['title'] = t('Resources');
     }
-    dpm($vars);
 }
 
 

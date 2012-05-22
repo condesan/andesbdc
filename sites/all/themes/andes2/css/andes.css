@@ -832,10 +832,6 @@ float:right;
   position: absolute;
 }
 
-.node {
-  font-family:Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-}
-
 .node-type-novedades .field-field-picture {
   margin-right:20px;
 }
@@ -1273,9 +1269,6 @@ display : inline-block;
   margin-right:10px;
 }
 
-#node-165 .content{
-padding:10px;
-}
 .page-node-112 .field-field-body2 {
   width:350px;
   float:left;
@@ -1324,9 +1317,6 @@ padding:10px;
   -webkit-border-radius:11px 11px 11px 11px; 
 }
 
-#content-area .node-type-page {
-  background: none repeat scroll 0 0 #D6D6D6;
-}
 
 .page-node-165 #block-block-3  {
 	height: auto;				

@@ -7,3 +7,4 @@ files
 *.rar
 sites/default/settings.php
 sites/default/default.settings.php
+sites/all/modules/devel_themer/
