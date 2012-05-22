@@ -14,12 +14,16 @@
 body {
   margin: 0;
   padding: 0;
+  background-color:#D6D6D6;
+  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
 }
 
 #page-wrapper {
 }
 
+
 #page {
+  background-color:#FFF;
 }
 
 /*
@@ -102,6 +106,7 @@ div#site-name /* The name of the website */ {
 }
 
 #main {
+margin: 0 10px;
 }
 
 /*
@@ -118,6 +123,7 @@ margin-top:2.3em;
 }
 
 .region-content-top /* Wrapper for any blocks placed in the "content top" region */ {
+clear: both;
 }
 
 .breadcrumb /* The path to the current page in the form of a list of links */ {
@@ -208,10 +214,11 @@ ul.links li {
 }
 
 .more-link /* Aggregator, blog, and forum more link */ {
-  text-align: right; /* LTR */
+  text-align: center; /* LTR */
 }
 
 .region-content-bottom /* Wrapper for any blocks placed in the "content bottom" region */ {
+clear: both;
 }
 
 /*
@@ -237,6 +244,7 @@ ul.links li {
 
 .region-sidebar-second .section {
 margin-top:2.3em;
+margin-left:10px;
 }
 
 /*

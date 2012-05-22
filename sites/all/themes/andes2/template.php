@@ -96,14 +96,17 @@ function andes2_preprocess(&$vars, $hook) {
  * @param $hook
  *   The name of the template being rendered ("page" in this case.)
  */
-/* -- Delete this line if you want to use this function
-function andes2_preprocess_page(&$vars, $hook) {
-  $vars['sample_variable'] = t('Lorem ipsum.');
 
-  // To remove a class from $classes_array, use array_diff().
-  //$vars['classes_array'] = array_diff($vars['classes_array'], array('class-to-remove'));
+function andes2_preprocess_page(&$vars, $hook) {
+  if ($vars['node']->type == 'novedades') {
+      $vars['title'] = t('News');
+    }
+  if ($vars['node']->type == 'recursos') {
+      $vars['title'] = t('Resources');
+    }
+    dpm($vars);
 }
-// */
+
 
 /**
  * Override or insert variables into the node templates.
@@ -200,3 +203,6 @@ function andes2_menu_item_link($link) {
   $link['localized_options']['attributes'] += array('class' => $link['title']);
   return l($link['title'], $link['href'], $link['localized_options']);
 }
+
+
+

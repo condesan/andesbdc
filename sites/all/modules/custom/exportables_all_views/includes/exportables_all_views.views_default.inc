@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Implementation of hook_views_default_views().
  */
@@ -525,11 +524,13 @@ function exportables_all_views_views_default_views() {
       'label' => '',
       'alter' => array(
         'alter_text' => 1,
-        'text' => '[title] [+]',
+        'text' => '[title]',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -544,6 +545,7 @@ function exportables_all_views_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'link_to_node' => 1,
       'exclude' => 0,
       'id' => 'title',
@@ -720,11 +722,9 @@ function exportables_all_views_views_default_views() {
     ),
   ));
   $handler->override_option('title', '');
-  $handler->override_option('header', 'Our team:
-');
   $handler->override_option('header_format', '1');
   $handler->override_option('header_empty', 0);
-  $handler->override_option('items_per_page', 5);
+  $handler->override_option('items_per_page', 50);
   $handler->override_option('use_pager', 'mini');
   $handler->override_option('path', 'Colaboradores');
   $handler->override_option('menu', array(
@@ -5153,13 +5153,9 @@ function exportables_all_views_views_default_views() {
       'relationship' => 'none',
     ),
   ));
-  $handler->override_option('title', 'News');
-  $handler->override_option('footer', '<div class=\'vermas\'>
-<?php
-print l(t(\'See all\'),\'novedades_andesbdc\');
-?>
-</div>
-');
+  $handler->override_option('title', '');
+  $handler->override_option('header_format', '2');
+  $handler->override_option('header_empty', 0);
   $handler->override_option('footer_format', '3');
   $handler->override_option('footer_empty', 0);
   $handler->override_option('items_per_page', 4);
@@ -9235,8 +9231,8 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'relationship' => 'none',
     ),
   ));
-  $handler->override_option('title', 'Recommended resource');
-  $handler->override_option('footer', '<div class=\'vermas\'>
+  $handler->override_option('title', 'Featured resource');
+  $handler->override_option('footer', '<div class=\'more-link\'>
 <?php
 print l(t(\'See all\'),\'recursos_andesbdc\');
 ?>
@@ -12019,10 +12015,12 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
     ),
   ));
   $handler->override_option('css_class', 'view-html-list');
-  $handler->override_option('footer', '<?php
+  $handler->override_option('footer', '<div class="more-link">
+<?php
 print l(t(\'See all\'),\'recursos_andesbdc\');
 ?>
 
+</div>
 ');
   $handler->override_option('footer_format', '3');
   $handler->override_option('footer_empty', 0);

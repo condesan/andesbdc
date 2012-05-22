@@ -6,6 +6,10 @@ html {
   font-family:Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
 }
 
+.with-navigation #content, .with-navigation .region-sidebar-first, .with-navigation .region-sidebar-second {
+margin-top: 1.3em;
+}
+
 #header {
   height: 136px; 
   
@@ -388,6 +392,10 @@ color: #582A8A;
   margin-left:10px
 }
 
+#block-views-novedades_listado-block_1 .view-footer .vermas {
+float:right;
+}
+
 #views_slideshow_thumbnailhover_teaser_section_novedades_listado-page_2 .views-field-title {
   background:#000000;
   position:absolute;
@@ -462,27 +470,6 @@ color: #582A8A;
   font-family:Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
 }
 
-#block-views-novedades_listado-block_1 {
-  width:700px;
-  background: none repeat scroll 0 0 #D6D6D6;
-}
-
-#block-views-novedades_listado-block_1 h2.title {
-  color:#582A8A;
-  padding-left:550px;
-  background: none repeat scroll 0 0 #D6D6D6;
-  margin-top:15px;
-}
-
-#views_slideshow_thumbnailhover_teaser_section_novedades_listado-block_1{
-  float:left;
-  width:430px;
-}
-
-#views_slideshow_thumbnailhover_breakout_teasers_novedades_listado-block_1{
-  width:400px;
-  margin-left:432px;
-}
 
 .view-novedades-listado .views_slideshow_thumbnailhover_slide .views-field-title  a{
   color: black;
@@ -491,91 +478,10 @@ color: #582A8A;
   font-family:Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
 }
 
-.view-novedades-listado .views_slideshow_thumbnailhover_breakout_teasers .views-field-title a {
-  color: black;
-  font-size: 8pt;
-  font-weight: bold;
-  line-height: 36pt;
-  padding-left: 40px;
-  text-decoration: none;
-  font-family:Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  background: url("../images/flecha2.jpg")no-repeat scroll 20px 0 transparent; 
-}
-
-#block-views-novedades_listado-block_1 .view-novedades-listado {
- /*height:310px;*/
-  height:340px;
-  width: 760px;
-  margin-bottom : 20px;
-}
-
-#block-views-novedades_listado-block_1 .view-novedades-listado .views_slideshow_thumbnailhover_breakout_teasers .views-field-title {
-  /*width:260px;*/
-  width:280px;
-}
 
 .view-novedades-listado .views-field-body {
   font-family:Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
   color:black;
-}
-
-.more-link {
-  margin-top:20px;
-  margin-right:50px;
-}
-
-.view-novedades-listado .more-link a{
-  font-weight:bold;
-  text-decoration:none;
-  background-color:#582A8A;
-  color:#fff;
-  padding:8px 8px 8px 8px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -webkit-border-radius:5px 5px 5px 5px;
-}
-
-.view-recursos-listado .more-link a {
-  -moz-border-radius: 5px 5px 5px 5px;
-  background-color: #582A8A;
-  color: #FFFFFF;
-  font-weight: bold;
-  padding: 8px;
-  text-decoration: none;
-}
-
-#block-menu-menu-mquienessomos ul {
-/*background: url("../images/tab-bar.png") repeat-x scroll left bottom transparent;*/
-  border-bottom: 1px inset #582A8A;
-  background: white;
-}
-
-#block-menu-menu-mquienessomos li {
-  display: inline;
-  list-style: none outside none;
-  font-weight:bold;
-}
-
-#block-menu-menu-mquienessomos ul.menu a {
-  text-decoration:none;
-  color:#582A8A;
-  float:letf;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 8px;
-  -moz-border-radius: 5px 5px 0 0;
-  -webkit-border-radius: 5px 5px 0 0;
-  background: none repeat scroll 0 0 #D6D6D6;
-  border: 3px solid #582A8A;
-}
-
-#block-menu-menu-mquienessomos ul.menu a.active {
-  color:#fff;
-  background: none repeat scroll 0 0 #582A8A;
-  padding-left: 8px;
-  padding-right: 8px;
- padding-top: 8px;
-  -moz-border-radius: 5px 5px 0 0;
-  -webkit-border-radius: 5px 5px 0 0;
 }
 
 .view-aliados-listado .views-field-title  {
@@ -715,28 +621,10 @@ color: #582A8A;
   width:700px; 
 }
 
-.view-recursos-listado {
-  font-size:9pt;
-  color:black;
-  font-family:Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  background: none repeat scroll 0 0 #D6D6D6;
-  height:250px;
-}
 
 .view-recursos-listado .view-content .views-row {
   padding-top:15px;
   padding-bottom:15px;
-}
-
-#block-views-recursos_listado-block_3 h2.title {
-  color:#582A8A;
-  padding-left:20px;
-}
-
-#block-views-recursos_listado-block_3 {
-  width:350px;
-  height:160px;
-  background: none repeat scroll 0 0 #D6D6D6;
 }
 
 .page-panels #block-menu-menu-proyectos {
@@ -761,12 +649,6 @@ color: #582A8A;
   float: left;
   margin-left: 15px;
   margin-right: 5px;
-}
-
-.view-novedades-listado {
-  color: black;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  font-size: 11px;
 }
 
 .view-novedades-listado .views-row  {
@@ -961,10 +843,8 @@ color: #582A8A;
 .node-type-novedades .news_right .titulo_news {
   font-weight: bold;
   text-align: left;	
-  padding-left: 380px;
-  font-size: 23px;
   padding-top:25px;
-  font-family:Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
+  font-size: 1.3em;
 }
 
 .node-type-novedades .news_right .field-field-date {
@@ -1567,91 +1447,6 @@ margin-bottom:40px;
   float:right;
 }
 
-body.page-aliados .view-aliados-listado {
-  background:#D6D6D6;
-  /*height:850px;*/
-  border: 2px solid #582A8A;
-}
-
-.page-aliados .view-aliados-listado .views-row  {
-  background: none repeat scroll 0 0 white;
-  height: 90px;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 715px;
-}
-
-.page-aliados .view-aliados-listado .item-list {
-  background: none repeat scroll 0 0 white;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 670px;
-  position:absolute;
-  border-left:3px solid #582A8A;
-  border-right:3px solid #582A8A;
-  border-bottom: 3px solid #582A8A;
-}
-
-.page-aliados .view-header {
-  padding-left:10px;
-  padding-right:10px;
-}
-
-.page-aliados .view-aliados-listado .views-row-first {
-  border-top: 3px solid #582A8A;
-}
-
-.page-aliados .view-aliados-listado .views-row {
-  border-left:3px solid #582A8A;
-  border-right:3px solid #582A8A;
-}
-
-.page-aliados .view-aliados-listado .views-row-last {
-  border-bottom:3px solid #582A8A;
-}
-.page-colaboradores .view-Investigadores-listado {
-  background:#D6D6D6;
-  height:1055px;
-  display:block;
-  border: 2px solid #582A8A;
-}
-
-.page-colaboradores .view-Investigadores-listado .views-row  {
-  background: none repeat scroll 0 0 white;
-  /*height: 90px;  */
-  margin-left: 28px;
-  margin-right: 10px;
-  width: 695px;
-}
-
-.page-colaboradores .view-Investigadores-listado .item-list {
-  background: none repeat scroll 0 0 white;
-  border-bottom: 3px solid #582A8A;
-  border-left: 3px solid #582A8A;
-  border-right: 3px solid #582A8A;
-  margin-left: 28px;
-  margin-right: 10px;
-  position: absolute;
-  width: 695px;
-}
-
-.page-colaboradores .view-header {
-  padding-left: 30px;
-  padding-right: 30px;
-  text-align: justify;
-}
-
-.page-colaboradores .view-Investigadores-listado .views-row-first {
-  border-top: 3px solid #582A8A;
-}
-.page-colaboradores .view-Investigadores-listado .views-row {
-  border-left:3px solid #582A8A;
-  border-right:3px solid #582A8A;
-  clear:both;
-}
-.page-colaboradores .view-Investigadores-listado .views-row-first {
-  padding-top:15px;
-}
 .node-type-sitio-cuenca .quicktabs_main.quicktabs-style-basic {
   background-color: #D6D6D6;
   border-color: -moz-use-text-color #582A8A #582A8A;
@@ -2000,48 +1795,6 @@ font-size:11px;
   background: #D6D6D6;
 }
 
-#block-views-recursos_listado-block_3 {
-  width:400px;
-  float:left;
-  height:280px;
-  background:#D6D6D6;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-}
-
-#block-views-proyectos-block_9 {
-  float:right;
-  width:360px;
-  background:#c3bec9;
-  height:280px;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-}
-
-#block-views-proyectos-block_9  h2.title {
-  color:#582A8A;
-  padding-left:20px;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  margin-bottom:10px;
-}
-
-#block-views-proyectos-block_9 .views-field-title a{
-  color:black;
-  text-decoration:none;
-  font-weight:bold;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-}
-
-#block-views-proyectos-block_9 .views-field-field-youtube-embed {
-  margin-right: 10px;	
-}
-
-#block-views-proyectos-block_9 .views-field-body {
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  font-size: 11px;
-}
-
-.region-content-top {
-  background:none repeat scroll 0 0 #D6D6D6;
-}
 
 #block-views-proyectos-block_5 .more-link {
   margin-top:40px;
@@ -2111,35 +1864,6 @@ font-size:11px;
   margin-bottom:10px;
   margin-left:150px;
 }
-#block-views-proyectos-block_9 .view-footer {
- /* margin-left: 270px;
-  font-size: 9pt;*/
-  font-size: 11px;
-  margin-left: 258px;
-/*  padding: 8px 16px;  */
-  background-color: #582A8A;
-  
-   -webkit-border-radius: 5px 5px 5px 5px;  
-    -moz-border-radius: 5px 5px 5px 5px;
-   
-    margin-top: -6px;
-    padding: 6px 17px;
-  
-  
-  
-}
-#block-views-proyectos-block_9 .view-footer a {
-  -moz-border-radius: 5px 5px 5px 5px;
-  -webkit-border-radius: 5px 5px 5px 5px;  
-  
-  color: #FFFFFF;
-  font-weight: bold;
-  /*
-  padding: 8px 16px;
-  background-color: #582A8A;
-  */
-  text-decoration: none;
-}
 
 
 #block-menu-menu-conocelosandes h2.title {
@@ -2188,44 +1912,7 @@ font-size:11px;
   text-align: center;	
 }
 
-#block-views-recursos_listado-block_3 .view-footer {
- /* margin-left: 300px;
-  margin-top:10px;	*/
-}
 
-#block-views-recursos_listado-block_3 .view-footer a {
- /* -moz-border-radius: 5px 5px 5px 5px;
-  background-color: #582A8A;
-    padding: 8px 16px;
-*/
-  color: #FFFFFF;
-  font-weight: bold;
-
-  text-decoration: none;	
-}
-
-#block-views-novedades_listado-block_1 .view-footer {
-  margin-left: 650px;	
-  
-  -moz-border-radius: 5px 5px 5px 5px;
-  -webkit-border-radius:5px 5px 5px 5px;
-  background-color: #582A8A;
-  padding: 6px 17px;
-}
-
-#block-views-novedades_listado-block_1  .view-footer a {
-  /*-moz-border-radius: 5px 5px 5px 5px;
-  -webkit-border-radius:5px 5px 5px 5px;
-  background-color: #582A8A;
-   padding: 8px 16px;
-  */
-  color: #FFFFFF;
-  font-weight: bold;
-
-  text-decoration: none;
-    width: 41px;
-}
-	
 #block-views-calendar-calendar_block_1 .calendar-calendar {
   font-size: 10px;
 }	
@@ -2349,10 +2036,6 @@ font-size:11px;
 	color:black;
 }
 
-
-.node-type-recursos h1.title {
-  text-indent: -9999px;	
-}
 
 .node-type-recursos .titulo_recurso {
   font-weight: bold;
@@ -2802,14 +2485,7 @@ text-indent:-9999px;
 text-indent:-999999px;
 }
 
-.breadcrumb {
-    padding-bottom: 10px;
-font-size:9px;
-color:#582A8A;
-}
 .breadcrumb a {
- 
-font-size:9px;
 color:#582A8A;
 }
 
@@ -2882,12 +2558,6 @@ color:white;
     padding-right: 5px;
 }
 
-.view-proyectos .views-field-field-picture-fid img {
-  border: 3px solid white;
-  -moz-border-radius: 6px 6px 6px 6px;
-  -webkit-border-radius: 6px 6px 6px 6px;
-  float: left;
-}
 
 .node-type-investigador .section h1 {
     display: none;
@@ -2977,8 +2647,8 @@ border-top: solid 1px #d9d9d9;
 
 .view-html-list ul li.views-row {
 list-style-type:none;
-background:url("../images/icono-flecha.gif") no-repeat 3% 0%;
-padding-left:40px;
+background:url("../images/icono-flecha.gif") no-repeat;
+padding-left:30px;
 margin-left:0px;
 }
 
@@ -2993,8 +2663,14 @@ font-weight:normal;
 /*footer*/
 
 #footer {
-border:solid 2px #582A8A;
+border-top:solid 1px #582A8A;
 padding:0px 20px;
+background-color:#582A8A;
+color:#fff;
+}
+
+#footer a {
+color:#fff;
 }
 
 #footer .view ul li {
@@ -3008,3 +2684,58 @@ text-align: center;
 text-align: center;
 }
 
+#block-views-recursos_listado-block_3 {
+float: left;
+width:53%;
+}
+
+#block-views-proyectos-block_9 {
+float: right;
+width:40%;
+}
+
+.region-content-bottom .block-views {
+background-color:#D6D6D6;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding:10px;
+}
+
+.block h2 {
+color: #582A8A;
+margin-bottom:10px;
+}
+
+.view-content .more-link,
+.view-footer .more-link {
+float:right;
+color: #FFFFFF;
+font-weight: bold;
+text-decoration: none;
+width: 60px;
+background-color:#582A8A;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+.view-content .more-link a,
+.view-footer .more-link a {
+text-decoration: none;
+text-decoration:none;
+color:#fff;
+display:block;
+margin:5px;
+}
+
+.views-row .views-field-title a {
+color:#000;
+text-decoration:none;
+font-weight:bold;
+}
+
+.views-row .views-field-field-picture-fid {
+float:left;
+margin-right:10px;
+}
