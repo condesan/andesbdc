@@ -34,7 +34,7 @@ function _services_build_resources($endpoint_name = '') {
   // Process the resources, and collect all controllers in the process
   $controllers = array();
   foreach ($resources as $name => &$resource) {
-    $controllers = _services_process_resource($name, $resource, $controllers);
+    _services_process_resource($name, $resource, $controllers);
   }
 
   // Make sure that we got a access callback for all resources
@@ -50,6 +50,9 @@ function _services_build_resources($endpoint_name = '') {
     }
   }
   drupal_alter('services_resources_controller_post_processing', $controllers, $endpoint);
+
+  // This hook is deprecated and will be removed in next versions of services.
+  // Use hook_services_resources_alter instead.
   drupal_alter('services_resources_post_processing', $resources, $endpoint);
 
   // Do some endpoint-dependent processing
@@ -60,9 +63,7 @@ function _services_build_resources($endpoint_name = '') {
     }
 
     // Apply any aliases from endpoint
-    if (!empty($endpoint)) {
-      $aliased = array();
-    }
+    $aliased = array();
     foreach ($resources as $key => $def) {
       if (!empty($def['endpoint']['alias'])) {
         $aliased[$def['endpoint']['alias']] = $def;
@@ -110,7 +111,7 @@ function _services_apply_endpoint(&$resources, $endpoint, $strict = TRUE) {
         }
       }
 
-      $classes = array('targeted actions', 'actions', 'relationships');
+      $classes = array('targeted_actions', 'actions', 'relationships');
       foreach ($classes as $class) {
         if (!empty($resource[$class])) {
           foreach ($resource[$class] as $op => $def) {
@@ -142,38 +143,27 @@ function _services_apply_endpoint(&$resources, $endpoint, $strict = TRUE) {
  *  An that will be fillew with all the controllers for the resource.
  * @return void
  */
-function _services_process_resource($name, &$resource, $controllers) {
+function _services_process_resource($name, &$resource, &$controllers) {
   $resource['name'] = $name;
 
-  $keys = array('retrieve', 'create', 'update', 'delete');
-  foreach ($keys as $key) {
-    if (isset($resource[$key])) {
-      $controllers[$name . '/' . $key] = &$resource[$key];
+  // CRUD operations.
+  foreach (array('retrieve', 'create', 'update', 'delete', 'index') as $op) {
+    if (isset($resource[$op])) {
+      $controllers[$name . '/' . $op] = &$resource[$op];
     }
   }
 
-  if (isset($resource['index'])) {
-    $controllers[$name . '/index'] = &$resource['index'];
-  }
+  // Actions and relationships.
+  foreach (array('relationships', 'actions', 'targeted_actions') as $class) {
+    if (!isset($resource[$class])) {
+      continue;
+    }
 
-  if (isset($resource['relationships'])) {
-    foreach ($resource['relationships'] as $relname => $rel) {
-      $controllers[$name . '/relationship/' . $relname] = &$resource['relationships'][$relname];
+    foreach (array_keys($resource[$class]) as $action_name) {
+      $class_singular = trim($class, 's');
+      $controllers[$name . '/' . $class_singular . '/' . $action_name] = &$resource[$class][$action_name];
     }
   }
-
-  if (isset($resource['actions'])) {
-    foreach ($resource['actions'] as $actname => $act) {
-      $controllers[$name . '/action/' . $actname] = &$resource['actions'][$actname];
-    }
-  }
-
-  if (isset($resource['targeted actions'])) {
-    foreach ($resource['targeted actions'] as $actname => $act) {
-      $controllers[$name . '/targeted_action/' . $actname] = &$resource['actions'][$actname];
-    }
-  }
-  return $controllers;
 }
 
 /**
@@ -198,34 +188,5 @@ function _services_core_resources() {
   $resources += _taxonomy_resource_definition();
   $resources += _user_resource_definition();
 
-  return $resources;
-}
-
-/**
- * Invokes all hook_service and translates them to actions on resources.
- *
- * @return array
- */
-function _services_legacy_services_as_resources() {
-  $services = $methods = module_invoke_all('service');
-  $resources = array();
-
-  foreach ($services as $service) {
-    $signature = preg_split('/\./', $service['method']);
-
-    $controller = $service;
-    $controller['args'] = array();
-
-    if (!empty($service['args'])) {
-      foreach ($service['args'] as $arg) {
-        $arg['source'] = array(
-          'data' => $arg['name'],
-        );
-        $controller['args'][] = $arg;
-      }
-    }
-
-    $resources['service_' . $signature[0]]['actions'][$signature[1]] = $controller;
-  }
   return $resources;
 }

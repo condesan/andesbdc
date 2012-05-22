@@ -35,6 +35,7 @@ function services_help($path, $arg) {
 function services_perm() {
   return array(
     'administer services',
+    'get taxonomy tree',
     // File resource permissions
     'get any binary files',
     'get own binary files',
@@ -42,6 +43,8 @@ function services_perm() {
     // System resource permissions
     'get a system variable',
     'set a system variable',
+    // Query permissions
+    'perform unlimited index queries',
   );
 }
 
@@ -69,7 +72,7 @@ function services_menu() {
 }
 
 /**
- * Implements of hook_ctools_plugin_api().
+ * Implementation of hook_ctools_plugin_api().
  */
 function services_ctools_plugin_api($module, $api) {
   if ($module == 'services' && $api == 'plugins') {
@@ -78,7 +81,7 @@ function services_ctools_plugin_api($module, $api) {
 }
 
 /**
- * Implement of hook_ctools_plugin_directory().
+ * Implementation of hook_ctools_plugin_directory().
  */
 function services_ctools_plugin_directory($module, $type) {
   // Safety: go away if CTools is not at an appropriate version.
@@ -163,7 +166,7 @@ function services_endpoint_callback($endpoint_name) {
       'endpoint'      => $endpoint_name,
       'endpoint_path' => $endpoint->path,
       'debug'         => $endpoint->debug,
-      'drupal_path'   => getcwd(),
+      'settings'      => $endpoint->server_settings[$server],
     ));
     if ($endpoint->debug) {
       watchdog('services', 'Server info main object: <pre>@info</pre>', array('@info' => print_r(services_server_info_object(), TRUE)), WATCHDOG_DEBUG);
@@ -204,11 +207,6 @@ function services_endpoint_load($name) {
   if (isset($result[$name])) {
     return $result[$name];
   }
-  $result = db_query("SELECT * FROM {services_endpoint} WHERE name = '%s'", $name);
-  $matches = array();
-  while ($endpoint = db_fetch_object($result)) {
-    return $endpoint;
-  }
   return FALSE;
 }
 
@@ -220,14 +218,6 @@ function services_endpoint_load($name) {
  */
 function services_endpoint_load_all() {
   ctools_include('export');
-  if (!ctools_export_load_object('services_endpoint')) {
-    $result = db_query("SELECT * FROM {services_endpoint}");
-    $matches = array();
-    while ($endpoint = db_fetch_object($result)) {
-      $matches[] = $endpoint;
-    }
-    return $matches;
-  }
   return ctools_export_load_object('services_endpoint');
 }
 
@@ -240,7 +230,14 @@ function services_endpoint_save($endpoint) {
   if (is_array($endpoint) && isset($endpoint['build_info'])) {
     $endpoint = $endpoint['build_info']['args'][0];
   }
+  // Set a default of an array if the value is not present.
+  foreach (array('server_settings', 'resources', 'authenication') as $endpoint_field) {
+    if (empty($endpoint->{$endpoint_field})) {
+      $endpoint->{$endpoint_field} = array();
+    }
+  }
   ctools_export_crud_save('services_endpoint', $endpoint);
+  ctools_export_load_object_reset('services_endpoint');
   menu_rebuild();
   cache_clear_all('services:' . $endpoint->name . ':', 'cache', TRUE);
 }
@@ -252,6 +249,7 @@ function services_endpoint_save($endpoint) {
  */
 function services_endpoint_delete($endpoint) {
   ctools_export_crud_delete('services_endpoint', $endpoint);
+  ctools_export_load_object_reset('services_endpoint');
   menu_rebuild();
   cache_clear_all('services:' . $endpoint->name . ':', 'cache', TRUE);
 }
@@ -263,8 +261,7 @@ function services_endpoint_delete($endpoint) {
  */
 function services_endpoint_export($endpoint, $indent = '') {
   ctools_include('export');
-  $output = ctools_export_object('services_endpoint', $endpoint, $indent);
-  return $output;
+  return ctools_export_object('services_endpoint', $endpoint, $indent);
 }
 
 
@@ -298,7 +295,28 @@ function services_get_resources($endpoint_name = '') {
 function services_services_resources() {
   module_load_include('resource_build.inc', 'services');
   // Return resources representing legacy services
-  return array_merge(_services_core_resources(), _services_legacy_services_as_resources());
+  return _services_core_resources();
+}
+
+ /**
+ * Implementation of hook_services_authentication().
+ */
+function services_services_authentication_info() {
+  return array(
+    'title'             => t('Session authentication'),
+    'description'       => t("Uses Drupal's built in sessions to authenticate."),
+    'authenticate_call' => '_services_sessions_authenticate_call',
+  );
+}
+
+/**
+ * Authenticates a call using Drupal's built in sessions
+ *
+ * @return void
+ */
+function _services_sessions_authenticate_call() {
+  global $user;
+  $user = services_get_server_info('original_user');
 }
 
 /**
@@ -314,7 +332,7 @@ function services_services_resources() {
  */
 function services_controllers_list($endpoint) {
   $controllers = array();
-  $ops = array('actions', 'relationships', 'targeted actions');
+  $ops = array('actions', 'relationships', 'targeted_actions');
   $resources = services_get_resources($endpoint);
   foreach ($resources as $resource_name => $res) {
     // Get all basic operations
@@ -348,7 +366,7 @@ function services_controllers_list($endpoint) {
  */
 function services_controller_get($name, $endpoint) {
   list($resource_name, $method) = explode('.', $name);
-  $ops = array('actions', 'relationships', 'targeted actions');
+  $ops = array('actions', 'relationships', 'targeted_actions');
   $resources = services_get_resources($endpoint);
 
   if (isset($resources[$resource_name])) {
@@ -379,7 +397,7 @@ function services_controller_get($name, $endpoint) {
  */
 function services_resources_as_procedures($resource) {
   static $controllers = array('create', 'retrieve', 'update', 'delete', 'index');
-  static $subcontrollers = array('actions', 'relationships', 'targeted actions');
+  static $subcontrollers = array('actions', 'relationships', 'targeted_actions');
 
   $methods = array();
 
@@ -405,7 +423,7 @@ function services_resources_as_procedures($resource) {
  *
  * @param $resource
  *   The resource being converted (node, user, etc.)
- * @param $name
+ * @param $name 
  *   The method name (retrieve, create, etc.)
  * @param $controller
  *   Associative array defining the method's properties and callbacks.
@@ -429,30 +447,55 @@ function _services_resource_controller_as_procedure($resource, $name, $controlle
  *   Integer page number we are requesting.
  * @param $fields
  *   Array fields to return.
- * @param $parameter
+ * @param $service_params
  *   Array parameters to add to the index query.
+ * @param $page_size
+ *   Integer number of items to be returned.
+ * @param $resource
+ *   String name of the resource building the index query
  */
-function services_resource_build_index_query($schema, $order, $page, $fields, $parameters = array()) {
+function services_resource_build_index_query($schema, $order, $page, $fields, $service_params = array(), $primary_table, $primary_field, $page_size, $resource) {
   $where = array();
+  $query_params = array();
   $fields = db_escape_string($fields);
+
+  // need to append table prefix
+  if ($fields_array = explode(',', $fields)) {
+    foreach ($fields_array as &$field) {
+      $field = $primary_table . '.' . trim($field);
+    }
+    $fields = implode(',', $fields_array);
+  }
+
   $schema = db_escape_string($schema);
   $table = $schema;
   $schema = drupal_get_schema($schema);
   // Build an array of fields with the appropriate placeholders for use in
   // db_query().
-  if(is_array($parameters)) {
-    foreach ($parameters as $field => $value) {
-      $where[] = $field . ' = ' . db_type_placeholder($schema['fields'][$field]['type']);
+  if (is_array($service_params)) {
+    foreach ($service_params as $param_field => $param_value) {
+      $in_placeholders = array();
+      foreach (explode(',', $param_value) as $single_value) {
+        $in_placeholders[] = db_type_placeholder($schema['fields'][$param_field]['type']);
+        $query_params[] = $single_value;
+      }
+      $where[] = $primary_table . '.' . $param_field . ' IN (' . implode(',', $in_placeholders) . ')';
     } 
   }
 
   // Now implode that array into an actual WHERE clause.
   $where = !empty($where) ? ' WHERE '. implode(' AND ', $where) : '';
 
+  // Apply page size limits.
+  $default_limit = variable_get("services_{$resource}_index_page_size", 20);
+  if (!user_access('perform unlimited index queries') && $page_size > $default_limit) {
+      $page_size = $default_limit;
+  }
+
   // Run through db_rewrite_sql to make sure proper access checks are applied.
-  $sql = "SELECT $fields FROM {$table} $where ORDER BY $order";
-  $sql = db_rewrite_sql($sql);
-  $result = db_query_range($sql, $parameters, $page * 20, 20);
+  $sql = "SELECT $fields FROM {{$table}} AS $primary_table $where ORDER BY $order";
+  $sql = db_rewrite_sql($sql, $primary_table, $primary_field);
+  $result = db_query_range($sql, $query_params, $page * $page_size, $page_size);
   return $result;
 }
 
@@ -472,9 +515,23 @@ function services_resource_build_index_list($results, $type, $field) {
   foreach ($results as $result) {
     if ($uri = services_resource_uri(array($type, $result->{$field}))) {
       $result->uri = $uri;
+      if ($type == 'user') {
+        services_remove_user_data($result);
+      }
     }
     $items[] = $result;
   }
 
   return $items;
+}
+
+/**
+ *  Helper function to remove data from the user object.
+ *
+ *  @param $account
+ *    Object user object.
+ */
+function services_remove_user_data(&$account) {
+  // Remove the users password from the account object.
+  unset($account->pass);
 }

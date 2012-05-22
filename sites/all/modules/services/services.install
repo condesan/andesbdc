@@ -26,12 +26,6 @@ function services_schema() {
         'length'      => 255,
         'not null'    => TRUE,
       ),
-      'title' => array(
-        'description' => 'The title of the endpoint.',
-        'type'        => 'varchar',
-        'length'      => 255,
-        'not null'    => TRUE,
-      ),
       'server' => array(
         'description' => 'The name of the server used in this endpoint.',
         'type'        => 'varchar',
@@ -51,6 +45,13 @@ function services_schema() {
         'not null'       => TRUE,
         'serialize'      => TRUE,
         'object default' => array(),
+      ),
+      'server_settings' => array(
+         'description'    => 'The server settings for the endpoint.',
+         'type' => 'blob',
+         'size' => 'big',
+         'not null' => TRUE,
+         'serialize' => TRUE
       ),
       'resources' => array(
         'description'    => 'Information about the resources exposed in this endpoint.',
@@ -87,7 +88,60 @@ function services_schema() {
 
   return $schema;
 }
+ /**
+ * Implements hook_requirements().
+ */
+function services_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+  // Warn users of the possible threat.
+  if ($phase == 'runtime') {
+    // If rest_server is enabled, make sure it's from Services core.
+    if (module_exists('rest_server')) {
+      $rest_path = drupal_get_path('module', 'rest_server');
+      $core_path = drupal_get_path('module', 'services'). '/servers/rest_server';
+      if ($rest_path !== $core_path) {
+        $requirements['services_rest_server_compatibility'] = array(
+          'description' => $t('The enabled version of Rest Server is not from Services core. Uninstall then remove the old Rest Server module from'). ' '. $rest_path. ' '. t('to utilize Services core Rest Server'),
+          'severity' => REQUIREMENT_ERROR,
+          'title' => 'Services Rest Server Compatibility',
+        );
+      }
+    }
 
+    //Pull endpoints that do not have services authentication enabled
+    $result = db_query("SELECT * FROM {services_endpoint} AS se WHERE se.authentication NOT LIKE '%s'", '%services%');
+    $items = array();
+    $has_endpoint = FALSE;
+    while ($endpoint = db_fetch_object($result)) {
+      $has_endpoint = TRUE;
+      $items[] = l($endpoint->name, 'admin/build/services/list/'. $endpoint->name);
+    }
+    // theme the endpoints list
+    $endpoints = '';
+    if (!empty($items)) {
+      $endpoints = theme('item_list', array('items' => $items));
+    }
+    // Only display the list if we have at least one endpoint without services authentication.
+    if (count($items)) {
+      $requirements['services'] = array(
+        'description' => $t('Services authentication mechanism has not been enabled for the following endpoints. Requests to these endpoints will always be anonymous.'),
+        'severity' => REQUIREMENT_ERROR,
+        'value' => $endpoints,
+        'title' => 'Services Authentication Mechanism',
+      );
+    }
+    else {
+      $requirements['services'] = array(
+        'severity' => REQUIREMENT_OK,
+        'value' => 'Enabled for all Endpoints',
+        'title' => 'Services Authentication Mechanism',
+      );
+    }
+  }
+
+  return $requirements;
+}
 /**
  * Implementation of hook_install().
  */
@@ -266,24 +320,27 @@ function services_update_6302() {
 }
 
 /**
- * Implements hook_requirements().
- *
- * Check version of ctools.
+ * Update 6303 adds the possibility to configure server settings on a per-endpoint basis.
+ * and sets upgrades all new servers to have at least services session enabled.
  */
-function services_requirements($phase) {
-  $t = get_t();
-  $requirements = array();
-  $ctools_info = db_fetch_array(db_query('SELECT info FROM {system} WHERE name = "%s"', 'ctools'));
-  $ctools_info = unserialize($ctools_info['info']);
-  // Check whether version of ctools is minimum alpha3
-  // as we need patch applied from http://drupal.org/node/933946
-  if ($ctools_info['datestamp'] < 1299715446) {
-    $requirements['ctools'] = array(
-      'title' => 'CTools',
-      'value' => $ctools_info['version'],
-      'severity' => REQUIREMENT_ERROR,
-      'description' => $t('Please update CTools module to latest stable version (minimum 6.x-dev March 09).'),
-    );
-  }
-  return $requirements;
+function services_update_6303() {
+  $ret = array();
+  // Add the new server settings field.
+  $new_field = array(
+    'description'    => 'The server settings for the endpoint.',
+    'type' => 'blob',
+    'size' => 'big',
+    'not null' => TRUE,
+    'serialize' => TRUE
+  );
+  db_add_field($ret, 'services_endpoint', 'server_settings', $new_field);
+  return $ret;
+}
+/**
+ * Update 6304 removes title functionality as it is no longer used.
+ */
+function services_update_6304() {
+  $ret = array();
+  db_drop_field($ret, 'services_endpoint', 'title');
+  return $ret;
 }

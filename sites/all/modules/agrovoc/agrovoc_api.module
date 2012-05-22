@@ -9,7 +9,7 @@
 /**
  * Agrovoc web services URL
  */
-define('AGROVOC_WS_URL', 'http://www.fao.org/webservices/AgrovocWS');
+define('AGROVOC_WS_URL', 'http://agrovoc.mimos.my/ACSWWebservice/services/ACSWWebService');
 
 /**
  * Agrovoc web services URI
@@ -246,4 +246,23 @@ function agrovoc_api_is_agrovoc_term($term) {
   else {
     return FALSE;
   }
+}
+
+/**
+ * Checks is agrovoc webservice is working
+ * @return
+ *  TRUE if webservice is up, FALSE if it isn't
+ */
+
+function agrovoc_api_is_available() {
+  $client = _agrovoc_api_get_client();
+  $params = array();
+  $response = $client->__soapCall('simpleSearchByMode2', $params);
+  if (!is_soap_fault($response)) {
+    $available = TRUE;
+  }
+  else {
+    $available = FALSE;
+  }
+  return $available;
 }

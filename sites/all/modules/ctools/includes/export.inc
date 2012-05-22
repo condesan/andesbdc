@@ -606,7 +606,12 @@ function _ctools_export_unpack_object($schema, $data, $object = 'stdClass') {
 
   // Go through our schema and build correlations.
   foreach ($schema['fields'] as $field => $info) {
-    $object->$field = empty($info['serialize']) ? $data->$field : unserialize(db_decode_blob($data->$field));
+    if (isset($data->$field)) {
+      $object->$field = empty($info['serialize']) ? $data->$field : unserialize(db_decode_blob($data->$field));
+    }
+    else {
+      $data->$field = NULL;
+    }
   }
 
   if (isset($schema['join'])) {
@@ -663,7 +668,7 @@ function ctools_var_export($var, $prefix = '') {
     // magic method __set_state() leaving the export broken. This
     // workaround avoids this by casting the object as an array for
     // export and casting it back to an object when evaluated.
-    $output .= '(object) ' . ctools_var_export((array) $var, $prefix);
+    $output = '(object) ' . ctools_var_export((array) $var, $prefix);
   }
   else if (is_bool($var)) {
     $output = $var ? 'TRUE' : 'FALSE';
@@ -983,7 +988,7 @@ function ctools_export_default_to_hook_code($schema, $table, $names, $name) {
   $objects = ctools_export_load_object($table, 'names', $names);
   if ($objects) {
     $output = "/**\n";
-    $output .= " * Implementation of hook_{$export['default hook']}()\n";
+    $output .= " * Implements hook_{$export['default hook']}().\n";
     $output .= " */\n";
     $output .= "function " . $name . "_{$export['default hook']}() {\n";
     $output .= "  \${$export['identifier']}s = array();\n\n";

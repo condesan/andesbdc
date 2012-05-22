@@ -28,7 +28,6 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
       'ctools',
       'services',
       'rest_server',
-      'services_sessauth',
       'inputstream',
       'upload',
       'comment'
@@ -55,12 +54,59 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
     // Create and log in our privileged user.
     $this->privilegedUser = $this->drupalCreateUser(array(
       'administer services',
+      'perform unlimited index queries',
     ));
     $this->drupalLogin($this->privilegedUser);
 
-    $node = $this->drupalCreateNode();
-    $responseArray = $this->servicesGet($this->endpoint->path . '/node');
-    $this->assertTrue($node->title == $responseArray['body'][0]->title, t('Successfully received Node info'), 'NodeResource: Index');
+    // Create a set of nodes. The node resource returns 20 returns at a time,
+    // so we create two pages and a half worth.
+    $nodes = array();
+    $count = 50;
+    for ($i = 0; $i < $count; $i++) {
+      $node = $this->drupalCreateNode();
+      $nodes[$node->nid] = $node;
+    }
+
+    // Get the content.
+    $page_count = ceil(count($nodes) / 20);
+    $retrieved_nodes = array();
+    for ($page = 0; $page < $page_count; $page++) {
+      $responseArray = $this->servicesGet($this->endpoint->path . '/node', array('page' => $page, 'fields' => 'nid,title'));
+      $this->assertTrue(count($responseArray['body']) <= 20, t('Correct number of items returned'));
+
+      // Store the returned node IDs.
+      foreach ($responseArray['body'] as $node) {
+        if (isset($retrieved_nodes[$node->nid])) {
+          $this->fail(t('Duplicate node @nid returned.', array('@nid' => $node->nid)));
+        }
+        $retrieved_nodes[$node->nid] = TRUE;
+
+        $this->assertTrue($nodes[$node->nid]->title == $node->title, t('Successfully received Node info'), 'NodeResource: Index');
+      }
+    }
+
+    // We should have got all the nodes.
+    $expected_nids = array_keys($nodes);
+    sort($expected_nids);
+    $retrieved_nids = array_keys($retrieved_nodes);
+    sort($retrieved_nids);
+    $this->assertEqual($expected_nids, $retrieved_nids, t('Retrieved all nodes'));
+
+    // The n+1 page should be empty.
+    $responseArray = $this->servicesGet($this->endpoint->path . '/node', array('page' => $page_count + 1));
+    $this->assertEqual(count($responseArray['body']), 0, t('The n+1 page is empty'));
+
+    // Adjust the pager size.
+    $responseArray = $this->servicesGet($this->endpoint->path . '/node', array('fields' => 'nid,title', 'pagesize' => 40));
+    $this->assertTrue(count($responseArray['body']) == 40, t('Correct number of items returned'));
+
+    // Swap to user that can only use the default pager size.
+    $this->lessPrivilegedUser = $this->drupalCreateUser(array(
+      'administer services',
+    ));
+    $this->drupalLogin($this->lessPrivilegedUser);
+    $responseArray = $this->servicesGet($this->endpoint->path . '/node', array('fields' => 'nid,title', 'pagesize' => 40));
+    $this->assertTrue(count($responseArray['body']) == 20, t('Correct number of items returned'));
   }
 
   /**
@@ -98,7 +144,7 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
       'name' => $this->privilegedUser->name,
     );
 
-    $responseArray = $this->servicesPost($this->endpoint->path . '/node', array('node' => $node));
+    $responseArray = $this->servicesPost($this->endpoint->path . '/node', $node);
     $nodeResourceCreateReturn = $responseArray['body'];
 
     $this->assertTrue(isset($nodeResourceCreateReturn['nid']), t('Node was successfully created'), 'NodeResource: Create');
@@ -106,6 +152,37 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
       $newNode = node_load($nodeResourceCreateReturn['nid']);
       $this->assertTrue($newNode->title = $node['title'], t('Title was the same'), 'NodeResource: Create');
       $this->assertTrue($newNode->body = $node['body'], t('Body was the same'), 'NodeResource: Create');
+    }
+  }
+
+  /**
+   * Testing node_resource Create (Legacy).
+   *
+   * TODO: To be removed in future version.
+   * @see http://drupal.org/node/1083242
+   */
+  public function testEndpointResourceNodeCreateLegacy() {
+    // Create and log in our privileged user.
+    $this->privilegedUser = $this->drupalCreateUser(array(
+      'administer services',
+      'administer nodes',
+    ));
+    $this->drupalLogin($this->privilegedUser);
+    $node = array(
+      'title' => 'testing',
+      'body' => 'bodytest',
+      'type' => 'story',
+      'name' => $this->privilegedUser->name,
+    );
+
+    $responseArray = $this->servicesPost($this->endpoint->path . '/node', array('node' => $node));
+    $nodeResourceCreateReturn = $responseArray['body'];
+
+    $this->assertTrue(isset($nodeResourceCreateReturn['nid']), t('Node was successfully created'), 'NodeResource: Create (Legacy)');
+    if (isset($nodeResourceCreateReturn['nid'])) {
+      $newNode = node_load($nodeResourceCreateReturn['nid']);
+      $this->assertTrue($newNode->title = $node['title'], t('Title was the same'), 'NodeResource: Create (Legacy)');
+      $this->assertTrue($newNode->body = $node['body'], t('Body was the same'), 'NodeResource: Create (Legacy)');
     }
   }
 
@@ -125,7 +202,7 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
       'name' => $this->privilegedUser->name,
     );
 
-    $responseArray = $this->servicesPost($this->endpoint->path . '/node', array('node' => $node));
+    $responseArray = $this->servicesPost($this->endpoint->path . '/node', $node);
 
     $this->assertTrue($responseArray['code'] == 401, t('User with not sufficient permissions cannot create node'), 'NodeResource: Create');
   }
@@ -148,11 +225,9 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
       'type' => 'page',
     );
 
-    $responseArray = $this->servicesPost($this->endpoint->path . '/node', array('node' => $node));
+    $response_array = $this->servicesPost($this->endpoint->path . '/node', $node);
 
-    $nodeResourceUpdateReturn = $responseArray['body'];
-    $nodeAfterUpdate = node_load($nodeResourceUpdateReturn);
-    $this->assertTrue(strpos($responseArray['status'], 'Title field is required.'), t('Node was not created without title. '), 'NodeResource: Created');
+    $this->assertEqual($response_array['body']['form_errors']['title'], t('Title field is required.'), t('Node was not created without title.'), 'NodeResource: Created');
   }
 
   /**
@@ -195,7 +270,7 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
       )),
     );
 
-    $response = $this->servicesPost($this->endpoint->path . '/node', array('node' => $node));
+    $response = $this->servicesPost($this->endpoint->path . '/node', $node);
 
     // Get number of attached taxonomy terms from this node. We do it manually
     // as we cannot get terms on node_load as as empty array is statically
@@ -219,7 +294,6 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
     $node = $this->drupalCreateNode($settings);
 
     $nid = $node->nid;
-    $this->pass(print_r($node, 1));
     // Generate 15 comments for node.
     $comments = array();
     for ($i = 0; $i < 15; $i++) {
@@ -230,7 +304,7 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
         'comment' => $this->randomString(),
       );
 
-      $cid = comment_save((array) $comment);
+      $cid = comment_save($comment);
 
       $comments[] = _comment_load($cid);
     }
@@ -247,13 +321,12 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
         'comment' => $this->randomString(),
       );
 
-      $cid = comment_save((array) $comment);
+      $cid = comment_save($comment);
     }
 
 
     // Load all comments of the first node.
     $response = $this->servicesGet($path . '/node/'. $nid .'/comments');
-    $this->pass($response);
     $this->assertEqual($comments, $response['body'], t('Received all 15 comments.'), 'NodeResource: comments');
 
     // Load only 5 comments of the first node.
@@ -261,13 +334,13 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
     $this->assertEqual(array_slice($comments, 0, 5), array_slice($response['body'], 0, 5), t('Received last 5 comments.'), 'NodeResource: comments');
     // Load only 5 comments of the first node starting from fifth comment.
     $response = $this->servicesGet($path . '/node/'. $nid .'/comments', array('count' => 5, 'offset' => 5));
-    $this->assertEqual(array_slice($comments, 5, 5), array_merge(array(),$response['body']), t('Received 5 comments starting from fifth comment.'), 'NodeResource: comments');
+    $this->assertEqual(array_slice($comments, 5, 5), array_merge(array(), $response['body']), t('Received 5 comments starting from fifth comment.'), 'NodeResource: comments');
   }
 
   /**
-   * Test nodeFiles action.
+   * Test files relationship.
    */
-  public function testNodeFiles() {
+  public function testNodeRelationshipFiles() {
     $this->privileged_user = $this->drupalCreateUser(array(
       'get own binary files',
       'save file information',
@@ -299,13 +372,14 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
     ));
     $node = $this->drupalCreateNode($settings);
 
-    $result = $this->servicesPost($this->endpoint->path . '/node/nodeFiles', array('nid' => $node->nid));
+    $result = $this->servicesGet($this->endpoint->path . '/node/' . $node->nid . '/files');
     $this->assertTrue(isset($result['body'][$testfile1['fid']]) && isset($result['body'][$testfile2['fid']]) && !isset($result['body'][$testfile3['fid']]),
       t('Attached files listed.'), 'FileResource: nodeFiles');
   }
+
   /**
-  * testing node_resource Update
-  */
+   * Testing node_resource Update
+   */
   public function testEndpointResourceNodeUpdate() {
     // Create and log in our privileged user.
     $this->privilegedUser = $this->drupalCreateUser(array(
@@ -317,16 +391,53 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
     $node_update = array(
       'title' => 'testing',
       'body' => 'bodytest',
-      'type' => 'story',
+      'type' => 'page',
       'name' => $this->privilegedUser->name,
     );
 
-    $responseArray = $this->servicesPut($this->endpoint->path . '/node/' . $node->nid, array('node' => $node_update));
+    $responseArray = $this->servicesPut($this->endpoint->path . '/node/' . $node->nid, $node_update);
     $nodeAfterUpdate = node_load($responseArray['body']['nid']);
     $this->assertTrue(isset($nodeAfterUpdate->nid), t('Node was successfully updated'), 'NodeResource: Updated');
     if (isset($nodeAfterUpdate->nid)) {
       $this->assertTrue($nodeAfterUpdate->title == $node_update['title'], t('Title was the same'), 'NodeResource: Update');
       $this->assertTrue($nodeAfterUpdate->body == $node_update['body'], t('Body was the same'), 'NodeResource: Update');
+    }
+
+    // Try to update the node without node type.
+    $node_update_no_type = $node_update;
+    unset($node_update_no_type['type']);
+    $node_update_no_type['title'] = $this->randomName();
+    $responseArray = $this->servicesPut($this->endpoint->path . '/node/' . $node->nid, $node_update_no_type);
+    $this->assertNotEqual($responseArray['code'], 200, t('Can\'t update node without specifying node type'), 'NodeResource: Update');
+  }
+
+  /**
+   * Testing node_resource Update (Legacy).
+   *
+   * TODO: To be removed in future version.
+   * @see http://drupal.org/node/1083242
+   */
+  public function testEndpointResourceNodeUpdateLegacy() {
+    // Create and log in our privileged user.
+    $this->privilegedUser = $this->drupalCreateUser(array(
+      'administer services',
+      'administer nodes',
+    ));
+    $this->drupalLogin($this->privilegedUser);
+    $node = $this->drupalCreateNode();
+    $node_update = array(
+      'title' => 'testing',
+      'body' => 'bodytest',
+      'type' => 'page',
+      'name' => $this->privilegedUser->name,
+    );
+
+    $responseArray = $this->servicesPut($this->endpoint->path . '/node/' . $node->nid, array('node' => $node_update));
+    $nodeAfterUpdate = node_load($responseArray['body']['nid']);
+    $this->assertTrue(isset($nodeAfterUpdate->nid), t('Node was successfully updated'), 'NodeResource: Updated (Legacy)');
+    if (isset($nodeAfterUpdate->nid)) {
+      $this->assertTrue($nodeAfterUpdate->title == $node_update['title'], t('Title was the same'), 'NodeResource: Update (Legacy)');
+      $this->assertTrue($nodeAfterUpdate->body == $node_update['body'], t('Body was the same'), 'NodeResource: Update (Legacy)');
     }
   }
 
@@ -350,9 +461,9 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
     $node_update = array(
       'title' => 'testing',
       'body' => 'bodytest',
-      'type' => 'story',
+      'type' => 'page',
     );
-    $responseArray = $this->servicesPut($this->endpoint->path . '/node/' . $node->nid, array('node' => $node_update));
+    $responseArray = $this->servicesPut($this->endpoint->path . '/node/' . $node->nid, $node_update);
 
     $this->assertTrue(strpos($responseArray['status'], 'Access denied for user'), t('Updating the node failed without needed permissions. This is good!'), 'NodeResource: Update');
   }
@@ -372,10 +483,10 @@ class ServicesResourceNodetests extends ServicesWebtestCase {
       'title' => '',
       'body' => 'bodytest',
       'name' => $this->privilegedUser->name,
-      'type' => 'story',
+      'type' => 'page',
     );
 
-    $responseArray = $this->servicesPut($this->endpoint->path . '/node/' . $node->nid, array('node' => $node_update));
+    $responseArray = $this->servicesPut($this->endpoint->path . '/node/' . $node->nid, $node_update);
     $this->assertTrue(strpos($responseArray['status'], 'Title field is required.'), t('Node was not updated without title.'), 'NodeResource: Update');
   }
 

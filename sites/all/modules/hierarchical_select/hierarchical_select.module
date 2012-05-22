@@ -1,5 +1,4 @@
 <?php
-// $Id: hierarchical_select.module,v 1.201.2.1 2011/02/16 20:04:59 wimleers Exp $
 
 /**
  * @file

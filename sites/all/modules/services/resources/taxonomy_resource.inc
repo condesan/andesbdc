@@ -108,6 +108,14 @@ function _taxonomy_resource_definition() {
             'default value' => array(),
             'source' => array('param' => 'parameters'),
           ),
+          array(
+            'name' => 'pagesize',
+            'optional' => TRUE,
+            'type' => 'init',
+            'description' => 'Number of records to get per page.',
+            'default value' => variable_get('services_taxonomy_term_index_page_size', 20),
+            'source' => array('param' => 'pagesize'),
+          ),
         ),
         'access arguments' => array('access content'),
       ),
@@ -124,14 +132,14 @@ function _taxonomy_resource_definition() {
               'name'         => 'tids',
               'type'         => 'string',
               'description'  => t('The vocabulary ids to retrieve, separated by comma.'),
-              'source'       => 'data',
+              'source'       => array('data' => 'tids'),
               'optional'     => FALSE,
             ),
             array(
               'name'          => 'fields',
               'type'          => 'string',
               'description'   => t('The fields to retrieve, separated by comma.'),
-              'source'        => 'data',
+              'source'        => array('data' => 'fields'),
               'optional'      => TRUE,
               'default value' => array(),
             ),
@@ -139,7 +147,7 @@ function _taxonomy_resource_definition() {
               'name'          => 'operator',
               'type'          => 'string',
               'description'   => t('How to interpret multiple IDs in the array. Can be "or" or "and".'),
-              'source'        => 'data',
+              'source'        => array('data' => 'operator'),
               'optional'      => TRUE,
               'default value' => 'or',
             ),
@@ -147,7 +155,7 @@ function _taxonomy_resource_definition() {
               'name'          => 'depth',
               'type'          => 'int',
               'description'   => t('How many levels deep to traverse the taxonomy tree. Can be a nonnegative integer or "all".'),
-              'source'        => 'data',
+              'source'        => array('data' => 'depth'),
               'optional'      => TRUE,
               'default value' => 0,
             ),
@@ -155,7 +163,7 @@ function _taxonomy_resource_definition() {
               'name'          => 'pager',
               'type'          => 'int',
               'description'   => t('Whether the nodes are to be used with a pager (the case on most Drupal pages) or not (in an XML feed, for example).'),
-              'source'        => 'data',
+              'source'        => array('data' => 'pager'),
               'optional'      => TRUE,
               'default value' => TRUE,
             ),
@@ -163,7 +171,7 @@ function _taxonomy_resource_definition() {
               'name'          => 'order',
               'type'          => 'string',
               'description'   => t('The order clause for the query that retrieve the nodes.'),
-              'source'        => 'data',
+              'source'        => array('data' => 'order'),
               'optional'      => TRUE,
               'default value' => 'n.sticky DESC, n.created DESC',
             ),
@@ -270,6 +278,14 @@ function _taxonomy_resource_definition() {
             'default value' => array(),
             'source' => array('param' => 'parameters'),
           ),
+          array(
+            'name' => 'pagesize',
+            'optional' => TRUE,
+            'type' => 'init',
+            'description' => 'Number of records to get per page.',
+            'default value' => variable_get('services_taxonomy_vocabulary_index_page_size', 20),
+            'source' => array('param' => 'pagesize'),
+          ),
         ),
         'access arguments' => array('access content'),
       ),
@@ -286,24 +302,24 @@ function _taxonomy_resource_definition() {
               'name'         => 'vid',
               'type'         => 'int',
               'description'  => t('The vocabulary id to retrieve.'),
-              'source'       => 'data',
+              'source'       => array('data' => 'vid'),
               'optional'     => FALSE,
             ),
             array(
-              'name'         => 'parent',
-              'type'         => 'int',
-              'description'  => t('The term ID under which to generate the tree. If 0, generate the tree for the entire vocabulary.'),
-              'source'       => 'data',
-              'default value'      => 0,
-              'optional'     => TRUE,
+              'name'          => 'parent',
+              'type'          => 'int',
+              'description'   => t('The term ID under which to generate the tree. If 0, generate the tree for the entire vocabulary.'),
+              'source'        => array('data' => 'parent'),
+              'default value' => 0,
+              'optional'      => TRUE,
             ),
             array(
-              'name'         => 'maxdepth',
-              'type'         => 'int',
-              'description'  => t('The number of levels of the tree to return. Leave NULL to return all levels.'),
-              'source'       => 'data',
-              'optional'     => TRUE,
-              'default value'      => NULL,
+              'name'          => 'maxdepth',
+              'type'          => 'int',
+              'description'   => t('The number of levels of the tree to return. Leave NULL to return all levels.'),
+              'source'        => array('data' => 'maxdepth'),
+              'default value' => NULL,
+              'optional'      => TRUE,
             ),
           ),
         ),
@@ -326,15 +342,17 @@ function _taxonomy_resource_definition() {
  * @param $fields
  *   The fields you want returned.
  * @param $parameters
- *   An array of fields and values used to build a sql WHERE clause indicating
- *   what items should be returned.
+ *   An array containing fields and values used to build a sql WHERE clause
+ *   indicating items to retrieve.
+ * @param $page_size
+ *   Integer number of items to be returned.
  * @return
  *   An array of term objects.
  *
- * @see _node_resource_index() for more notes
- **/
-function _taxonomy_term_resource_index($page, $fields, $parameters) {
-  $query = services_resource_build_index_query('term_data', 'vid DESC, weight DESC, name DESC', $page, $fields, $parameters);
+ * @see _node_resource_index()
+ */
+function _taxonomy_term_resource_index($page, $fields, $parameters, $page_size) {
+  $query = services_resource_build_index_query('term_data', 't.vid DESC, t.weight DESC, t.name DESC', $page, $fields, $parameters, 't', 'tid', $page_size, 'taxonomy_term');
 
   $results = array();
   while ($taxonomy = db_fetch_object($query)) {
@@ -358,18 +376,20 @@ function _taxonomy_term_resource_index($page, $fields, $parameters) {
  * @param $fields
  *   The fields you want returned.
  * @param $parameters
- *   An array of fields and values used to build a sql WHERE clause indicating
- *   what items should be returned.
+ *   An array containing fields and values used to build a sql WHERE clause
+ *   indicating items to retrieve.
+ * @param $page_size
+ *   Integer number of items to be returned.
  * @return
  *   An array of vocabulary objects.
  *
  * @todo
  *   Support node types as parameters.
  *
- * @see _node_resource_index() for more notes
- **/
-function _taxonomy_vocabulary_resource_index($page, $fields, $parameters) {
-  $query = services_resource_build_index_query('vocabulary', 'weight DESC, name DESC', $page, $fields, $parameters);
+ * @see _node_resource_index()
+ */
+function _taxonomy_vocabulary_resource_index($page, $fields, $parameters, $page_size) {
+  $query = services_resource_build_index_query('vocabulary', 'v.weight DESC, v.name DESC', $page, $fields, $parameters, 'v', 'vid', $page_size,'taxonomy_term');
 
   $results = array();
   while ($taxonomy = db_fetch_object($query)) {
@@ -403,6 +423,9 @@ function _taxonomy_term_resource_retrieve($tid) {
  * @see taxonomy_save_term()
  */
 function _taxonomy_term_resource_create($term) {
+  // Adds backwards compatability with regression fixed in #1083242
+  $term = _services_arg_value($term, 'term');
+
   return taxonomy_save_term($term);
 }
 
@@ -419,6 +442,9 @@ function _taxonomy_term_resource_create($term) {
  * @see taxonomy_save_term()
  */
 function _taxonomy_term_resource_update($tid, $term) {
+  // Adds backwards compatability with regression fixed in #1083242
+  $term = _services_arg_value($term, 'term');
+
   $term['tid'] = $tid;
   return _taxonomy_term_resource_create($term);
 }
@@ -482,7 +508,10 @@ function _taxonomy_vocabulary_resource_retrieve($vid) {
  * @see taxonomy_save_vocabulary()
  */
 function _taxonomy_vocabulary_resource_create($vocabulary) {
-  return taxonomy_save_vocabulary($vocabulary);
+  // Adds backwards compatability with regression fixed in #1083242
+  $vocabulary = _services_arg_value($vocabulary, 'vocabulary');
+  taxonomy_save_vocabulary($vocabulary);
+  return $vocabulary;
 }
 
 /**
@@ -498,6 +527,9 @@ function _taxonomy_vocabulary_resource_create($vocabulary) {
  * @see taxonomy_save_vocabulary()
  */
 function _taxonomy_vocabulary_resource_update($vid, $vocabulary) {
+  // Adds backwards compatability with regression fixed in #1083242
+  $vocabulary = _services_arg_value($vocabulary, 'vocabulary');
+
   $vocabulary['vid'] = $vid;
   return _taxonomy_vocabulary_resource_create($vocabulary);
 }
@@ -559,7 +591,7 @@ function taxonomy_service_select_nodes($tids, $fields, $operator, $depth, $pager
 }
 
 function _taxonomy_resource_access($op = 'view', $args = array()) {
-  if (user_access('administer taxonomy')) {
+  if (user_access('administer taxonomy') || user_access('get taxonomy tree')) {
     return TRUE;
   }
   // TODO - check perms of user to return ability to interact with terms / vocabulary

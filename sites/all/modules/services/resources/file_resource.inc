@@ -13,8 +13,8 @@
 function _file_resource_definition() {
   return array(
     'file' => array(
-      'file' => array('type' => 'inc', 'module' => 'services', 'name' => 'resources/file_resource'),
       'create' => array(
+        'file' => array('type' => 'inc', 'module' => 'services', 'name' => 'resources/file_resource'),
         'help' => 'Creates a file',
         'callback' => '_file_resource_create',
         'access callback' => '_file_resource_access',
@@ -31,6 +31,7 @@ function _file_resource_definition() {
         ),
       ),
       'retrieve' => array(
+        'file' => array('type' => 'inc', 'module' => 'services', 'name' => 'resources/file_resource'),
         'help' => 'Retrieves a file',
         'callback' => '_file_resource_retrieve',
         'access callback' => '_file_resource_access',
@@ -48,13 +49,14 @@ function _file_resource_definition() {
             'name'         => 'file_contents',
             'type'         => 'int',
             'description'  => t('To return file contents or not.'),
-            'source'       => 'data',
+            'source'       => array('param' => 'file_contents'),
             'optional'     => FALSE,
             'default value' => TRUE,
           ),
         ),
       ),
       'delete' => array(
+        'file' => array('type' => 'inc', 'module' => 'services', 'name' => 'resources/file_resource'),
         'help' => 'Deletes a file',
         'callback' => '_file_resource_delete',
         'access callback' => '_file_resource_access',
@@ -98,6 +100,14 @@ function _file_resource_definition() {
             'default value' => array(),
             'source' => array('param' => 'parameters'),
           ),
+          array(
+            'name' => 'pagesize',
+            'optional' => TRUE,
+            'type' => 'init',
+            'description' => 'Number of records to get per page.',
+            'default value' => variable_get('services_file_index_page_size', 20),
+            'source' => array('param' => 'pagesize'),
+          ),
         ),
         'access callback' => '_file_resource_access',
         'access arguments' => array('index'),
@@ -122,17 +132,18 @@ function _file_resource_definition() {
  * @param $fields
  *   The fields you want returned.
  * @param $parameters
- *   An array of fields and values used to build a sql WHERE clause indicating
- *   what items should be deleted.
+ *   An array containing fields and values used to build a sql WHERE clause
+ *   indicating items to retrieve.
+ * @param $page_size
+ *   Integer number of items to be returned.
  * @return
  *   An array of file objects.
  *
- * @see _node_resource_index() for more notes
- **/
-function _file_resource_index($page, $fields, $parameters) {
-  services_resource_build_index_query('files', 'timestamp DESC', $page, $fields, $parameters);
+ * @see _node_resource_index()
+ */
+function _file_resource_index($page, $fields, $parameters, $page_size) {
 
-  $query = services_resource_build_index_query('files', 'timestamp', $page, $fields, $parameters);
+  $query = services_resource_build_index_query('files', 'f.timestamp', $page, $fields, $parameters, 'f', 'fid', $page_size, 'file');
   // Put together array of matching nodes to return.
   $results = array();
   while ($comments = db_fetch_object($query)) {
@@ -152,6 +163,8 @@ function _file_resource_index($page, $fields, $parameters) {
  *   Unique identifier for the file (fid) or errors if there was a problem.
  */
 function _file_resource_create($file) {
+  $file = _services_arg_value($file, 'file');
+
   global $user;
 
   // If the file data is empty then bail.
@@ -161,7 +174,7 @@ function _file_resource_create($file) {
 
   // Check whether we have filename or filepath for the file.
   if ((!isset($file['filename']) || empty($file['filename']))
-   && (!isset($file['filepath']) || empty($file['filepath']))) {
+    && (!isset($file['filepath']) || empty($file['filepath']))) {
     return services_error('No filename and no filepath specified or they are both empty.');
   }
 
@@ -191,6 +204,14 @@ function _file_resource_create($file) {
   // Get the directory name for the location of the file:
   $dir = dirname($file['filepath']);
   // Build the destination folder tree if it doesn't already exists.
+  // @see http://drupal.org/node/180970
+  $dir_array = explode('/', $dir);
+  $file_check_directory_array = array();
+  foreach ($dir_array as $dir_element) {
+    $file_check_directory_array[] = $dir_element;
+    $dir_path_element = implode('/', $file_check_directory_array);
+    file_check_directory($dir_path_element, FILE_CREATE_DIRECTORY);
+  }
   if (!file_check_directory($dir, FILE_CREATE_DIRECTORY)) {
     return services_error("Could not create destination directory for file. " . $dir);
   }
@@ -221,7 +242,7 @@ function _file_resource_create($file) {
   $file['timestamp'] = time();
 
   // If we made it this far it's safe to record this file in the database.
-  drupal_write_record('files', $file, $update);
+  drupal_write_record('files', $file);
 
   return array(
     'fid' => $file['fid'],
@@ -237,16 +258,18 @@ function _file_resource_create($file) {
  * @return
  *   The file
  */
-function _file_resource_retrieve($fid, $file_contents =  TRUE) {
+function _file_resource_retrieve($fid, $file_contents) {
   if ($file = db_fetch_array(db_query('SELECT * FROM {files} WHERE fid = %d', $fid))) {
     if ($file_contents) {
-      $binaryfile = fopen($file['filepath'], 'rb');
+      $absolute_file_path = $_SERVER['DOCUMENT_ROOT'] . '/' . file_create_path($file['filepath']);
+      $binaryfile = fopen($absolute_file_path, 'rb');
       if ($binaryfile === FALSE) {
         services_error(t('Cannot open file with ID %fid.', array('%fid' => $fid)));
       }
       $file['file'] = base64_encode(fread($binaryfile, filesize($file['filepath'])));
       fclose($binaryfile);
     }
+    $file['uri'] = services_resource_uri(array('file', $file['fid']));
     return $file;
   }
   return services_error(t('There is no file with the given ID.'));
@@ -313,6 +336,8 @@ function _file_resource_delete($fid) {
  * Access check callback for file controllers.
  */
 function _file_resource_access($op = 'view', $args = array()) {
+  // Adds backwards compatability with regression fixed in #1083242
+  $args[0] = _services_access_value($args[0], 'file');
   global $user;
   if (user_access('administer files')) {
     return TRUE;

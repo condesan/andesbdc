@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Will define the comments resource for dealing with node comments
+ */
+
 function _comment_resource_definition() {
   if (!module_exists('comment')) {
     return array();
@@ -130,7 +135,7 @@ function _comment_resource_definition() {
               'name'         => 'nid',
               'type'         => 'int',
               'description'  => t('The node id to count all comments.'),
-              'source'       => 'data',
+              'source'       => array('data' => 'nid'),
               'optional'     => FALSE,
             ),
           ),
@@ -146,15 +151,15 @@ function _comment_resource_definition() {
               'name'          => 'nid',
               'type'          => 'int',
               'description'   => t('The node id to load comments for.'),
-              'source'        => 'data',
+              'source'        => array('data' => 'nid'),
               'optional'      => FALSE,
             ),
             array(
-              'name'         => 'since',
-              'type'         => 'int',
-              'optional'     => TRUE,
-              'description'  => t('Timestamp to count from (defaults to time of last user acces to node).'),
-              'source'        => 'data',
+              'name'          => 'since',
+              'type'          => 'int',
+              'optional'      => TRUE,
+              'description'   => t('Timestamp to count from (defaults to time of last user acces to node).'),
+              'source'        => array('data' => 'since'),
               'optional'      => TRUE,
               'default value' => 0,
             ),
@@ -181,20 +186,22 @@ function _comment_resource_definition() {
  * @param $fields
  *   The fields you want returned.
  * @param $parameters
- *   An array of fields and values used to build a sql WHERE clause indicating
- *   what items should be deleted.
+ *   An array containing fields and values used to build a sql WHERE clause
+ *   indicating items to retrieve.
+ * @param $page_size
+ *   Integer number of items to be returned.
  * @return
  *   An array of comment objects.
  *
- * @see _node_resource_index() for more notes
- **/
-function _comment_resource_index($page, $fields, $parameters) {
+ * @see _node_resource_index()
+ */
+function _comment_resource_index($page, $fields, $parameters, $page_title) {
   // Limit to published nodes if user doesn't have 'administer nodes'
   // permissions.
   if (!user_access('administer comments')) {
     $parameters['status'] = 1;
   }
-  $query = services_resource_build_index_query('comments', 'timestamp DESC', $page, $fields, $parameters);
+  $query = services_resource_build_index_query('comments', 'c.timestamp DESC', $page, $fields, $parameters, 'c', 'cid', $page_title, 'comment');
   // Put together array of matching nodes to return.
   $results = array();
   while ($comments = db_fetch_object($query)) {
@@ -214,16 +221,27 @@ function _comment_resource_index($page, $fields, $parameters) {
  */
 
 function _comment_resource_create($comment) {
+  // Adds backwards compatability with regression fixed in #1083242
+  $comment = _services_arg_value($comment, 'comment');
+
+  if (empty($comment['nid'])) {
+    return services_error(t('A nid must be provided'));
+  }
 
   // Setup form_state
   $form_state = array();
   $form_state['values'] = $comment;
-  $form_state['values']['op'] = t('Save');
+  $form_state['values']['op'] = variable_get('services_comment_save_button_resource_create', t('Save'));
 
   $comment_empty = array(
     'nid' => $comment['nid'],
     'cid' => NULL,
   );
+
+  if (!empty($comment['pid'])) {
+    $comment_empty['pid'] = $comment['pid'];
+  }
+
 
   $ret = drupal_execute('comment_form', $form_state, $comment_empty);
 
@@ -264,6 +282,8 @@ function _comment_resource_retrieve($cid) {
  *   Unique identifier for the comment (cid) or FALSE if there was a problem.
  */
 function _comment_resource_update($cid, $comment) {
+  // Adds backwards compatability with regression fixed in #1083242
+  $comment = _services_arg_value($comment, 'data');
   $comment['cid'] = $cid;
 
   $old_comment = (array) _comment_load($cid);
@@ -274,7 +294,7 @@ function _comment_resource_update($cid, $comment) {
   // Setup form_state.
   $form_state = array();
   $form_state['values'] = $comment;
-  $form_state['values']['op'] = t('Save');
+  $form_state['values']['op'] = variable_get('services_comment_save_button_resource_update', t('Save'));
   $form_state['comment'] = $old_comment;
 
   drupal_execute('comment_form', $form_state, $old_comment);
@@ -344,6 +364,9 @@ function _comment_resource_count_new($nid, $since = 0) {
  * Access check callback for comment controllers.
  */
 function _comment_resource_access($op = 'view', $args = array()) {
+  // Add backwards compatability with regression fixed in #1083242
+  $args = _services_access_value($args, array('comment', 'data'));
+
   if ($op == 'view' && !isset($args[0])) {
     return user_access('access comments');
   }
@@ -356,9 +379,9 @@ function _comment_resource_access($op = 'view', $args = array()) {
   }
 
   // If the submitted comment does not contain a nid, then return an error.
-  if(isset($comment->nid)) {
+  if (isset($comment->nid)) {
     $node = node_load($comment->nid);
-    if($op == 'create' && !$node->nid) {
+    if ($op == 'create' && !$node->nid) {
       return services_error(t('Node nid: @nid does not exist.', array('@nid' => $comment->nid)), 406);
     }
   }

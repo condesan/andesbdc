@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * This file will define the resources for dealing directly with nodes
+ */
+
 function _node_resource_definition() {
   $node_resource = array(
     'node' => array(
@@ -101,32 +106,40 @@ function _node_resource_definition() {
             'default value' => array(),
             'source' => array('param' => 'parameters'),
           ),
+          array(
+            'name' => 'pagesize',
+            'optional' => TRUE,
+            'type' => 'init',
+            'description' => 'Number of records to get per page.',
+            'default value' => variable_get('services_node_index_page_size', 20),
+            'source' => array('param' => 'pagesize'),
+          ),
         ),
         'access arguments' => array('access content'),
       ),
       'relationships' => array(
-        'nodeFiles' => array(
-          'help'   => t('This method returns the files on a given node.'),
+        'files' => array(
           'file' => array('type' => 'inc', 'module' => 'services', 'name' => 'resources/node_resource'),
+          'help'   => t('This method returns files associated with a node.'),
           'access callback' => '_node_resource_access',
           'access arguments' => array('view'),
           'access arguments append' => TRUE,
           'callback' => '_node_resource_load_node_files',
           'args'     => array(
             array(
-              'name'         => 'nid',
-              'type'         => 'int',
-              'description'  => t('The node id to load files for.'),
-              'source'       => 'data',
-              'optional'     => FALSE,
+              'name' => 'nid',
+              'optional' => FALSE,
+              'source' => array('path' => 0),
+              'type' => 'int',
+              'description' => 'The nid of the node whose files we are getting',
             ),
             array(
-              'name'         => 'file_contents',
-              'type'         => 'int',
+              'name' => 'file_contents',
+              'type' => 'int',
               'description'  => t('To return file contents or not.'),
-              'source'       => 'data',
-              'optional'     => FALSE,
-              'default value' => TRUE,
+              'source' => array('path' => 2),
+              'optional' => TRUE,
+              'default value' => FALSE,
             ),
           ),
         ),
@@ -245,9 +258,20 @@ function _node_resource_retrieve($nid) {
  * @see drupal_execute()
  */
 function _node_resource_create($node) {
-  if (!isset($node['type'])) {
-    return services_error('Missing node type', 406);
+  // Adds backwards compatability with regression fixed in #1083242
+  $node = _services_arg_value($node, 'node');
+
+  if (!isset($node['name'])) {
+    // Assign username to the node from $user created at auth step.
+    global $user;
+    $node['name'] = $user->name;
   }
+
+  // Validate the node. If there is validation error Exception will be thrown
+  // so code below won't be executed.
+  _node_resource_validate_type($node);
+
+  $node_type = $node['type'];
 
   // Load the required includes for drupal_execute
   module_load_include('inc', 'node', 'node.pages');
@@ -266,8 +290,8 @@ function _node_resource_create($node) {
   // Setup form_state
   $form_state = array();
   $form_state['values'] = $node;
-  $form_state['values']['op'] = t('Save');
-  $ret = drupal_execute($node['type'] . '_node_form', $form_state, (object)$node);
+  $form_state['values']['op'] = variable_get('services_node_save_button_' . $node_type . '_resource_create', t('Save'));
+  $ret = drupal_execute($node_type . '_node_form', $form_state, (object)$node);
 
   if ($errors = form_get_errors()) {
     return services_error(implode(" ", $errors), 406, array('form_errors' => $errors));
@@ -280,6 +304,29 @@ function _node_resource_create($node) {
     $node['uri'] = $uri;
   }
   return $node;
+}
+
+/*
+ * Helper function to validate node type information.
+ *
+ * @param $node
+ *   Array representing the attributes a node edit form would submit.
+ */
+function _node_resource_validate_type($node) {
+  if (!isset($node['type'])) {
+    return services_error(t('Missing node type'), 406);
+  }
+  // Wanted to return a graceful error instead of a blank nid, this should
+  // allow for that.
+  $types = node_get_types();
+  $node_type = $node['type'];
+  if (!isset($types[$node_type])) {
+    return services_error(t('Node type @type does not exist.', array('@type' => $node_type)), 406);
+  }
+  $allowed_node_types = variable_get('services_allowed_create_content_types', $types);
+  if (!isset($allowed_node_types[$node_type])) {
+    return services_error(t("This node type @type can't be processed via services", array('@type' => $node_type)), 406);
+  }
 }
 
 /**
@@ -299,20 +346,34 @@ function _node_resource_create($node) {
  * @see drupal_execute()
  */
 function _node_resource_update($nid, $node) {
+  // Adds backwards compatability with regression fixed in #1083242
+  $node = _services_arg_value($node, 'node');
+
+  // Validate the node. If there is validation error Exception will be thrown
+  // so code below won't be executed.
+  _node_resource_validate_type($node);
+
   $node['nid'] = $nid;
 
   $old_node = node_load($nid);
   if ($old_node->nid) {
+    // Node types cannot be changed once they are created.
+    if (isset($node['type']) && $node['type'] != $old_node->type) {
+      return services_error(t('Node type cannot be changed'), 406);
+    }
+
     // Load the required includes for drupal_execute
     module_load_include('inc', 'node', 'node.pages');
+
+    $node_type = $node['type'];
 
     // Setup form_state.
     $form_state = array();
     $form_state['values'] = $node;
-    $form_state['values']['op'] = t('Save');
+    $form_state['values']['op'] = variable_get('services_node_save_button_' . $node_type . '_resource_update', t('Save'));
     $form_state['node'] = (array)$old_node;
 
-    drupal_execute($old_node->type . '_node_form', $form_state, $old_node);
+    drupal_execute($node_type . '_node_form', $form_state, $old_node);
 
     if ($errors = form_get_errors()) {
       return services_error(implode(" ", $errors), 406, array('form_errors' => $errors));
@@ -356,10 +417,10 @@ function _node_resource_delete($nid) {
  *   Page number of results to return (in pages of 20).
  * @param $fields
  *   The fields you want returned.
- * @param $parameters
- *   An array of fields and values used to build a sql WHERE clause indicating
- *   what items should be deleted.
- * @return
+ *   An array containing fields and values used to build a sql WHERE clause
+ *   indicating items to retrieve.
+ * @param $page_size
+ *   Integer number of items to be returned.
  *   An array of node objects.
  *
  * @todo
@@ -368,13 +429,13 @@ function _node_resource_delete($nid) {
  *     - Is there an easier syntax we can define which can make the urls
  *       for index requests more straightforward?
  */
-function _node_resource_index($page, $fields, $parameters) {
+function _node_resource_index($page, $fields, $parameters, $page_size) {
   // Limit to published nodes if user doesn't have 'administer nodes'
   // permissions.
   if (!user_access('administer nodes')) {
     $parameters['status'] = 1;
   }
-  $query = services_resource_build_index_query('node', 'sticky DESC, created DESC', $page, $fields, $parameters);
+  $query = services_resource_build_index_query('node', 'n.sticky DESC, n.created DESC', $page, $fields, $parameters, 'n', 'nid', $page_size, 'node');
   // Put together array of matching nodes to return.
   $results = array();
   while ($node = db_fetch_object($query)) {
@@ -394,7 +455,7 @@ function _node_resource_index($page, $fields, $parameters) {
  * @return
  *   Array. A list of all files from the given node
  */
-function _node_resource_load_node_files($nid, $include_file_contents = TRUE) {
+function _node_resource_load_node_files($nid, $include_file_contents) {
   module_load_include('inc', 'services', 'resources/file_resource');
   $node = node_load($nid);
   if (!isset($node->files)) {
@@ -407,21 +468,7 @@ function _node_resource_load_node_files($nid, $include_file_contents = TRUE) {
     if (!$file->list) {
       continue;
     }
-    $return[$file->fid] = array(
-      'filename'  => $file->filename,
-      'uid'       => $file->uid,
-      'filemime'  => $file->filemime,
-      'filesize'  => $file->filesize,
-      'status'    => $file->status,
-      'timestamp' => $file->timestamp
-    );
-    // If to add content of the file.
-    if ($file_include_contents) {
-      $filepath = file_create_path($file->filepath);
-      $binaryfile = fopen($filepath, 'rb');
-      $return[$file->fid]['file'] = base64_encode(fread($binaryfile, filesize($filepath)));
-      fclose($binaryfile);
-    }
+    $return[$file->fid] = _file_resource_retrieve($file->fid, $include_file_contents);
 
   }
   return $return;
@@ -439,6 +486,8 @@ function _node_resource_load_node_files($nid, $include_file_contents = TRUE) {
  * @see node_access()
  */
 function _node_resource_access($op = 'view', $args = array()) {
+  // Adds backwards compatability with regression fixed in #1083242
+  $args[0] = _services_access_value($args[0], 'node');
   // Make sure we have an object or this all fails, some servers can
   // mess up the types.
   if (is_array($args[0])) {

@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Implementation of hook_views_default_views().
  */
@@ -11,10 +12,9 @@ function exportables_all_views_views_default_views() {
   $view->name = 'Investigadores_listado';
   $view->description = '';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -234,12 +234,12 @@ function exportables_all_views_views_default_views() {
     'field_related_project_nid' => array(
       'operator' => 'or',
       'value' => array(
-        '42' => '42',
-        '3' => '3',
-        '4' => '4',
-        '1' => '1',
-        '26' => '26',
-        '27' => '27',
+        42 => '42',
+        3 => '3',
+        4 => '4',
+        1 => '1',
+        26 => '26',
+        27 => '27',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -283,7 +283,7 @@ function exportables_all_views_views_default_views() {
     'field_related_project_nid' => array(
       'operator' => 'or',
       'value' => array(
-        '42' => '42',
+        42 => '42',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -337,7 +337,7 @@ function exportables_all_views_views_default_views() {
     'field_related_project_nid' => array(
       'operator' => 'or',
       'value' => array(
-        '27' => '27',
+        27 => '27',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -391,7 +391,7 @@ function exportables_all_views_views_default_views() {
     'field_related_project_nid' => array(
       'operator' => 'or',
       'value' => array(
-        '26' => '26',
+        26 => '26',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -445,7 +445,7 @@ function exportables_all_views_views_default_views() {
     'field_related_project_nid' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -732,7 +732,7 @@ function exportables_all_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -750,10 +750,9 @@ function exportables_all_views_views_default_views() {
   $view->name = 'Listado_edicion';
   $view->description = '';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -835,7 +834,7 @@ function exportables_all_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -888,7 +887,7 @@ function exportables_all_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -906,10 +905,9 @@ function exportables_all_views_views_default_views() {
   $view->name = 'aliados_listado';
   $view->description = 'aliados_listado';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -1054,10 +1052,10 @@ function exportables_all_views_views_default_views() {
     'field_related_project_nid' => array(
       'operator' => 'or',
       'value' => array(
-        '42' => '42',
-        '26' => '26',
-        '27' => '27',
-        '1' => '1',
+        42 => '42',
+        26 => '26',
+        27 => '27',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -1117,7 +1115,7 @@ function exportables_all_views_views_default_views() {
     'field_related_project_nid' => array(
       'operator' => 'or',
       'value' => array(
-        '42' => '42',
+        42 => '42',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -1181,7 +1179,7 @@ function exportables_all_views_views_default_views() {
     'field_related_project_nid' => array(
       'operator' => 'or',
       'value' => array(
-        '26' => '26',
+        26 => '26',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -1245,7 +1243,7 @@ function exportables_all_views_views_default_views() {
     'field_related_project_nid' => array(
       'operator' => 'or',
       'value' => array(
-        '27' => '27',
+        27 => '27',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -1309,7 +1307,7 @@ function exportables_all_views_views_default_views() {
     'field_related_project_nid' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -1592,7 +1590,7 @@ function exportables_all_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -1610,10 +1608,9 @@ function exportables_all_views_views_default_views() {
   $view->name = 'conocelosandes';
   $view->description = 'conocelosandes';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -2457,7 +2454,7 @@ function exportables_all_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -2475,10 +2472,9 @@ function exportables_all_views_views_default_views() {
   $view->name = 'cuencas';
   $view->description = 'cuencas';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -2644,8 +2640,8 @@ function exportables_all_views_views_default_views() {
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -2667,16 +2663,16 @@ function exportables_all_views_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '10' => 0,
-        '8' => 0,
-        '9' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        10 => 0,
+        8 => 0,
+        9 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -3383,7 +3379,7 @@ function exportables_all_views_views_default_views() {
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -3405,14 +3401,14 @@ function exportables_all_views_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '8' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        8 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -3793,7 +3789,7 @@ function exportables_all_views_views_default_views() {
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -3815,14 +3811,14 @@ function exportables_all_views_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '8' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        8 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -3948,7 +3944,7 @@ function exportables_all_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -4027,7 +4023,7 @@ function exportables_all_views_views_default_views() {
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -4049,14 +4045,14 @@ function exportables_all_views_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '8' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        8 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -4333,7 +4329,7 @@ function exportables_all_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -4519,7 +4515,7 @@ function exportables_all_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -4537,10 +4533,9 @@ function exportables_all_views_views_default_views() {
   $view->name = 'instituciones_logos';
   $view->description = 'instituciones_logos';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -4618,7 +4613,7 @@ function exportables_all_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -4651,7 +4646,7 @@ function exportables_all_views_views_default_views() {
     'field_related_project_nid' => array(
       'operator' => 'or',
       'value' => array(
-        '42' => '42',
+        42 => '42',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -4675,7 +4670,7 @@ function exportables_all_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -4718,10 +4713,9 @@ function exportables_all_views_views_default_views() {
   $view->name = 'listados_addnodo';
   $view->description = '';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -4805,10 +4799,9 @@ function exportables_all_views_views_default_views() {
   $view->name = 'novedades_listado';
   $view->description = '';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -4880,35 +4873,6 @@ function exportables_all_views_views_default_views() {
       'field' => 'title',
       'relationship' => 'none',
     ),
-    'body' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 1,
-        'max_length' => '200',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'exclude' => 0,
-      'id' => 'body',
-      'table' => 'node_revisions',
-      'field' => 'body',
-      'relationship' => 'none',
-    ),
     'created' => array(
       'id' => 'created',
       'table' => 'node',
@@ -4969,6 +4933,11 @@ function exportables_all_views_views_default_views() {
   $handler->override_option('use_more', 1);
   $handler->override_option('use_more_always', 0);
   $handler->override_option('use_more_text', 'Ver más');
+  $handler->override_option('style_plugin', 'list');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'type' => 'ul',
+  ));
   $handler = $view->new_display('page', 'Novedades_Lista', 'page_1');
   $handler->override_option('title', 'News');
   $handler->override_option('use_pager', '1');
@@ -4978,7 +4947,7 @@ function exportables_all_views_views_default_views() {
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -5605,7 +5574,7 @@ print l(t(\'See all\'),\'novedades_andesbdc\');
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -5753,9 +5722,216 @@ print l(t(\'See all\'),\'novedades_andesbdc\');
   $handler->override_option('use_pager', 'mini');
   $handler->override_option('use_more', 0);
   $handler->override_option('use_more_text', '');
-  $handler->override_option('style_plugin', 'list');
+  $handler->override_option('style_options', array());
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);
+  $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->override_option('fields', array(
+    'title' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 0,
+      'link_to_node' => 0,
+      'exclude' => 0,
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+    'created' => array(
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+    ),
+    'path' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 0,
+      'absolute' => 1,
+      'exclude' => 0,
+      'id' => 'path',
+      'table' => 'node',
+      'field' => 'path',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+    'teaser' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 0,
+      'exclude' => 0,
+      'id' => 'teaser',
+      'table' => 'node_revisions',
+      'field' => 'teaser',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'created' => array(
+      'order' => 'DESC',
+      'granularity' => 'second',
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('filters', array(
+    'type' => array(
+      'operator' => 'in',
+      'value' => array(
+        'novedades' => 'novedades',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'type',
+      'table' => 'node',
+      'field' => 'type',
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('style_plugin', 'rss_fields');
+  $handler->override_option('style_options', array(
+    'mission_description' => FALSE,
+    'description' => '',
+    'channel' => array(
+      'core' => array(
+        'views_rss_core' => array(
+          'description' => 'The Challenge Program on Water and Food was launched in 2002 as a reform initiative of the CGIAR, the Consultative Group on International Agricultural Research. CPWF aims to increase the resilience of social and ecological systems through better water  management for food production (crops, fisheries and livestock). ',
+          'language' => 'english',
+          'category' => 'watershed',
+          'image' => 'sites/default/files/logo_rss.png',
+          'copyright' => '',
+          'managingEditor' => '',
+          'webMaster' => '',
+          'generator' => '',
+          'docs' => '',
+          'cloud' => '',
+          'ttl' => '',
+          'skipHours' => '',
+          'skipDays' => '',
+        ),
+      ),
+    ),
+    'item' => array(
+      'core' => array(
+        'views_rss_core' => array(
+          'title' => 'title',
+          'link' => 'path',
+          'description' => 'teaser',
+          'author' => '',
+          'category' => '',
+          'comments' => '',
+          'enclosure' => '',
+          'guid' => '',
+          'pubDate' => 'created',
+        ),
+      ),
+    ),
+    'feed_settings' => array(
+      'absolute_paths' => 1,
+      'feed_in_links' => 0,
+    ),
+  ));
+  $handler->override_option('row_plugin', '');
+  $handler->override_option('path', 'rss/novedades');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'primary-links',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('displays', array());
+  $handler->override_option('sitename_title', FALSE);
   $views[$view->name] = $view;
 
   /*
@@ -5765,10 +5941,9 @@ print l(t(\'See all\'),\'novedades_andesbdc\');
   $view->name = 'novedades_listado2';
   $view->description = '';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -6309,10 +6484,9 @@ print l(t(\'See all\'),\'novedades_andesbdc\');
   $view->name = 'otras_vistas';
   $view->description = 'otras_vistas';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -6446,10 +6620,9 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
   $view->name = 'proyectos';
   $view->description = 'proyectos';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -6612,8 +6785,8 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Override',
@@ -6638,16 +6811,16 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '10' => 0,
-        '8' => 0,
-        '9' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        10 => 0,
+        8 => 0,
+        9 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -6689,8 +6862,8 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
     'tid' => array(
       'operator' => 'or',
       'value' => array(
-        '312' => '312',
-        '311' => '311',
+        312 => '312',
+        311 => '311',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -6862,8 +7035,8 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -6888,14 +7061,14 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '8' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        8 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -6937,7 +7110,7 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
     'tid' => array(
       'operator' => 'or',
       'value' => array(
-        '312' => '312',
+        312 => '312',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -7109,8 +7282,8 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -7135,14 +7308,14 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '8' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        8 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -7184,7 +7357,7 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
     'tid' => array(
       'operator' => 'or',
       'value' => array(
-        '311' => '311',
+        311 => '311',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -7356,8 +7529,8 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -7382,14 +7555,14 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '8' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        8 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -7434,7 +7607,7 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
     'tid' => array(
       'operator' => 'or',
       'value' => array(
-        '312' => '312',
+        312 => '312',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -7606,8 +7779,8 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -7632,14 +7805,14 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '8' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        8 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -7684,7 +7857,7 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
     'tid' => array(
       'operator' => 'or',
       'value' => array(
-        '311' => '311',
+        311 => '311',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -7872,8 +8045,8 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -7898,14 +8071,14 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '8' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        8 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -7979,7 +8152,7 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -8715,8 +8888,8 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -8741,16 +8914,16 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '10' => 0,
-        '8' => 0,
-        '9' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        10 => 0,
+        8 => 0,
+        9 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -9025,7 +9198,7 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
     'field_destacado_value' => array(
       'operator' => 'or',
       'value' => array(
-        '338' => '338',
+        338 => '338',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -9309,8 +9482,8 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -9335,14 +9508,14 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '8' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        8 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -9552,8 +9725,8 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -9578,14 +9751,14 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '8' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        8 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -9658,7 +9831,7 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -9837,8 +10010,8 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -9863,14 +10036,14 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '8' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        8 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -9924,7 +10097,7 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -10098,8 +10271,8 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -10124,16 +10297,16 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '10' => 0,
-        '8' => 0,
-        '9' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        10 => 0,
+        8 => 0,
+        9 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -10341,8 +10514,8 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -10367,16 +10540,16 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '10' => 0,
-        '8' => 0,
-        '9' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        10 => 0,
+        8 => 0,
+        9 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -10769,8 +10942,8 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -10795,16 +10968,16 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '10' => 0,
-        '8' => 0,
-        '9' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        10 => 0,
+        8 => 0,
+        9 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -10886,8 +11059,8 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
+        2 => 0,
+        3 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -10912,16 +11085,16 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '3' => 0,
-        '10' => 0,
-        '8' => 0,
-        '9' => 0,
-        '6' => 0,
-        '4' => 0,
-        '1' => 0,
-        '2' => 0,
-        '7' => 0,
-        '5' => 0,
+        3 => 0,
+        10 => 0,
+        8 => 0,
+        9 => 0,
+        6 => 0,
+        4 => 0,
+        1 => 0,
+        2 => 0,
+        7 => 0,
+        5 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -10960,10 +11133,9 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
   $view->name = 'recursos_listado';
   $view->description = 'recursos_listado';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -11273,9 +11445,9 @@ print l(t(\'See all\'),\'recursos_andesbdc\');
     'tid' => array(
       'operator' => 'or',
       'value' => array(
-        '305' => '305',
-        '304' => '304',
-        '306' => '306',
+        305 => '305',
+        304 => '304',
+        306 => '306',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -11950,9 +12122,9 @@ print l(t(\'Ver más\'),/recursos_andesbdc\'\');
     'tid' => array(
       'operator' => 'or',
       'value' => array(
-        '305' => '305',
-        '304' => '304',
-        '306' => '306',
+        305 => '305',
+        304 => '304',
+        306 => '306',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -12005,10 +12177,9 @@ print l(t(\'Ver más\'),/recursos_andesbdc\'\');
   $view->name = 'rss_novedades_recursos';
   $view->description = 'rss_novedades_recursos';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -12169,7 +12340,7 @@ print l(t(\'Ver más\'),/recursos_andesbdc\'\');
     'title' => '',
     'description' => '',
     'weight' => 0,
-    'name' => 'navigation',
+    'name' => 'primary-links',
   ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
@@ -12189,10 +12360,9 @@ print l(t(\'Ver más\'),/recursos_andesbdc\'\');
   $view->name = 'vista_rss';
   $view->description = 'vista_rss';
   $view->tag = 'andes';
-  $view->view_php = '';
   $view->base_table = 'aggregator_item';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(

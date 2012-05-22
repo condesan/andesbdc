@@ -21,17 +21,17 @@ class RESTServer {
 
     // Determine the request method
     $method = $_SERVER['REQUEST_METHOD'];
-    if ($method=='POST' && isset($_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'])) {
+    if ($method == 'POST' && isset($_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'])) {
       $method = $_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'];
     }
-    if ($method=='POST' && (isset($_GET['_method']) && $_GET['_method'])) {
+    if ($method == 'POST' && (isset($_GET['_method']) && $_GET['_method'])) {
       $method = $_GET['_method'];
     }
     $path = explode('/', $canonical_path);
     $leaf = array_pop($path);
     $resource_name = array_shift($path);
     // Extract response format info from the path
-    $matches=array();
+    $matches = array();
     if ($leaf && preg_match('/^(.+)\.([^\.]+)$/', $leaf, $matches)) {
       $leaf = $matches[1];
       $response_format = $matches[2];
@@ -53,6 +53,15 @@ class RESTServer {
     }
 
     $endpoint = services_get_server_info('endpoint', '');
+
+    $endpoint_definition = services_endpoint_load($endpoint);
+
+    // Get the server settings from the endpoint.
+    $this->settings = !empty($endpoint_definition->server_settings['rest_server']) ? $endpoint_definition->server_settings['rest_server'] : array();
+    // Normalize the settings so that we get the expected structure
+    // and sensible defaults.
+    $this->settings = rest_server_setup_settings($this->settings);
+    
     $resources = services_get_resources($endpoint);
     $controller = FALSE;
     if (!empty($resource_name) && isset($resources[$resource_name])) {
@@ -62,13 +71,17 @@ class RESTServer {
       $controller = $this->resolveController($resource, $method, $path);
     }
     else {
-      throw new ServicesException(t('Could not find resource @name', array(
-          '@name' => $resource_name,
-        )), 404);
+      //This will stop the 404 from happening when you request just the endpoint.
+      if ($endpoint_definition->path == $resource_name) {
+        $response = t('Services Endpoint "@name" has been setup successfully.', array('@name' => $endpoint));
+        drupal_alter('services_endpoint_response', $response);
+        return $response;
+      }
+      return services_error(t('Could not find resource @name.', array('@name' => $resource_name)), 404);
     }
 
     if (!$controller) {
-      throw new ServicesException('Could not find the controller', 404);
+      return services_error(t('Could not find the controller.'), 404);
     }
 
     // Parse the request data
@@ -83,7 +96,6 @@ class RESTServer {
     // Negotiate response format based on accept-headers if we
     // don't have a response format
     if (empty($response_format)) {
-      module_load_include('php', 'rest_server', 'lib/mimeparse');
 
       $mime_candidates = array();
       $mime_map = array();
@@ -98,21 +110,16 @@ class RESTServer {
       }
 
       // Get the best matching format, default to json
+      $response_format = 'json';
       if (isset($_SERVER['HTTP_ACCEPT'])) {
-        $mime = new Mimeparse();
+        $mime = $this->mimeParse();
         $mime_type = $mime->best_match($mime_candidates, $_SERVER['HTTP_ACCEPT']);
-      }
-
-      if (isset($mime_type) && $mime_type) {
         $response_format = $mime_map[$mime_type];
-      }
-      else {
-        $response_format = 'json';
       }
     }
 
     // Check if we support the response format and determine the mime type
-    if (empty($mime_type) && !empty($response_format) && isset($formats[$response_format])) {
+    if (empty($mime_type) && isset($formats[$response_format])) {
       $formatter = $formats[$response_format];
       if (!isset($formatter['model']) || $this->supportedControllerModel($controller, $formatter)) {
         $mime_type = $formatter['mime types'][0];
@@ -120,7 +127,7 @@ class RESTServer {
     }
 
     if (empty($response_format) || empty($mime_type)) {
-      throw new ServicesException('Unknown or unsupported response format', 406);
+      return services_error(t('Unknown or unsupported response format.'), 406);
     }
 
     // Give the model (if any) a opportunity to alter the arguments.
@@ -150,9 +157,10 @@ class RESTServer {
 
     try {
       $result = services_controller_execute($controller, $arguments);
-    } catch (ServicesException $e) {
+    }
+    catch (ServicesException $e) {
       $errors = $this->handleException($e);
-      drupal_alter('rest_server_exectue_errors', $errors, $controller, $arguments);
+      drupal_alter('rest_server_execute_errors', $errors, $controller, $arguments);
       $result = $errors;
     }
     $formatter = $formats[$response_format];
@@ -188,7 +196,7 @@ class RESTServer {
    *  An array of the sources used for getting the arguments for the call
    * @return void
    */
-  private function getControllerArguments($controller, $path, $method, &$sources=array()) {
+  private function getControllerArguments($controller, $path, $method, &$sources = array()) {
     // Get argument sources
     $parameters = $_GET;
     unset($parameters['_method']);
@@ -218,16 +226,15 @@ class RESTServer {
             }
           }
           else {
-              if (isset($sources[$info['source']][$info['name']])) {
-                $arguments[$i] = $sources[$info['source']][$info['name']];
-              }
+            if (isset($sources[$info['source']])) {
+              $arguments[$i] = $sources[$info['source']];
+            }
           }
           // Convert to array if argument expected to be array.
           if ($info['type'] == 'array' && isset($arguments[$i])) {
             $arguments[$i] = (array)$arguments[$i];
           }
         }
-
         // When argument isn't set, insert default value if provided or
         // throw a exception if the argument isn't optional.
         if (!isset($arguments[$i])) {
@@ -249,15 +256,11 @@ class RESTServer {
   }
 
   private function parseRequest($method, $controller) {
-    if (($method == 'POST' || $method == 'PUT') &&  isset($_SERVER['CONTENT_TYPE'])) {
-      $type = self::parseContentHeader($_SERVER['CONTENT_TYPE']);
-    }
+
     switch ($method) {
       case 'POST':
-        if (isset($type['value']) && $type['value'] == 'application/x-www-form-urlencoded') {
-          return $_POST;
-        }
       case 'PUT':
+        $type = self::parseContentHeader($_SERVER['CONTENT_TYPE']);
         // Get the mime type for the request, default to form-urlencoded
         if (isset($type['value'])) {
           $mime = $type['value'];
@@ -267,23 +270,27 @@ class RESTServer {
         }
 
         // Get the parser for the mime type
-        $parser = $this->requestParsers($mime, $controller);
+        $parser = $this->requestParser($mime, $controller);
         if (!$parser) {
-          throw new ServicesException(t('Unsupported request content type !mime', array(
-              '!mime' => $mime,
-            )), 406);
+          return services_error(t('Unsupported request content type @mime', array('@mime' => $mime)), 406);
         }
-
-        // Read the raw input stream
-        if (module_exists('inputstream')) {
-          $handle = fopen('drupal://input', 'r');
+        // php://input is not available with enctype="multipart/form-data".
+        // see http://php.net/manual/en/wrappers.php.php
+        if ($mime == 'multipart/form-data') {
+          $data = call_user_func($parser);
         }
         else {
-          $handle = fopen('php://input', 'r');
-        }
-        if ($handle) {
-          $data = call_user_func($parser, $handle);
-          fclose($handle);
+          // Read the raw input stream.
+          if (module_exists('inputstream')) {
+            $handle = fopen('drupal://input', 'r');
+          }
+          else {
+            $handle = fopen('php://input', 'r');
+          }
+          if ($handle) {
+            $data = call_user_func($parser, $handle);
+            fclose($handle);
+          }
         }
         return $data;
 
@@ -326,7 +333,7 @@ class RESTServer {
     return $content;
   }
 
-  public static function fileRecieve($handle, $validators=array()) {
+  public static function fileRecieve($handle, $validators = array()) {
     $validators['file_validate_name_length'] = array();
 
     $type = RESTServer::parseContentHeader($_SERVER['CONTENT_TYPE']);
@@ -359,7 +366,7 @@ class RESTServer {
       $errors = array_merge($errors, call_user_func_array($function, $args));
     }
     if (!empty($errors)) {
-      throw new ServicesException(t('Errors while validating the file'), 406, $errors);
+      return services_error(t('Errors while validating the file - @errors', array('@errors' => implode(" ", $errors))), 406);
     }
 
     drupal_write_record('files', $file);
@@ -400,32 +407,32 @@ class RESTServer {
     return $view->render();
   }
 
-  private function requestParsers($mime=NULL, $controller=NULL) {
-    static $parsers;
-
-    if ($mime && $controller && !empty($controller['rest request parsers'])) {
+  /**
+   * Get best match parser for $controller based on $mime type.
+   */
+  private function requestParser($mime, $controller = NULL) {
+    // Check if the controller has declared support for parsing the mime type.
+    if ($controller && !empty($controller['rest request parsers'])) {
       $parser = $this->matchParser($mime, $controller['rest request parsers']);
       if ($parser) {
         return $parser;
       }
     }
 
-    if (!$parsers) {
-      $parsers = array(
-        'application/x-www-form-urlencoded' => 'RESTServer::parseURLEncoded',
-        'application/x-yaml' => 'RESTServer::parseYAML',
-        'application/json' => 'RESTServer::parseJSON',
-        'application/vnd.php.serialized' => 'RESTServer::parsePHP',
-      );
-      drupal_alter('rest_server_request_parsers', $parsers);
+    $parsers = rest_server_request_parsers();
+    // Remove parsers that have been disabled for this endpoint.
+    foreach (array_keys($parsers) as $key) {
+      if (!$this->settings['parsers'][$key]) {
+        unset($parsers[$key]);
+      }
     }
-
-    if ($mime) {
-      return $this->matchParser($mime, $parsers);
-    }
-    return $parsers;
+    return $this->matchParser($mime, $parsers);
   }
-
+ /**
+  * Create a instance of the Mimeparse utility class.
+  *
+  * @return Mimeparse
+  */
   private function mimeParse() {
     static $mimeparse;
     if (!$mimeparse) {
@@ -438,9 +445,7 @@ class RESTServer {
   private function matchParser($mime, $parsers) {
     $mimeparse = $this->mimeParse();
     $mime_type = $mimeparse->best_match(array_keys($parsers), $mime);
-    if ($mime_type) {
-      return $parsers[$mime_type];
-    }
+    return ($mime_type) ? $parsers[$mime_type] : FALSE;
   }
 
   public static function parseURLEncoded($handle) {
@@ -451,6 +456,10 @@ class RESTServer {
   public static function parsePHP($handle) {
     return unserialize(self::contentFromStream($handle));
   }
+  
+  public static function parseFile($handle) {
+    return self::contentFromStream($handle);
+  }
 
   public static function parseJSON($handle) {
     return json_decode(self::contentFromStream($handle), TRUE);
@@ -458,61 +467,23 @@ class RESTServer {
 
   public static function parseYAML($handle) {
     module_load_include('php', 'rest_server', 'lib/spyc');
-    return Spyc::YAMLLoad(self::contentFromStream($handle));
+    return Spyc::YAMLLoadString(self::contentFromStream($handle));
   }
 
   private function responseFormatters($format=NULL) {
-    static $formatters;
+    $formatters = rest_server_response_formatters();
 
-    if (!$formatters) {
-      $formatters = array(
-        'xml' => array(
-          'mime types' => array('application/xml', 'text/xml'),
-          'view' => 'RESTServerViewBuiltIn',
-          'view arguments' => array('format' => 'xml'),
-        ),
-        'json' => array(
-          'mime types' => array('application/json'),
-          'view' => 'RESTServerViewBuiltIn',
-          'view arguments' => array('format' => 'json'),
-        ),
-        'jsonp' => array(
-          'mime types' => array('text/javascript', 'application/javascript'),
-          'view' => 'RESTServerViewBuiltIn',
-          'view arguments' => array('format' => 'jsonp'),
-        ),
-        'php' => array(
-          'mime types' => array('application/vnd.php.serialized'),
-          'view' => 'RESTServerViewBuiltIn',
-          'view arguments' => array('format' => 'php'),
-        ),
-        'yaml' => array(
-          'mime types' => array('text/plain', 'application/x-yaml', 'text/yaml'),
-          'view' => 'RESTServerViewBuiltIn',
-          'view arguments' => array('format' => 'yaml'),
-        ),
-        'bencode' => array(
-          'mime types' => array('application/x-bencode'),
-          'view' => 'RESTServerViewBuiltIn',
-          'view arguments' => array('format' => 'bencode'),
-        ),
-        'rss' => array(
-          'model' => 'ResourceFeedModel',
-          'mime types' => array('text/xml'),
-          'view' => 'RssFormatView',
-        ),
-      );
-      drupal_alter('rest_server_response_formatters', $formatters);
+    // Remove formatters that have been disabled for this endpoint.
+    foreach (array_keys($formatters) as $key) {
+      if (!$this->settings['formatters'][$key]) {
+        unset($formatters[$key]);
+      }
     }
-
     if ($format) {
       return isset($formatters[$format]) ? $formatters[$format] : FALSE;
     }
+    
     return $formatters;
-  }
-
-  private function loadInclude($file) {
-    module_load_include($file['file'], $file['module'], isset($file['name'])?$file['name']:NULL);
   }
 
   private function supportedControllerModel($controller, $format) {
@@ -527,18 +498,24 @@ class RESTServer {
     }
   }
 
-  function handleException($e){
+  function handleException($e) {
     $code = $e->getCode();
     switch ($code) {
+      case 204:
+        drupal_set_header('HTTP/1.0 204 No Content: ' . $e->getMessage());
+        break;
+      case 304:
+        drupal_set_header('HTTP/1.0 304 Not Modified: ' . $e->getMessage());
+        break;
       case 401:
         drupal_set_header('HTTP/1.0 401 Unauthorized: ' . $e->getMessage());
-      break;
+        break;
       case 404:
         drupal_set_header('HTTP/1.0 404 Not found: ' . $e->getMessage());
-      break;
+        break;
       case 406:
         drupal_set_header('HTTP/1.0 406 Not Acceptable: ' . $e->getMessage());
-      break;
+        break;
       default:
         if ($code >= 400 && $code < 600) {
           drupal_set_header('HTTP/1.0 ' . $code . ' ' . $e->getMessage());
@@ -546,12 +523,13 @@ class RESTServer {
         else {
           drupal_set_header('HTTP/1.0 500 An error occurred: (' . $code . ') ' . $e->getMessage());
         }
-      break;
+        break;
     }
-    if(method_exists($e,'getData')){
+    if (method_exists($e, 'getData')) {
       return $e->getData();
     }
   }
+
   private function resolveController($resource, $method, $path) {
     $pc = count($path);
     // Use the index handler for all empty path request, except on POST
@@ -559,9 +537,7 @@ class RESTServer {
       return isset($resource['index']) ? $resource['index'] : NULL;
     }
     // Detect the standard crud operations
-    elseif (
-        ($pc==1 && ($method=='GET' || $method=='PUT' || $method=='DELETE')) ||
-        ($pc==0 && $method='POST')) {
+    elseif (($pc == 1 && ($method == 'GET' || $method == 'PUT' || $method == 'DELETE')) || ($pc == 0 && $method == 'POST')) {
       $action_mapping = array(
         'GET' => 'retrieve',
         'POST' => 'create',
@@ -589,7 +565,7 @@ class RESTServer {
     }
     // Detect action requests targeted at specific resources
     elseif ($pc >= 2 && $method == 'POST') {
-      $action = $resource['targeted actions'][$path[1]];
+      $action = $resource['targeted_actions'][$path[1]];
       return $action;
     }
   }

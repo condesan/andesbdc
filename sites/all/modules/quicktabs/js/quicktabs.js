@@ -17,8 +17,8 @@ Drupal.quicktabs.prepare = function(el) {
   var i = 0;
   // el.id format: "quicktabs-$qtid"
   var qtid = el.id.substring(el.id.indexOf('-') +1);
-
-  $(el).find('ul.quicktabs_tabs li a').each(function(){
+  var $ul = $(el).find('ul.quicktabs_tabs:first');
+  $ul.find('li a').each(function(){
     this.myTabIndex = i++;
     this.qtid = qtid;
     $(this).unbind('click').bind('click', quicktabsClick);
@@ -168,7 +168,7 @@ var quicktabsClick = function() {
             qtAjaxPath +=  tab.tabObj.nid + '/' + tab.tabObj.teaser + '/' + tab.tabObj.hide_title;
             break;
           case 'block':
-            qtAjaxPath +=  tab.tabObj.bid + '/' + tab.tabObj.hide_title;
+            qtAjaxPath +=  tab.qtid + '/' + tab.tabObj.bid + '/' + tab.tabObj.hide_title;
             break;
           case 'qtabs':
             qtAjaxPath +=  tab.tabObj.machine_name;
@@ -208,18 +208,28 @@ Drupal.theme.prototype.quicktabsResponse = function(tab, content) {
  * required js files for ajax-loaded content
  */
 Drupal.quicktabs.ajax.scripts = function(files) {
+  
   // Build a list of scripts already loaded:
+  var scripts = {};
   $('script').each(function () {
     Drupal.quicktabs.scripts[$(this).attr('src')] = $(this).attr('src');
   });
 
   var html = '';
+  var head = document.getElementsByTagName('head')[0];
   for (var i in files) {
     // Load all files that aren't already present on the page, but make sure not
     // to add misc/jquery.js because this could override a newer version of
-    // jQuery loaded by jQuery Update module.
+    // jQuery loaded by jQuery Update module. Ctools itself has a much more generic
+    // way of dealing with this (i.e. not just for jquery.js) and it would be much
+    // better to use ctools rather than copying its code, but I don't want to make
+    // it a dependency at this stage.
     if (!Drupal.quicktabs.scripts[files[i]] && !files[i].match(/^\/misc\/jquery\.js.*$/)) {
       Drupal.quicktabs.scripts[files[i]] = files[i];
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = files[i];
+      head.appendChild(script);
       html += '<script type="text/javascript" src="' + files[i] + '"></script>';
     }
   }
@@ -243,7 +253,7 @@ Drupal.quicktabs.ajax.css_files = function(files) {
   });
 
   var html = '';
-  for (i in files) {
+  for (var i in files) {
     if (!Drupal.quicktabs.css[files[i].file]) {
       html += '<link class="qt-temporary-css" type="text/css" rel="stylesheet" media="' + files[i].media +
         '" href="' + files[i].file + '" />';

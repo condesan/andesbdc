@@ -1,5 +1,4 @@
 <?php
-//  $Id: cumulus.module,v 1.1.2.10 2009/04/14 09:04:58 lut4rp Exp $
 /**
  * @file
  * The brain of Cumulus.
@@ -134,7 +133,7 @@ function theme_cumulus_weighted($terms) {
   foreach ($terms as $term) {
     // assign font size
     $font_size = (intval($term->weight) * variable_get('cumulus_flash_font_size_interval', 2)) + (variable_get('cumulus_flash_font_size', 10) - variable_get('cumulus_flash_font_size_interval', 2));
-    $output .= l($term->name, taxonomy_term_path($term), array('attributes' => array('style' => '"font-size: '. $font_size .'px;"'))) ." \n";
+    $output .= l($term->name, taxonomy_term_path($term), array('absolute' => TRUE, 'attributes' => array('style' => '"font-size: '. $font_size .'px;"'))) ." \n";
   }
   $output .= '</tags>';
   $output = urlencode($output);

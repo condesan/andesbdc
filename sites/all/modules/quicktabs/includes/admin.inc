@@ -30,7 +30,7 @@ function quicktabs_list() {
       }
 
       $tablerow = array(
-        array('data' => $quicktabs['title']),
+        array('data' => check_plain($quicktabs['title'])),
         array('data' => $storage),
         array('data' => l(t('Edit'), 'admin/build/quicktabs/'. $quicktabs['machine_name'] .'/edit')),
         array('data' => l(t('Export'), 'admin/build/quicktabs/'. $quicktabs['machine_name'] .'/export')),
@@ -40,7 +40,7 @@ function quicktabs_list() {
     }
     else {
       $tablerow = array(
-        array('data' => $quicktabs['title']),
+        array('data' => check_plain($quicktabs['title'])),
         array('data' => t('Normal')),
         array('data' => l(t('Edit'), 'admin/build/quicktabs/'. $quicktabs['machine_name'] .'/edit')),
         array('data' => l(t('Clone'), 'admin/build/quicktabs/'. $quicktabs['machine_name'] .'/clone')),
@@ -164,7 +164,7 @@ function _qt_admin_main_form($form_state, &$quicktabs) {
       FALSE => t('No') .': '. t('Load all tabs on page view.'),
     ),
     '#default_value' => isset($quicktabs['ajax']) ? $quicktabs['ajax'] : 0,
-    '#description' => t('Choose how the content of tabs should be loaded.<p>By choosing "Yes", only the first tab will be loaded when the page first viewed. Content for other tabs will be loaded only when the user clicks the other tab. This will provide faster initial page loading, but subsequent tab clicks will be slower. This can place less load on a server.</p><p>By choosing "No", all tabs will be loaded when the page is first viewed. This will provide slower initial page loading, and more server load, but subsequent tab clicks will be faster for the user. Use with care if you have heavy views.</p>'),
+    '#description' => t('Choose how the content of tabs should be loaded.<p>By choosing "Yes", only the first tab will be loaded when the page first viewed. Content for other tabs will be loaded only when the user clicks the other tab. This will provide faster initial page loading, but subsequent tab clicks will be slower. This can place less load on a server.</p><p>By choosing "No", all tabs will be loaded when the page is first viewed. This will provide slower initial page loading, and more server load, but subsequent tab clicks will be faster for the user. Use with care if you have heavy views.</p><p>Warning: if you enable Ajax, any block you add to this quicktabs block will be accessible to anonymous users, even if you place role restrictions on the quicktabs block. Do not enable Ajax if the quicktabs block includes any blocks with potentially sensitive information.</p>'),
     '#weight' => -6,
   );
 
@@ -260,7 +260,7 @@ function _quicktabs_form($details, $quicktabs) {
       '#default_value' => $selected_view,
       '#title' => t('Select a view'),
       '#ahah' => array(
-        'path' => 'quicktabs/ahah/',
+        'path' => 'quicktabs/ahah',
         'wrapper' => 'quicktabs-tabs',
         'method' => 'replace',
         'event' => 'change',
