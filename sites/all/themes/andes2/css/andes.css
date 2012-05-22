@@ -1120,7 +1120,7 @@ ul.inline {
   width: 205px;
 }
 
-.menu_redes ul.menu li a {
+#block-menu-menu-redes ul.menu li a {
   background: url("../images/general.png") no-repeat scroll 0 0 transparent;
   display: inline-block;
   height: 18px;
@@ -1129,24 +1129,24 @@ ul.inline {
   width: 18px;
 }
 
-.menu_redes ul.menu li.rss a {
+#block-menu-menu-redes ul.menu li a.rss {
   background-position: 0px -131px;
 }
 
-.menu_redes ul.menu li.facebook a {
+#block-menu-menu-redes  ul.menu a.facebook {
   background-position: -18px -131px;
 }
 
-.menu_redes ul.menu li.twitter a {
+#block-menu-menu-redes  ul.menu a.twitter {
   background-position: -36px -131px;
 }
 
-.menu_redes ul.menu li.youtube a {
+#block-menu-menu-redes  ul.menu a.youtube {
   background-position: -55px -131px;
 }
 
-.menu_redes ul.menu li.flickr a{
-  background: url("../images/flickr.png") no-repeat scroll 0 0 transparent;
+#block-menu-menu-redes ul.menu a.slideshare {
+  background: url("../images/slideshare.png") no-repeat scroll 0 0 transparent;
   display: inline-block;
   height: 18px;
   margin: 4px 11px 4px 0;
@@ -1154,8 +1154,8 @@ ul.inline {
   width: 18px;
 }
 
-.menu_redes ul.menu li.zzzz a {
-  background: url("../images/redes6.png") no-repeat scroll 0 0 transparent;
+#block-menu-menu-redes ul.menu a.flickr {
+  background: url("../images/flickr.png") no-repeat scroll 0 0 transparent;
   display: inline-block;
   height: 18px;
   margin: 4px 11px 4px 0;

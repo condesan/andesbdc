@@ -188,3 +188,15 @@ function andes2_quicktabs_tabs($quicktabs, $active_tab = 'none'){
   return $output;
 
 }
+
+
+function andes2_menu_item_link($link) {
+  if (empty($link['localized_options'])) {
+    $link['localized_options'] = array();
+  }
+  if (empty($link['localized_options']['attributes'])) {
+    $link['localized_options']['attributes'] = array();
+  }
+  $link['localized_options']['attributes'] += array('class' => $link['title']);
+  return l($link['title'], $link['href'], $link['localized_options']);
+}

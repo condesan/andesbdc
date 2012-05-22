@@ -153,52 +153,8 @@
 
 
       <?php print $header; ?>
-      
-<div class="menu_redes">
-  <ul class="menu">
-   <div class="RSS">
-    <li class="rss">
-         <a title="" target="_blank" href="http://dev.condesan.org/andesbdc/rss">rss</a>
-    </li>
-    </div>
-    <div class="facebook">
-    <li class="facebook">
-   
-      <a title="" href="http://www.facebook.com/pages/CGIAR-Challenge-Program-on-Water-and-Food-CPWF/163005603787865">facebook</a>
-  
-    </li>
-      </div>
-        <div class="twitter">
-    <li class="twitter">
-    
-      <a title="" target="_blank" href="http://twitter.com/#!/Waterandfood">twitter</a>
-
-    </li>
-          </div>
-              <div class="youtube">
-    <li class="youtube">
-
-      <a title="" href="/andesbdc/">youtube</a>
-
-    </li>
-        </div>
-          <div class="flickr">
-
-    <li class="flickr">
-        <a title="" target="_blank" href="http://www.slideshare.net/CPWF">flickr</a>
-
-    </li>
-        </div>
-            <div class="zzzz">
-    <li class="zzzz">
-
-    <a title="" href="">zzzz</a>
-
-    </li>
-        </div>
-  </ul>
-</div>
-
+     
+     
     </div></div><!-- /.section, /#header -->
 
     <div id="main-wrapper"><div id="main" class="clearfix<?php if ($primary_links || $navigation) { print ' with-navigation'; } ?>">
