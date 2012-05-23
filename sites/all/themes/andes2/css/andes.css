@@ -2313,11 +2313,25 @@ font-weight:normal;
 /*footer*/
 
 #footer {
+padding-top:50px;
+}
+
+.footer-image {
+border-top:solid 1px #582A8A;
+background-color:#fff;
+}
+
+
+.footer-text {
 border-top:solid 1px #582A8A;
 padding:0px 20px;
 background-color:#582A8A;
 color:#fff;
+height:60px;
+text-align:center;
+padding-top:20px;
 }
+
 
 #footer a {
 color:#fff;

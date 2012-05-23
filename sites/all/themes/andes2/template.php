@@ -104,6 +104,9 @@ function andes2_preprocess_page(&$vars, $hook) {
   if ($vars['node']->type == 'recursos') {
       $vars['title'] = t('Resources');
     }
+  $vars['footer'] = '<div class="footer-image">' . theme('image',path_to_theme() . '/images/logos.png') . '</div>' .  
+  '<div class="footer-text">Andes BDC is a program from CGIAR Challenge Program on Water and Food | Email: andesbdc@cpwf.org <br /> 
+                     Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400 </div>';
 }
 
 
