@@ -939,12 +939,6 @@ padding-bottom:6px;
   float: left;
 }
 
-.view-vista-rss .views-field-timestamp {
-  font-size: 11px;
-  font-weight: bold;
-  margin-left:100px;
-}
-
 .page-novedades-andesbdc .view-vista-rss .views-row{
   margin-top: 5px;
 }
@@ -1027,21 +1021,6 @@ padding-bottom:6px;
 
 .page-recursos-andesbdc .view-id-vista_rss  {
   padding-top: 10px;
-}
-
-.view-vista-rss .views-field-title {
-  background: url("../images/bullet2.png") no-repeat scroll 0 5px transparent;
-  margin-left: 20px;
-  padding-left: 25px;
-  padding-right: 5px;
-}
-
-.view-vista-rss .views-field-timestamp {
-  margin-left: 45px;
-}
-
-.view-vista-rss .views-field-description {
-  margin-left: 45px;
 }
 
 .page-recursos-andesbdc .region-content-bottom2 {

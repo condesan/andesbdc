@@ -117,8 +117,34 @@ function andes2_preprocess_page(&$vars, $hook) {
  */
 
 function andes2_preprocess_node(&$vars, $hook) {
+  //dpm($vars);
   if ($vars['type'] == 'proyecto') {
     $vars['content_related_nodes'] = $vars['field_related_novedades_rendered'] .  $vars['field_related_recursos_rendered'];
+  }
+  if ($vars['type'] == 'sitio_cuenca') {
+    $tabs = array(
+      l(t('What we do'), 'node/' . $vars['nid'] . '/whatwedo'),
+      l(t('Environmental Description'), 'node/' . $vars['nid'] . '/environment'),
+      l(t('Description Social'), 'node/' . $vars['nid'] . '/social'),
+      l(t('Geography'), 'node/' . $vars['nid'] . '/geography'),
+      l(t('Actors'), 'node/' . $vars['nid'] . '/actors'),
+      l(t('Map'), 'node/' . $vars['nid'] . '/map'),
+      l(t('News'), 'node/' . $vars['nid'] . '/news'),
+      l(t('Resources'), 'node/' . $vars['nid'] . '/resources'),
+    );
+    $vars['content_related_nodes'] = theme('item_list', $tabs);
+    if (arg(0) == 'node' && is_numeric(arg(1)) && is_string(arg(2))) {
+     switch (arg(2)) {
+       case 'whatwedo' : $vars['content'] = $vars['body']; break;
+       case 'environment' : $vars['content'] = $vars['field_desc_ambiental_rendered']; break;
+       case 'social' : $vars['content'] = $vars['field_desc_social_rendered']; break;
+       case 'geography' : $vars['content'] = $vars['field_desc_geografica_rendered']; break;              
+       case 'actors' : $vars['content'] = $vars['field_related_investigadores_rendered']; break;  
+       case 'map' : $vars['content'] = $vars['field_desc_geografica_rendered']; break;   
+       case 'news' : $vars['content'] = $vars['field_related_novedades_rendered']; break;   
+       case 'resources' : $vars['content'] = $vars['field_related_recursos_rendered']; break;          
+     }
+    }
   }
 }
 

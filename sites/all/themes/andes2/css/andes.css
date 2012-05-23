@@ -598,54 +598,6 @@ float:right;
   font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
 }
 
-#block-views-novedades_listado-block_2 .view-novedades-listado .views-field-field-picture-fid {
-  -moz-border-radius: 11px 11px 11px 11px;
-  -moz-box-shadow: 5px 5px 5px black;
-  -webkit-border-radius: 11px 11px 11px 11px;
-  -webkit-box-shadow: 5px 5px 5px black;
-  background-color: #FFFFFF;
-  border: 3px solid #FFFFFF;
-  float: left;
-  margin-left: 15px;
-  margin-right: 5px;
-}
-
-.view-novedades-listado .views-row  {
-  clear:bold;
-  display:block;
-}
-
-.page-novedades-andesbdc .view-novedades-listado .views-field-title {
-  font-size: 12px;
-  padding-left: 140px;
-  margin-right:20px;
-}
-
-.page-novedades-andesbdc .view-novedades-listado .views-field-created {
-  font-size: 11px;
-  padding-left: 140px;
-  font-weight:bold;
-}
-
-.page-novedades-andesbdc .view-novedades-listado .views-field-title a{
-  text-decoration:none;
-  color: black;
-  font-weight:bold;
-}
-
-.page-novedades-andesbdc .view-novedades-listado .views-field-body {
-  padding-right: 5px;
-  padding-left: 140px;
-}
-
-.page-novedades-andesbdc .view-novedades-listado .views-row {
-  clear: both;
-  display: block;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  height: 140px;
-}
-
 #block-views-vista_rss-block_2 .views-field-description a{
   text-decoration:none;
   color:black;
@@ -698,38 +650,6 @@ float:right;
   color: black;
 }
 
-.view-vista-rss .views-field-title {
-  margin-left: 100px;
- /* padding-bottom: 10px;*/
-  padding-right: 5px;
-}
-.view-vista-rss .views-field-title a {
-  text-decoration:none;
-  color:black;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  font-size: 12px;
-  font-weight:bold;
-}
- 
-.view-vista-rss .views-field-description {
-  text-decoration:none;
-  color:black;
-  font-family:Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  font-size: 11px;
-  margin-left:100px;
-  padding-bottom:10px;
-  padding-right:15px;
-}
-
-.view-vista-rss .pager {
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  font-size:9pt;
-}
-
-.view-vista-rss.pager {
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  font-size:9pt;
-}
 
 #block-menu-menu-menuproyectoscuencas ul {
   margin: 1em 0;
@@ -896,44 +816,13 @@ ul.inline {
   text-align: right;
 }
 
-#block-views-novedades_listado-block_2 h2.title {
-  background: none repeat scroll 0 0 #582A8A;
-  color: white;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  padding-right: 10px;
-  text-align: right;
-}
-
  #block-views-vista_rss-block_1{
   background:#D6D6D6;
   width:370px;
   margin-left:10px;
   float:right;
   height: 900px;
-}
- 
-#block-views-novedades_listado-block_2 {
-  width:370px;
-  float:left;
-  background:#D6D6D6;
-  height: 900px;
-}
-
-#block-views-vista_rss-block_2 {
-  background:#D6D6D6;
-  width:370px;
-  margin-left:20px;
-  float:right;
-  height: 900px;
-}
-
-#block-views-vista_rss-block_2 h2.title {
-  background: none repeat scroll 0 0 #582A8A;
-  color: white;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  padding-right: 10px;
-  text-align: right;
-}
+} 
 
 #block-views-vista_rss-block_1 h2.title {
   background: none repeat scroll 0 0 #582A8A;
@@ -1094,15 +983,20 @@ padding-left:10px;
   background:url("../images/bullet.png") no-repeat scroll 10px 7px transparent;
 }
 
-#block-views-proyectos-block_1 {
+#block-views-proyectos-block_1,
+#block-views-proyectos-block_2,
+#block-views-proyectos-block_3,
+#block-views-proyectos-block_4,
+#block-views-novedades_listado-block_2,
+#block-views-vista_rss-block_2 {
 width:45%;
 float:left;
 }
 
-#block-views-proyectos-block_2 {
-width:45%;
-float:left;
-margin-left:10px;
+#block-views-proyectos-block_2,
+#block-views-proyectos-block_4,
+#block-views-vista_rss-block_2 {
+margin-left:20px;
 }
 
 #block-views-proyectos-block_1 .views-field-body {
@@ -1169,35 +1063,6 @@ margin-left:10px;
   font-weight: bold;
   text-decoration: none;
   font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-}
-
-#block-views-proyectos-block_3 {
-  width: 370px;
-  background: none repeat scroll 0 0 #D6D6D6;
-  margin-right:10px;
-  height:800px;
-  float:left;
-}
-#block-views-proyectos-block_4 {
-  width: 370px;
-  height:800px;
-  background: none repeat scroll 0 0 #D6D6D6;
-  float:right;
-}
-
-#block-views-proyectos-block_3 h2.title {
-  background: none repeat scroll 0 0 #582A8A;
-  color: white;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  padding-right: 10px;
-  text-align: right;
-}
-#block-views-proyectos-block_4 h2.title {
-  background: none repeat scroll 0 0 #582A8A;
-  color: white;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  padding-right: 10px;
-  text-align: right;
 }
 
 .page-node-112 .field-field-picture {
@@ -2230,21 +2095,6 @@ margin-top: 925px;
 border: 2px solid #582A8A;
 }
 
-.page-novedades-andesbdc #block-block-3 {
-    height: auto;
-    margin-top:0px;
-    padding-top: 20px;
-    position: static;
-    width: 758px;
-}
-
-
-.page-novedades-andesbdc #block-views-otras_vistas-block_1 {
-    border: none;
-    height: 100px;
-    margin-top: 0px;
-}
-
 
 .page-recursos-andesbdc .region-content-bottom2 {
 margin-top: 905px;
@@ -2494,16 +2344,8 @@ float: right;
 width:40%;
 }
 
-.region-content-bottom .block-views {
-background-color:#D6D6D6;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
-padding:10px;
-}
-
 .block h2 {
-color: #582A8A;
+color: #37A94F;
 margin-bottom:10px;
 }
 
@@ -2527,12 +2369,6 @@ text-decoration:none;
 color:#fff;
 display:block;
 margin:5px;
-}
-
-.views-row .views-field-title a {
-color:#000;
-text-decoration:none;
-font-weight:bold;
 }
 
 .views-row .views-field-field-picture-fid {
@@ -2582,18 +2418,86 @@ font-size:1.1em;
 
 /*fulltext*/
 
-.node-type-proyecto .content-related-nodes {
+.node-type-proyecto .content-related-nodes,
+.node-type-sitio-cuenca .content-related-nodes {
 float:left;
 width: 30%;
 margin-left:20px;
 }
 
-.node-type-proyecto .content-main {
+.node-type-proyecto .content-main,
+.node-type-sitio-cuenca .content-main {
 width: 60%;
 float:left;
 }
 
-.node-type-proyecto .content-related-nodes  .field-type-nodereference {
+.node-type-proyecto .content-related-nodes  .field-type-nodereference,
+.node-type-sitio-cuenca .content-related-nodes  .field-type-nodereference {
 margin-bottom:20px;
 }
 
+.content-related-nodes ul li {
+list-style-image: url('../images/arrows.png');
+}
+
+.content-related-nodes ul li a {
+color:#582A8A;
+text-decoration:none;
+}
+
+.content-related-nodes ul li a.active,
+.content-related-nodes ul li a:hover {
+color:#582A8A;
+text-decoration:none;
+font-weight:bold;
+}
+
+/*views*/
+
+.view-novedades-listado ul li,
+.view-vista-rss ul li {
+list-style-type:none;
+}
+
+.view-novedades-listado ul li .views-field-title {
+margin-bottom:10px;
+}
+
+.view-novedades-listado ul li .views-field-nothing .views-list-image {
+float:left;
+width:30%;
+}
+
+.view-novedades-listado ul li .views-field-nothing .views-list-body {
+float:left;
+width:65%;
+margin-left:10px;
+}
+
+.view-novedades-listado ul li .views-field-nothing-1,
+.view-vista-rss ul li .views-field-nothing-1 {
+float:right;
+margin-top:5px;
+}
+
+
+.view-novedades-listado ul li .views-field-created {
+text-align:right;
+}
+
+.view-novedades-listado .views-row,
+.view-vista-rss .views-row  {
+clear:both;
+display:block;
+padding-bottom:15px;
+//overflow:auto;
+border-bottom: dashed 1px #ccc;
+margin-bottom:15px;
+height:158px;
+}
+
+.views_view .views-field-title a {
+color:#E66933;
+font-weight:bold;
+font-size:1.2em;
+}
