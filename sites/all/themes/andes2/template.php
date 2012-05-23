@@ -126,7 +126,7 @@ function andes2_preprocess_node(&$vars, $hook) {
     $function($vars, $hook);
   }
 }
-// */
+
 
 /**
  * Override or insert variables into the comment templates.
