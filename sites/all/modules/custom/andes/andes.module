@@ -185,3 +185,14 @@ $quicktabs['style'] = 'Basic';
 $quicktabs['ajax'] = FALSE;
 return theme('quicktabs', $quicktabs);  
 }
+
+function andes_related_nodes($items) {
+  foreach ($items as $k => $v) {
+    $node = node_load($v['nid']);
+    $items[] = l($node->title, 'node/' . $node->nid);
+  }
+  print theme('item_list', $items);
+}
+
+
+//$node->field_related_novedades

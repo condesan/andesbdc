@@ -97,7 +97,9 @@
   <?php endif; ?>
 
   <div class="content">
-    <?php print $content; ?>
+    <div class="content-main"><?php print $content; ?></div>
+    <div class="content-related-nodes"><?php print $content_related_nodes; ?></div>
+
   </div>
 
   <?php print $links; ?>

@@ -1105,23 +1105,6 @@ float:left;
 margin-left:10px;
 }
 
-#block-views-proyectos-block_1 h2.title {
-  background: none repeat scroll 0 0 #582A8A;
-  color: white;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  text-align: right;
-  padding-right:20px;
-}
-
-#block-views-proyectos-block_2 h2.title {
-  background: none repeat scroll 0 0 #582A8A;
-  color: white;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  /*padding-left: 220px;*/
-  text-align: right;
-  padding-right:20px;
-}
-
 #block-views-proyectos-block_1 .views-field-body {
   margin-left:100px;
 }
@@ -2597,6 +2580,20 @@ margin-bottom:5px;
 font-size:1.1em;
 }
 
+/*fulltext*/
 
+.node-type-proyecto .content-related-nodes {
+float:left;
+width: 30%;
+margin-left:20px;
+}
 
+.node-type-proyecto .content-main {
+width: 60%;
+float:left;
+}
+
+.node-type-proyecto .content-related-nodes  .field-type-nodereference {
+margin-bottom:20px;
+}
 
