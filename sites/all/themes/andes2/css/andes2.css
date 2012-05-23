@@ -308,31 +308,6 @@ display:none;
 display:none;
 }
  
-.node-type-investigador .datos_investigador {
-    border: 1px solid #582A8A;
-     padding-top: 20px;
-
-    background:white;
-} 
- 
-#content-area .node-type-investigador .content {
- border: 2px solid  #582A8A;
- background: #D6D6D6;
-   padding: 25px;
-}
-
-
-.derecha_colaborador {
-margin-left:170px;
-padding-right:10px;
-}
-
-.node-type-investigador .field-field-picture {
-
-    padding-left: 20px;
- 
-}
-
 .node-type-investigador .linkvolver img {
   margin-left: 390px;
   vertical-align: top;
@@ -342,14 +317,6 @@ padding-right:10px;
 margin-bottom:20px;
 margin-top:20px;
 }
-
- /*
-.node-type-investigador .node {
- margin-top:60px;
-}
- 
- 
-*/
 
  
 .node-type-investigador .region-content-top .container-inline {

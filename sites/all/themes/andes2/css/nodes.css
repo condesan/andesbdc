@@ -7,6 +7,7 @@
 
 
 .node /* Node wrapper */ {
+margin-top:20px;
 }
 
 .node-sticky /* A sticky node (displayed before others in a list) */ {
