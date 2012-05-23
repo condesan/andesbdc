@@ -726,6 +726,14 @@ function exportables_all_views_views_default_views() {
   $handler->override_option('header_empty', 0);
   $handler->override_option('items_per_page', 50);
   $handler->override_option('use_pager', 'mini');
+  $handler->override_option('style_plugin', 'grid');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'columns' => '2',
+    'alignment' => 'horizontal',
+    'fill_single_line' => 1,
+    'summary' => '',
+  ));
   $handler->override_option('path', 'Colaboradores');
   $handler->override_option('menu', array(
     'type' => 'none',
@@ -1581,9 +1589,17 @@ function exportables_all_views_views_default_views() {
       'relationship' => 'none',
     ),
   ));
-  $handler->override_option('header', 'Our allies:');
+  $handler->override_option('header', '');
   $handler->override_option('items_per_page', 0);
   $handler->override_option('use_pager', 'mini');
+  $handler->override_option('style_plugin', 'grid');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'columns' => '2',
+    'alignment' => 'horizontal',
+    'fill_single_line' => 1,
+    'summary' => '',
+  ));
   $handler->override_option('path', 'Aliados');
   $handler->override_option('menu', array(
     'type' => 'none',

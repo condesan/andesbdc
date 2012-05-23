@@ -1277,43 +1277,6 @@ display : inline-block;
 }
 
 
-.page-node-165 #block-block-3  {
-	height: auto;				
-}
-.page-node-112 #block-block-3 {
-  height: auto;
-}
-
-.page-node-165 #block-block-3 p {
- /* width: 	758px;*/
-	height: auto;				
-}
-.page-node-112 #block-block-3 p {
- /* width: 	758px;*/
-  height: auto;
-}
-
-
-.page-node-112 #node-112 p{
-  float: left;
-/*  margin-bottom: 100px;*/
-  margin-left: 40px;
-  width: 350px;
-  font-size:13px;
-  margin-top:20px;
-margin-bottom:40px;
-}
-
-.page-node-165 #node-165 p{
-/*  float: left;*/
-/*  margin-bottom: 100px;*/
-/*  margin-left: 40px;*/
-/*  width: 350px;*/
-  font-size:13px;
-  /*margin-top:20px;
-  margin-bottom:40px;*/
-}
-
 .view-cuencas .views-field-field-picture-fid {
   float: left;
   margin:10px 10px 10px 10px;
