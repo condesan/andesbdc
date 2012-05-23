@@ -2651,13 +2651,32 @@ float:left;
 margin-right:10px;
 }
 
+table td .views-field-nothing {
+float:left;
+width:60%;
+}
+
+
 .view-content table td {
 vertical-align:top;
 padding-bottom:20px;
 }
 
-.view-content table tr {
+.view-content table td {
+width:370px;
+padding-right:10px;
 }
+
+.view-content a {
+color:#E66933;
+text-decoration:none;
+}
+
+.view-content a:hover {
+color:#582A8A;
+text-decoration:none;
+}
+
 
 .view-content table td .views-field-title {
 margin-bottom:5px;
