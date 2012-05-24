@@ -2122,15 +2122,18 @@ font-size:1.1em;
 .node-type-proyecto .content-related-nodes,
 .node-type-sitio-cuenca .content-related-nodes,
 .node-type-novedades .content-related-nodes,
- .node-type-investigador .content-related-nodes {
+.node-type-investigador .content-related-nodes,
+.node-type-page .content-related-nodes {
 float:left;
 width: 30%;
 }
 
+
 .node-type-proyecto .content-main,
 .node-type-sitio-cuenca .content-main,
 .node-type-novedades .content-main,
-.node-type-investigador .content-main {
+.node-type-investigador .content-main,
+.node-type-page .content-main {
 width: 60%;
 float:left;
 padding-right:20px;
@@ -2140,15 +2143,6 @@ padding-right:20px;
 .node-type-proyecto .content-related-nodes  .field-type-nodereference,
 .node-type-sitio-cuenca .content-related-nodes  .field-type-nodereference {
 margin-bottom:20px;
-}
-
-.field-field-picture {
-float:left;
-margin-right:10px;
-}
-
-.build-mode-full .field-field-picture {
-float:none;
 }
 
 

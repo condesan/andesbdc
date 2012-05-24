@@ -114,6 +114,10 @@ function andes2_preprocess_page(&$vars, $hook) {
  */
 
 function andes2_preprocess_node(&$vars, $hook) {
+  //dpm($vars);
+  if ($vars['type'] == 'page') {
+    $vars['content_related_nodes'] = $vars['field_picture_rendered'];
+  }
   if ($vars['type'] == 'novedades') {
     $vars['content_related_nodes'] = $vars['links'] . $vars['field_picture_rendered'] . $vars['field_related_project_rendered'] . $vars['field_related_sitio_rendered'] . $vars['field_related_investigadores_rendered'];
   }
