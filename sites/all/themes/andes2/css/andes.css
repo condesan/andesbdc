@@ -2132,14 +2132,10 @@ text-align:right;
 .view-list-watersheds .views-row {
 clear:both;
 display:block;
-padding-bottom:15px;
+padding-bottom:20px;
 border-bottom: dashed 1px #ccc;
 margin-bottom:15px;
-height:158px;
-}
-
-.view-list-projects .views-row {
-height:175px;
+overflow:auto;
 }
 
 
