@@ -154,21 +154,6 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset {
     padding: 0 0;
 }
 
-#block-views-proyectos-block_1 .views-field-body {
-  margin-left: 140px;
-  margin-top: 5px;
-}
-#block-views-proyectos-block_1 .views-field-title {
-  margin-left: 140px;
-}
-#block-views-proyectos-block_2 .views-field-title {
-  margin-left: 140px;
-}
-#block-views-proyectos-block_2 .views-field-body {
-  margin-left: 140px;
-  margin-top: 5px;
-}
-
 .view-proyectos .views-field-field-picture-fid {
  /* -moz-box-shadow: 5px 5px 5px black;*/
 }
@@ -947,73 +932,8 @@ padding-bottom:6px;
   padding-right: 50px;
 }
 
-.page-nuestras-cuencas #block-menu-menu-menuproyectoscuencas ul {
-  margin: 30px 0 1em;
-}
-
-.page-nuestros-proyectos #block-menu-menu-menuproyectoscuencas ul {
-  margin: 30px 0 1em;
-}
-
-.page-recursos-andesbdc #block-menu-menu-menuproyectoscuencas ul {
-  margin: 30px 0 1em;
-}
-.page-novedades-andesbdc #block-menu-menu-menuproyectoscuencas ul {
-  margin: 30px 0 1em;
-}
-
-#block-views-proyectos-block_3  h2.title {
-  font-size:21px;
-}
-
-#block-views-proyectos-block_4 h2.title {
-  font-size:21px;
-}
-
 #block-views-calendar-calendar_block_1 {
   margin-top:2px;
-}
-
-/***********************************************************************************/
-
-.page-recursos-andesbdc .view-id-recursos_listado .views-field-field-youtube-embed {
-  margin-left: -10px;
-  z-index: 6;
-}
-
-.page-recursos-andesbdc .view-id-recursos_listado .views-field-field-picture-fid {
-  z-index: 4;
-}
-
-.view-recursos-listado .views-field-field-youtube-embed img {
-  border: 3px solid white;
-  margin-bottom: -5px;
-  margin-left: -1px;
-  margin-right: 0;
-}
-
-
-.view-recursos-listado .views-field-field-youtube-embed img  {
- /* -moz-border-radius: 11px 11px 11px 11px;
-  -moz-box-shadow: 5px 5px 5px black;*/
-}
-
-/****************************************************************************************/
-
-.page-recursos-andesbdc .view-id-recursos_listado {
-  padding-top: 10px;
-}
-
-.page-recursos-andesbdc .view-id-recursos_listado .views-field-body {
-  font-size: 11px;
-}
-
-.page-recursos-andesbdc .view-id-vista_rss  {
-  padding-top: 10px;
-}
-
-.page-recursos-andesbdc .region-content-bottom2 {
-  margin-top: 920px;
 }
 
 

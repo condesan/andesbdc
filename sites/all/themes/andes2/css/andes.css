@@ -814,85 +814,6 @@ float:left;
 display : inline-block;
 }
 
-.node-type-investigador .field-field-name{
-  float:left;
-  padding-right: 6px;
-  font-weight:bold;
-  font-size:17px;
-  margin-left:25px;
-}
-
-.node-type-investigador .field-field-lastname{
-  font-weight:bold;
-  font-size:17px
-}
-
-.izquierda_colaborador {
-float:left;
-width:20%;
-}
-
-.derecha_colaborador {
-float:left;
-width:75%;
-padding-left:10px;
-}
-.node-type-investigador .field-field-related-institution a {
-  text-decoration:none;
-  color:black;
-}
-
-.node-type-investigador .field-field-related-institution .field-label {
-  float:left;
-}
-.node-type-investigador .field-field-email .field-label {
-  float:left;
-}
-.node-type-investigador .field-field-file .field-label {
-  float:left;
-}
-.node-type-investigador .field-field-url .field-label {
-  float:left;
-}
-
-.node-type-investigador .field-field-email {
-  padding-top:5px;
-  padding-bottom:5px;
-}
-.node-type-investigador .field-field-url{
-  margin-left:150px;
-  padding-top:5px;
-  padding-bottom:5px;
-}
-
-.node-type-investigador .field-field-file{
-  margin-left:150px;
-  padding-top:5px;
-  padding-bottom:5px;
-}
-
-.node-type-investigador .field-field-file a{
-  text-decoration:none;
-  color:black;
-}
-
-.node-type-investigador .field-field-related-recursos{
- /* margin-left:150px;*/
-}
-
-.node-type-investigador .field-field-related-recursos .field-items{
-  list-style: disc outside none;
-}
-.node-type-investigador .field-field-related-recursos .field-items a{
-  text-decoration:none;
-  color:black;
-  padding-left:24px;
-}
-
-.node-type-investigador .field-field-related-recursos .field-item{
-  background:url("../images/bullet.png") no-repeat scroll 10px 7px transparent;
-}
-
 #block-views-proyectos-block_1,
 #block-views-proyectos-block_2,
 #block-views-proyectos-block_3,
@@ -2200,23 +2121,36 @@ font-size:1.1em;
 
 .node-type-proyecto .content-related-nodes,
 .node-type-sitio-cuenca .content-related-nodes,
-.node-type-novedades .content-related-nodes {
+.node-type-novedades .content-related-nodes,
+ .node-type-investigador .content-related-nodes {
 float:left;
 width: 30%;
 }
 
 .node-type-proyecto .content-main,
 .node-type-sitio-cuenca .content-main,
-.node-type-novedades .content-main {
+.node-type-novedades .content-main,
+.node-type-investigador .content-main {
 width: 60%;
 float:left;
 padding-right:20px;
 }
 
+
 .node-type-proyecto .content-related-nodes  .field-type-nodereference,
 .node-type-sitio-cuenca .content-related-nodes  .field-type-nodereference {
 margin-bottom:20px;
 }
+
+.field-field-picture {
+float:left;
+margin-right:10px;
+}
+
+.build-mode-full .field-field-picture {
+float:none;
+}
+
 
 .content-related-nodes .field {
 margin-bottom:20px;
@@ -2282,7 +2216,8 @@ margin-left:10px;
 }
 
 .view-novedades-listado ul li .views-field-nothing-1,
-.view-vista-rss ul li .views-field-nothing-1 {
+.view-vista-rss ul li .views-field-nothing-1,
+.view-proyectos ul li .views-field-nothing-1 {
 float:right;
 margin-top:5px;
 }
@@ -2294,15 +2229,20 @@ text-align:right;
 
 .view-novedades-listado .views-row,
 .view-vista-rss .views-row,
-.view-proyectos .views-row {
+.view-list-projects .views-row,
+.view-list-watersheds .views-row {
 clear:both;
 display:block;
 padding-bottom:15px;
-//overflow:auto;
 border-bottom: dashed 1px #ccc;
 margin-bottom:15px;
 height:158px;
 }
+
+.view-list-projects .views-row {
+height:175px;
+}
+
 
 .views_view .views-field-title a {
 color:#E66933;

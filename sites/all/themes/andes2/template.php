@@ -114,12 +114,15 @@ function andes2_preprocess_page(&$vars, $hook) {
  */
 
 function andes2_preprocess_node(&$vars, $hook) {
-  // dpm($vars);
   if ($vars['type'] == 'novedades') {
     $vars['content_related_nodes'] = $vars['links'] . $vars['field_picture_rendered'] . $vars['field_related_project_rendered'] . $vars['field_related_sitio_rendered'] . $vars['field_related_investigadores_rendered'];
   }
   if ($vars['type'] == 'proyecto') {
     $vars['content_related_nodes'] = $vars['field_related_novedades_rendered'] .  $vars['field_related_recursos_rendered'];
+  }
+
+  if ($vars['type'] == 'investigador') {
+    $vars['content_related_nodes'] = $vars['links'] . $vars['field_picture_rendered'] . $vars['field_related_institution_rendered'] . $vars['field_related_recursos_rendered']. $vars['field_url_rendered'];
   }
   if ($vars['type'] == 'sitio_cuenca') {
     $tabs = array(

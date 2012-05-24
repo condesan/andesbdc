@@ -782,12 +782,6 @@ function exportables_all_context_context_default_contexts() {
           'region' => 'header',
           'weight' => 1,
         ),
-        'views-otras_vistas-block_1' => array(
-          'module' => 'views',
-          'delta' => 'otras_vistas-block_1',
-          'region' => 'footer',
-          'weight' => 0,
-        ),
       ),
       'layout' => 'columns',
     ),
