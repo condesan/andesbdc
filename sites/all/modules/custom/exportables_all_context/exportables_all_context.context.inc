@@ -782,6 +782,12 @@ function exportables_all_context_context_default_contexts() {
           'region' => 'header',
           'weight' => 1,
         ),
+        'menu-menu-redes' => array(
+          'module' => 'menu',
+          'delta' => 'menu-redes',
+          'region' => 'header',
+          'weight' => 2,
+        ),
       ),
       'layout' => 'columns',
     ),
