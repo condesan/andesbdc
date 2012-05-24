@@ -115,6 +115,9 @@ function andes2_preprocess_page(&$vars, $hook) {
 
 function andes2_preprocess_node(&$vars, $hook) {
   //dpm($vars);
+  if ($vars['type'] == 'recursos') {
+    $vars['content_related_nodes'] = $vars['field_picture_rendered'] . $vars['field_file_rendered'] . $vars['field_related_project_rendered '];
+  }
   if ($vars['type'] == 'page') {
     $vars['content_related_nodes'] = $vars['field_picture_rendered'];
   }

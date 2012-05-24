@@ -485,58 +485,6 @@ float:right;
   
 }
 
-.page-recursos-andesbdc .view-id-recursos_listado {
-  width:350px;
-  background: none repeat scroll 0 0 #D6D6D6;
-  -moz-border-radius: 5px 5px 0 0;
-}
-
-.page-recursos-andesbdc .view-id-recursos_listado  .views-row {
-  display:table;
-  padding-bottom:10px;
-}
-
-.page-recursos-andesbdc .view-id-recursos_listado .views-field-field-picture-fid {
-  float:left;
- /* padding-left: 5px;*/
- /* padding-right:5px;*/
- margin-left:5px;
- margin-right:5px;
- border: 3px solid white;
-}
-
-.page-recursos-andesbdc .view-id-recursos_listado .views-field-field-youtube-embed {
-  float: left;
- /* padding-right: 5px;	
-  padding-left: 5px*/
-   margin-left:5px;
- margin-right:5px;
-}
-
-.page-recursos-andesbdc .view-id-recursos_listado .views-field-title {
-  padding-left:140px;
-}
-
-.page-recursos-andesbdc .view-id-recursos_listado .views-field-title a{
-  color:black;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-.page-recursos-andesbdc .view-id-recursos_listado .views-field-body {
-  padding-left:140px;
-  color:black;
-}
-
-.page-recursos-andesbdc .view-id-recursos_listado .more-link a{
-  font-weight:bold;
-  text-decoration:none;
-  background-color:#582A8A;
-  color:#fff;
-  padding:8px 8px 8px 8px;
-  -moz-border-radius: 5px 5px 5px 5px;
-}
-
 #views_slideshow_thumbnailhover_main_recursos_listado-block_1 {
   width: 400px;
   float:left;
@@ -580,11 +528,6 @@ float:right;
   width:700px; 
 }
 
-
-.view-recursos-listado .view-content .views-row {
-  padding-top:15px;
-  padding-bottom:15px;
-}
 
 .page-panels #block-menu-menu-proyectos {
   width:700px;
@@ -711,20 +654,6 @@ float:right;
 }
 
 .
-#block-views-recursos_listado-block_2 {
-  width:370px;
-  float:left;
-  background: none repeat scroll 0 0 #D6D6D6;
-  height:900px;
-}
-
-#block-views-recursos_listado-block_2 h2.title {
-  background: none repeat scroll 0 0 #582A8A;
-  color: white;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  padding-right: 15px;
-  text-align: right;
-}
 
  #block-views-vista_rss-block_1{
   background:#D6D6D6;
@@ -1481,48 +1410,6 @@ font-size:11px;
   display:none;
 }
 
-.node-type-recursos .izquierda_recurso {
-  float:left;	
-  background: none repeat scroll 0 0 #D6D6D6;
-}
-
-.node-type-recursos #content-area {
-  background:#D6D6D6;
-}
-
-.node-type-recursos .derecha_recurso {
-  background: none repeat scroll 0 0 #D6D6D6;
-  float: right;
-  margin-top: 20px;
-  width: 370px;	
-}
-	
-.node-type-recursos .field-type-nodereference a {
-	text-decoration: none;
-	color:black;
-}
-
-.node-type-recursos .field-type-filefield a {
-	text-decoration: none;
-	color:black;
-}
-
-
-.node-type-recursos .titulo_recurso {
-  font-weight: bold;
-  font-size: 21px;	
-}
-	
-.node-type-recursos .filefield-file {
-  margin-bottom: 25px;	
-}
-
-.node-type-recursos .Enlaces {
-  float: left;
-  width: 800px;
-  display: block;
-}
-
 .linkvolver img {
   margin-left: 385px;	
 }
@@ -1946,11 +1833,6 @@ margin-top:20px;
 }
 
 
-.view-recursos-listado .view-content .views-row {
-    padding-bottom: 10px;
-    padding-top: 0;
-}
-
 .section-search h2 {
 color: #582A8A;
 }
@@ -1983,10 +1865,17 @@ text-align:center;
 
 .view-html-list ul li.views-row {
 list-style-type:none;
-background:url("../images/icono-flecha.gif") no-repeat;
-padding-left:30px;
 margin-left:0px;
+border-bottom: 1px dashed #CCCCCC;
+margin-top:20px;
 }
+
+.view-html-list ul li.views-row-first {
+border-top: 1px dotted #582A8A;
+padding-top: 20px;
+margin-top:0px;
+}
+
 
 .view-html-list ul li.views-row .views-field-title a {
 font-weight:bold;
@@ -1995,6 +1884,11 @@ font-weight:bold;
 .view-html-list ul li.views-row .views-field-body  p{
 font-weight:normal;
 }
+
+.view-html-list .view-footer {
+margin-top:20px;
+}
+
 
 /*footer*/
 
@@ -2123,7 +2017,8 @@ font-size:1.1em;
 .node-type-sitio-cuenca .content-related-nodes,
 .node-type-novedades .content-related-nodes,
 .node-type-investigador .content-related-nodes,
-.node-type-page .content-related-nodes {
+.node-type-page .content-related-nodes,
+.node-type-recursos .content-related-nodes {
 float:left;
 width: 30%;
 }
@@ -2133,7 +2028,8 @@ width: 30%;
 .node-type-sitio-cuenca .content-main,
 .node-type-novedades .content-main,
 .node-type-investigador .content-main,
-.node-type-page .content-main {
+.node-type-page .content-main,
+.node-type-recursos .content-main {
 width: 60%;
 float:left;
 padding-right:20px;
