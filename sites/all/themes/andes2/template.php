@@ -98,12 +98,6 @@ function andes2_preprocess(&$vars, $hook) {
  */
 
 function andes2_preprocess_page(&$vars, $hook) {
-  if ($vars['node']->type == 'novedades') {
-      $vars['title'] = t('News');
-    }
-  if ($vars['node']->type == 'recursos') {
-      $vars['title'] = t('Resources');
-    }
   $vars['footer'] = '<div class="footer-image">' . theme('image',path_to_theme() . '/images/logos.png') . '</div>' .  
   '<div class="footer-text">Andes BDC is a program from CGIAR Challenge Program on Water and Food | Email: andesbdc@cpwf.org <br /> 
                      Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400 </div>';
@@ -120,7 +114,10 @@ function andes2_preprocess_page(&$vars, $hook) {
  */
 
 function andes2_preprocess_node(&$vars, $hook) {
-  //dpm($vars);
+  // dpm($vars);
+  if ($vars['type'] == 'novedades') {
+    $vars['content_related_nodes'] = $vars['links'] . $vars['field_picture_rendered'] . $vars['field_related_project_rendered'] . $vars['field_related_sitio_rendered'] . $vars['field_related_investigadores_rendered'];
+  }
   if ($vars['type'] == 'proyecto') {
     $vars['content_related_nodes'] = $vars['field_related_novedades_rendered'] .  $vars['field_related_recursos_rendered'];
   }

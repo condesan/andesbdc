@@ -595,7 +595,6 @@ float:right;
 
 .section h1 {
   color:#582A8A;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
 }
 
 #block-views-vista_rss-block_2 .views-field-description a{
@@ -711,96 +710,7 @@ float:right;
   position: absolute;
 }
 
-.node-type-novedades .field-field-picture {
-  margin-right:20px;
-}
-
-.node-type-novedades .news_right .titulo_news {
-  font-weight: bold;
-  text-align: left;	
-  padding-top:25px;
-  font-size: 1.3em;
-}
-
-.node-type-novedades .news_right .field-field-date {
-	text-align: right;
-}
-
-.node-type-novedades .news_right .field-field-related-autor .field-label {
-	float:left; 
-	text-align: right;
-}
-	
-.node-type-novedades .news_right .field-field-related-autor {
-	text-align: right;
-}	
-
-.node-type-novedades .news_right .field-field-date {
-  font-weight:bold;
-}
-
-.node-type-novedades .news_right .field-field-related-autor a {
-  text-decoration:none;
-  color:black;
-  font-weight:bold;
-}
-
-.node-type-novedades .news_right .body_news{
-	text-align: left;
-  margin-left:30px;
-}	
-
-ul.inline {
-  float:left;
-}
-
-.node-type-novedades .Enlaces .linkvolver {
-  float:right;
-  padding-right:20px;
-  padding-bottom:20px;
-} 
-
-
-.linkvolver a.volver {
-  text-decoration:none;
-  color:black;
-  font-weight:bold;
-  vertical-align: top;
-}
-
-.node-type-novedades .news_right {
-  background:#D6D6D6;
-  padding-right:20px;
-}
-
-.node-type-novedades .node{
-  background:#D6D6D6;
-}
-
-.node-type-novedades .news_left img {
-  width:355px;
-  float: left;	
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 30px;
-}
-
-.node-type-novedades .news_left p {
-  background: none repeat scroll 0 0 black;
-  color: white;
-  font-size: 11px;
-  line-height: 7pt;
-  margin-left: 35px;
-  /*margin-top: 260px;*/
-  margin-top:257px;
-  opacity: 0.8;
-  filter: alpha(opacity=80);	
-  padding: 10px 10px 12px;
-  position: absolute;
-  width: 335px;
-  height:20px;
-}
-
+.
 #block-views-recursos_listado-block_2 {
   width:370px;
   float:left;
@@ -1005,125 +915,6 @@ margin-left:20px;
 
 #block-views-proyectos-block_2 .views-field-body {
   margin-left:100px;
-}
-.page-nuestros-proyectos .view-proyectos .views-row {
-  clear: both;
-  display: block;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  padding:10px;
-  font-size: 11px;
-  text-align: left;
-}
-
-.page-nuestros-proyectos .view-proyectos .views-field-body {
-  margin-left:80px;
-}
-
-.page-nuestros-proyectos .view-proyectos .views-row p {
-  margin-top:-5px;
-}
-
-.page-nuestros-proyectos .view-proyectos .views-field-field-picture-fid {
-  float:left;
-}
-
-.page-nuestros-proyectos .view-proyectos .views-field-title a {
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  font-size: 13px;       
-}
-
-.page-nuestras-cuencas .view-proyectos .views-row {
-  clear: both;
-  display: block;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-  padding:10px;
-}
-
-.page-nuestras-cuencas  .view-proyectos .views-field-field-picture-fid {
-  float:left;
-}
-
-.page-novedades-andesbdc .view-novedades-listado .views-field-field-picture-fid img {
-  margin-bottom: -5px;
-}
-
-.view-recursos-listado .views-field-field-picture-fid img {
-  -moz-border-radius: 11px 11px 11px 11px;
-  -webkit-border-radius:11px 11px 11px 11px;  
- /* border: 3px solid #FFFFFF;*/
- /* margin-left: 5px;*/
-  margin-bottom:-5px;
-}
-
-.page-nuestras-cuencas  .view-proyectos .views-field-title a {
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
-}
-
-.page-node-112 .field-field-picture {
-  float: left;
-  padding-left: 40px;
-  padding-top:20px;
-}
-
-.page-node-165 .field-field-picture {
-  float: left;
-  /*padding-left: 40px;
-  padding-top:20px;*/
-  margin-right:10px;
-}
-
-.page-node-112 .field-field-body2 {
-  width:350px;
-  float:left;
-  margin-right: 40px;
-  margin-left:40px;
-  padding-bottom:20px;
-  font-size:13px;
-}
-.page-node-165 .field-field-body2 {
-  width:350px;
-  float:left;
-  margin-right: 40px;
-  margin-left:40px;
-  padding-bottom:20px;
-  font-size:13px;
-}
-
-.page-node-112 .field-field-picture2 {
-  float: left;
-  padding-bottom:20px;
-}
-
-.page-node-165 .field-field-picture2 {
-  float: left;
-  padding-bottom:20px;
-}
-
-.page-node-112 .field-field-picture2 img{
-  border: 5px solid #ffffff;
-  -moz-border-radius: 11px 11px 11px 11px;
-  -webkit-border-radius:11px 11px 11px 11px;
-}
-.page-node-165 .field-field-picture2 img{
-  border: 5px solid #ffffff;
-  -moz-border-radius: 11px 11px 11px 11px;    
-  -webkit-border-radius:11px 11px 11px 11px;
-}
-.page-node-112 .field-field-picture img {
-  border: 5px solid #ffffff;
-  -moz-border-radius: 11px 11px 11px 11px;
-  -webkit-border-radius:11px 11px 11px 11px;
-}
-.page-node-165 .field-field-picture img {
-  border: 5px solid #ffffff;
-  -moz-border-radius: 11px 11px 11px 11px;
-  -webkit-border-radius:11px 11px 11px 11px; 
 }
 
 
@@ -2195,36 +1986,10 @@ color:#582A8A;
 color:white;
 }
 
-.page-colaboradores .views-field-field-picture-fid {
-  -moz-box-shadow: 5px 5px 5px black; 
-  -webkit-box-shadow: 5px 5px 5px black; 
-  box-shadow:5px 5px 5px black; 
-}
-.page-colaboradores .views-field-field-picture-fid img {
-  margin-bottom:-5px;
-}
-
-.page-nuestras-cuencas .view-proyectos .views-field-title {
-  padding-left:140px;  
-}
-
-.page-nuestras-cuencas .view-proyectos .views-field-body {
-    font-size: 11px;
-    padding-left: 140px;
-    padding-right: 5px;
-}
-
-
-.node-type-investigador .section h1 {
-    display: none;
-    text-indent: -999px;
-}
-
 
 .node-type-conocelosandes-story .section h1 {
   /*  background: none repeat scroll 0 0 #D6D6D6; */
     color: #582A8A;
-    font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
   /*  margin-bottom:2px;
      border-bottom: 2px solid white;*/
 }
@@ -2317,8 +2082,9 @@ padding-top:50px;
 }
 
 .footer-image {
-border-top:solid 1px #582A8A;
-background-color:#fff;
+background-color: #FFFFFF;
+border-top: 5px solid #582A8A;
+padding-top: 10px;
 }
 
 
@@ -2433,16 +2199,18 @@ font-size:1.1em;
 /*fulltext*/
 
 .node-type-proyecto .content-related-nodes,
-.node-type-sitio-cuenca .content-related-nodes {
+.node-type-sitio-cuenca .content-related-nodes,
+.node-type-novedades .content-related-nodes {
 float:left;
 width: 30%;
-margin-left:20px;
 }
 
 .node-type-proyecto .content-main,
-.node-type-sitio-cuenca .content-main {
+.node-type-sitio-cuenca .content-main,
+.node-type-novedades .content-main {
 width: 60%;
 float:left;
+padding-right:20px;
 }
 
 .node-type-proyecto .content-related-nodes  .field-type-nodereference,
@@ -2450,17 +2218,38 @@ float:left;
 margin-bottom:20px;
 }
 
+.content-related-nodes .field {
+margin-bottom:20px;
+}
+
 .content-related-nodes ul li {
 list-style-image: url('../images/arrows.png');
 }
 
-.content-related-nodes ul li a {
+.content-related-nodes .field .field-label {
+margin-bottom:5px;
+}
+
+
+.content-related-nodes .field .field-items .field-item {
+background:url('../images/arrows.png') no-repeat;
+padding-left:20px;
+}
+
+.content-related-nodes .field-field-picture .field-items .field-item {
+background:none;
+padding-left:0px;
+}
+
+.content-related-nodes ul li a,
+.content-related-nodes .field .field-items .field-item a {
 color:#582A8A;
 text-decoration:none;
 }
 
 .content-related-nodes ul li a.active,
-.content-related-nodes ul li a:hover {
+.content-related-nodes ul li a:hover,
+.content-related-nodes .field .field-items .field-item a:hover {
 color:#582A8A;
 text-decoration:none;
 font-weight:bold;
@@ -2469,20 +2258,24 @@ font-weight:bold;
 /*views*/
 
 .view-novedades-listado ul li,
-.view-vista-rss ul li {
+.view-vista-rss ul li,
+.view-proyectos ul li  {
 list-style-type:none;
 }
 
-.view-novedades-listado ul li .views-field-title {
+.view-novedades-listado ul li .views-field-title,
+.view-proyectos ul li .views-field-title {
 margin-bottom:10px;
 }
 
-.view-novedades-listado ul li .views-field-nothing .views-list-image {
+.view-novedades-listado ul li .views-field-nothing .views-list-image, 
+.view-proyectos ul li .views-field-nothing .views-list-image {
 float:left;
 width:30%;
 }
 
-.view-novedades-listado ul li .views-field-nothing .views-list-body {
+.view-novedades-listado ul li .views-field-nothing .views-list-body,
+.view-proyectos ul li .views-field-nothing .views-list-body {
 float:left;
 width:65%;
 margin-left:10px;
@@ -2500,7 +2293,8 @@ text-align:right;
 }
 
 .view-novedades-listado .views-row,
-.view-vista-rss .views-row  {
+.view-vista-rss .views-row,
+.view-proyectos .views-row {
 clear:both;
 display:block;
 padding-bottom:15px;

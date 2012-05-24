@@ -131,7 +131,7 @@ background: url("../images/icono-flecha.gif")no-repeat scroll 20px 0 transparent
 }
 
 body, caption, th, td, input, textarea, select, option, legend, fieldset {
-  font-family: Calibri,'Trebuchet MS',Helvetica,Arial,Verdana;
+  font-family: Helvetica, Arial, Verdana;
 }
 
 .view-content .calendar-calendar .date-heading {
@@ -380,19 +380,8 @@ margin-top:20px;
   display: none;
 }
 
-.barra_andesbdc {
-  background: none repeat scroll 0 0 #582A8A;
-  color: white;
-  font-size: 25px;
-  font-weight: bold;
-  height: 30px;
-  line-height: 30px;
-  padding-right: 10px;
-  text-align: right;
-}
-
 h2 {
-  font-size: 25px;
+  font-size: 1.4em;
 } 
 
 #block-views-novedades_listado-block_1 .view-novedades-listado .views-field-field-picture-fid {

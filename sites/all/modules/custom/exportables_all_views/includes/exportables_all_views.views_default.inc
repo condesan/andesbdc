@@ -7614,15 +7614,17 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
   $handler = $view->new_display('block', 'Cuencas en ejecución', 'block_3');
   $handler->override_option('relationships', array());
   $handler->override_option('fields', array(
-    'field_picture_fid' => array(
+    'title' => array(
       'label' => '',
       'alter' => array(
         'alter_text' => 0,
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -7637,11 +7639,48 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'link_to_node' => 1,
+      'exclude' => 0,
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+    'field_picture_fid' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'link_to_node' => 0,
       'label_type' => 'none',
       'format' => 'Proyecto_IMagen_default',
       'multiple' => array(
-        'group' => 1,
+        'group' => 0,
         'multiple_number' => '1',
         'multiple_from' => '',
         'multiple_reversed' => 0,
@@ -7655,36 +7694,6 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
         'button' => 'Use default',
       ),
     ),
-    'title' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 1,
-      'exclude' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-    ),
     'body' => array(
       'label' => '',
       'alter' => array(
@@ -7692,8 +7701,10 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -7708,6 +7719,7 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'exclude' => 0,
       'id' => 'body',
       'table' => 'node_revisions',
@@ -7860,6 +7872,11 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
   ));
   $handler->override_option('title', 'Work in progress');
   $handler->override_option('items_per_page', 50);
+  $handler->override_option('style_plugin', 'list');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'type' => 'ul',
+  ));
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);
   $handler = $view->new_display('block', 'Cuencas Terminadas', 'block_4');
@@ -8110,6 +8127,11 @@ Address: Mayorazgo Street 217 San Borja - Lima, Perú | Telephone:(511)618-9400'
     ),
   ));
   $handler->override_option('title', 'Completed jobs');
+  $handler->override_option('style_plugin', 'list');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'type' => 'ul',
+  ));
   $handler->override_option('block_description', '');
   $handler->override_option('block_caching', -1);
   $handler = $view->new_display('page', 'RecursosxProyecto', 'page_2');

@@ -102,5 +102,5 @@
 
   </div>
 
-  <?php print $links; ?>
+  <?php //print $links; ?>
 </div><!-- /.node -->
