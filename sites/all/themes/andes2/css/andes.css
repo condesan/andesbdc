@@ -1871,8 +1871,6 @@ margin-top:20px;
 }
 
 .view-html-list ul li.views-row-first {
-border-top: 1px dotted #582A8A;
-padding-top: 20px;
 margin-top:0px;
 }
 
@@ -1889,6 +1887,17 @@ font-weight:normal;
 margin-top:20px;
 }
 
+.view-recursos-listado ul li.views-row,
+.view-html-list ul li.views-row {
+background: url('../images/checkbox.png') no-repeat;
+list-style-type:none;
+padding-left:40px;
+}
+
+.view-recursos-listado ul,
+.view-html-list ul {
+padding-top:20px;
+}
 
 /*footer*/
 
@@ -2139,3 +2148,5 @@ color:#E66933;
 font-weight:bold;
 font-size:1.2em;
 }
+
+
