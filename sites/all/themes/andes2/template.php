@@ -125,7 +125,7 @@ function andes2_preprocess_node(&$vars, $hook) {
     $vars['content_related_nodes'] = $vars['links'] . $vars['field_picture_rendered'] . $vars['field_related_project_rendered'] . $vars['field_related_sitio_rendered'] . $vars['field_related_investigadores_rendered'];
   }
   if ($vars['type'] == 'proyecto') {
-    $vars['content_related_nodes'] = $vars['field_related_novedades_rendered'] .  $vars['field_related_recursos_rendered'];
+    $vars['content_related_nodes'] = $vars['field_related_institution_rendered'] . $vars['field_related_investigadores_rendered'] . $vars['field_related_novedades_rendered'] .  $vars['field_related_recursos_rendered'];
   }
 
   if ($vars['type'] == 'investigador') {
