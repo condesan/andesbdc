@@ -1,7 +1,0 @@
-; $Id: $
-
-name = exportables_all_views Export Module
-description = Exports some views of exportables_all_views
-dependencies[] = views
-core = 6.x
-
