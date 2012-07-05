@@ -1,0 +1,27 @@
+// This file will hold styles for the mobile version of your website (mobile first).
+// This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide.
+
+body {
+  background-color:#FFFFFF;
+}
+
+#block-system-main-menu {
+  background-color:#222222;
+  ul li {
+    float: left;
+    list-style-type:none; 
+    list-style-image:none;
+    a {
+      color:#ffffff;
+      text-decoration:none;
+      text-transform:uppercase;
+      display:block;
+      padding: 10px 20px;
+      font-family:'ptn57f';
+      &.active {
+        color:#90C34E;
+      }
+    }
+  }
+  
+}

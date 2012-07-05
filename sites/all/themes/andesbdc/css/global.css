@@ -1,2 +1,28 @@
-/* This file will hold styles for the mobile version of your website (mobile first). */
-/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\000034}}
+body {
+  background-color: #FFFFFF;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\000038}}
+#block-system-main-menu {
+  background-color: #222222;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000310}}
+#block-system-main-menu ul li {
+  float: left;
+  list-style-type: none;
+  list-style-image: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000314}}
+#block-system-main-menu ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  padding: 10px 20px;
+  font-family: 'ptn57f';
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000321}}
+#block-system-main-menu ul li a.active {
+  color: #90C34E;
+}
