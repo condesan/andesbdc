@@ -1,27 +1,233 @@
+// http://themeforest.net/item/natural-powerful-responsive-wordpress-theme/full_screen_preview/2358157?ref=terran
 // This file will hold styles for the mobile version of your website (mobile first).
 // This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide.
 
-body {
-  background-color:#FFFFFF;
+//variables definition
+$font: 'ptn57f';
+
+#page {
+  background:url('../images/body-background.png') #ffffff;
 }
 
-#block-system-main-menu {
-  background-color:#222222;
-  ul li {
-    float: left;
-    list-style-type:none; 
-    list-style-image:none;
-    a {
-      color:#ffffff;
+#zone-branding-wrapper,
+#zone-user-wrapper {
+  background-color:#ffffff;
+}
+
+//transform vertical to horizontal menu
+@mixin linline {
+  ul {
+    li {
+      float:left;
+      list-style-type:none; 
+      list-style-image:none;
+      a {
       text-decoration:none;
-      text-transform:uppercase;
       display:block;
-      padding: 10px 20px;
-      font-family:'ptn57f';
-      &.active {
-        color:#90C34E;
       }
     }
   }
-  
 }
+
+//generate background for icons and hide its title
+@mixin icon($class) {
+  & {
+  background-image: url("../images/ico_#{$class}.png");
+  background-repeat: no-repeat;
+  }
+  & a {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    padding-top: 30px;
+    width: 20px;
+  }
+}
+
+//main menu
+#block-system-main-menu {
+  background-color:#222222;
+  @include linline;
+  ul li a {
+    color:#ffffff;
+    text-transform:uppercase;
+    padding: 10px 20px;
+    font-family:$font;
+    font-size: 18px;
+    &.active {
+        color:#90C34E;
+    }
+  }
+}
+
+#main-menu-container {
+  background-color:#222222;
+  height:50px;;
+  width:100%;
+}
+
+#main-menu {
+  margin:0 auto;
+  width:1170px;
+  background-color:#222222;
+  @include linline;
+  ul li a {
+    color:#ffffff;
+    text-transform:uppercase;
+    padding: 10px 20px;
+    font-family:$font;
+    font-size: 18px;
+    &.active {
+        color:#90C34E;
+    }
+  }
+}
+
+//generate css for icons
+#block-menu-menu-redes {
+  @include linline;
+  .facebook {
+    @include icon(facebook);
+  }
+  .twitter{
+    @include icon(twitter);
+  }
+  .youtube {
+    @include icon(youtube);
+  }
+  .flickr {
+    @include icon(flickr);
+  }
+  .slideshare {
+    @include icon(slideshare);
+  }
+}
+
+//introduction in home
+
+#introduction {
+border-bottom:1px solid #E5E5E5;
+background-color:#F5F5F5;
+}
+
+#block-block-7 {
+  background-color:#F5F5F5;
+  padding:25px 0px;
+  font-family:$font;
+  font-size:32px;
+  color:#666666;
+  line-height:32px;
+}
+
+#region-header-second {
+  background-color:#ffffff;
+  border-bottom:solid 1px #E5E5E5;  
+  border-right:solid 1px #E5E5E5;  
+  border-left:solid 1px #E5E5E5;    
+  #block-views-novedades-listado-block-1 {
+    padding:20px 10px 20px 15px;
+  }
+}
+
+.item-slideshow-legend {
+  position:absolute;
+  left:0;
+  bottom: 0;
+  margin: 0;
+  padding: 20px 4%;
+  position: absolute;
+  background-color: rgba(118, 169, 52, 0.8);
+  width: 92%;
+  & a {
+    text-decoration:none;
+    font-family:$font;
+    font-size: 32px;
+    line-height: 36px;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+
+#region-postscript-first {
+  background-color:#ffffff;
+}
+
+#block-andesbdc-projects,
+#block-andesbdc-watersheds,
+#block-andesbdc-resources,
+#block-andesbdc-news {
+  background-color: #F5F5F5;
+  border-color: #E5E5E5;
+  color: #666666; 
+  padding:20px 5px;
+  float:left;
+  .block-shorcuts-image {
+    float:left;
+    margin-right:5px;
+  }
+  .block-shorcuts-title {
+    font-weight:bold;
+    font-family:$font;
+    font-size:26px;
+  }
+  .block-shorcuts-description {
+    color:#666666;
+  }
+}
+
+
+//footer
+#block-block-3 {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: lighter;
+  background-color:#222222;
+  color:#ffffff;
+  padding:20px;
+}
+
+//view of 3 items in homepage
+#region-preface-first {
+  background-color:#ffffff;
+  padding:20px 0px;
+  border-right:1px solid #E5E5E5;
+  border-left:1px solid #E5E5E5;
+  & .block-title {
+    font-family:'PT Sans Narrow';
+    font-size:26px;
+    border-bottom:solid 3px #76A934;
+    color:#444444;
+    margin:10px 20px 40px 20px;
+    font-weight:normal;
+  }
+}
+
+.view-display-id-block_2 {
+  @include linline;
+  .views-field-field-picture, li {
+    width:370px;
+  }
+  .views-field-title {
+    font-family:'PT Sans Narrow';
+    & a {
+      text-decoration: none;
+      font-size:16px;
+      color:#76A934;
+      & :hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.zone-postscript {
+ background-color:transparent;
+}
+
+.custom-zone-postscript {
+  background-color:#F5F5F5;
+  border-right:1px solid #E5E5E5;
+  border-left:1px solid #E5E5E5;
+  border-bottom:1px solid #E5E5E5;
+}
+

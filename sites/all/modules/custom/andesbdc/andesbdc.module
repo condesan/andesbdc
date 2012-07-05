@@ -1,0 +1,73 @@
+<?php
+
+function andesbdc_block_info() {
+  // blocks for homepage
+  $blocks['projects'] = array(
+    'info' => t('Custom Projects'), 
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  $blocks['watersheds'] = array(
+    'info' => t('Custom Watershed'),
+  );
+
+  $blocks['resources'] = array(
+    'info' => t('Custom Resources'), 
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  $blocks['news'] = array(
+    'info' => t('Custom News'),
+  );
+
+  return $blocks;
+}
+
+function andesbdc_block_view($delta = '') {
+  // This example is adapted from node.module.
+  $block = array();
+
+  switch ($delta) {
+    case 'projects':
+      $block['subject'] = t('Projects');
+      $block['content'] = array(
+        '#type' => 'markup', 
+        '#markup' => andesbdc_display_blocks_shorcuts('projects.png', t('Projects'), 'Nosotros trabajamos en muchos proyectos'), 
+      );
+      break;
+
+    case 'watersheds':
+      $block['subject'] = t('Watersheds');
+      $block['content'] = array(
+        '#type' => 'markup', 
+        '#markup' => andesbdc_display_blocks_shorcuts('watersheds.png', t('Watersheds'), 'Nosotros trabajamos en muchas cuencas'),
+      );
+      break;
+
+    case 'resources':
+      $block['subject'] = t('Resources');
+      $block['content'] = array(
+        '#type' => 'markup', 
+        '#markup' => andesbdc_display_blocks_shorcuts('resources.png', t('Resources'), 'Nosotros trabajamos en muchas cuencas'),
+      );
+      break;
+
+    case 'news':
+      $block['subject'] = t('News');
+      $block['content'] = array(
+        '#type' => 'markup', 
+        '#markup' => andesbdc_display_blocks_shorcuts('news.png', t('News'), 'Nosotros trabajamos en muchas cuencas'),
+      );
+      break;      
+  }
+  return $block;
+}
+
+
+function andesbdc_display_blocks_shorcuts($image, $title, $description) {
+  $output  = "<div id=\"display_blocks_shorcut\">";
+  $output .= "<div class=\"block-shorcuts-image\">" .  theme('image', array('path' => base_path() . path_to_theme() .  '/images/' . $image)) ."</div>";  
+  $output .= "<div class=\"block-shorcuts-text\"><div class=\"block-shorcuts-title\">" .  $title ."</div><div class=\"block-shorcuts-description\">" .  $description . "</div></div>";
+  $output .= "</div>";  
+  return $output;
+}

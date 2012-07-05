@@ -1,28 +1,312 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\000034}}
-body {
-  background-color: #FFFFFF;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\000038}}
+#page {
+  background: url("../images/body-background.png") white;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\000038}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000313}}
+#zone-branding-wrapper,
+#zone-user-wrapper {
+  background-color: #ffffff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000348}}
 #block-system-main-menu {
   background-color: #222222;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000310}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000320}}
 #block-system-main-menu ul li {
   float: left;
   list-style-type: none;
   list-style-image: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000314}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000324}}
+#block-system-main-menu ul li a {
+  text-decoration: none;
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000351}}
 #block-system-main-menu ul li a {
   color: #ffffff;
-  text-decoration: none;
   text-transform: uppercase;
-  display: block;
   padding: 10px 20px;
-  font-family: 'ptn57f';
+  font-family: "ptn57f";
+  font-size: 18px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000357}}
 #block-system-main-menu ul li a.active {
   color: #90C34E;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000363}}
+#main-menu-container {
+  background-color: #222222;
+  height: 50px;
+  width: 100%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000369}}
+#main-menu {
+  margin: 0 auto;
+  width: 1170px;
+  background-color: #222222;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000320}}
+#main-menu ul li {
+  float: left;
+  list-style-type: none;
+  list-style-image: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000324}}
+#main-menu ul li a {
+  text-decoration: none;
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000374}}
+#main-menu ul li a {
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  font-family: "ptn57f";
+  font-size: 18px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000380}}
+#main-menu ul li a.active {
+  color: #90C34E;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000320}}
+#block-menu-menu-redes ul li {
+  float: left;
+  list-style-type: none;
+  list-style-image: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000324}}
+#block-menu-menu-redes ul li a {
+  text-decoration: none;
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000334}}
+#block-menu-menu-redes .facebook {
+  background-image: url("../images/ico_facebook.png");
+  background-repeat: no-repeat;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000338}}
+#block-menu-menu-redes .facebook a {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 30px;
+  width: 20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000334}}
+#block-menu-menu-redes .twitter {
+  background-image: url("../images/ico_twitter.png");
+  background-repeat: no-repeat;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000338}}
+#block-menu-menu-redes .twitter a {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 30px;
+  width: 20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000334}}
+#block-menu-menu-redes .youtube {
+  background-image: url("../images/ico_youtube.png");
+  background-repeat: no-repeat;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000338}}
+#block-menu-menu-redes .youtube a {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 30px;
+  width: 20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000334}}
+#block-menu-menu-redes .flickr {
+  background-image: url("../images/ico_flickr.png");
+  background-repeat: no-repeat;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000338}}
+#block-menu-menu-redes .flickr a {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 30px;
+  width: 20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000334}}
+#block-menu-menu-redes .slideshare {
+  background-image: url("../images/ico_slideshare.png");
+  background-repeat: no-repeat;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000338}}
+#block-menu-menu-redes .slideshare a {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 30px;
+  width: 20px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003108}}
+#introduction {
+  border-bottom: 1px solid #E5E5E5;
+  background-color: #F5F5F5;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003113}}
+#block-block-7 {
+  background-color: #F5F5F5;
+  padding: 25px 0px;
+  font-family: "ptn57f";
+  font-size: 32px;
+  color: #666666;
+  line-height: 32px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003122}}
+#region-header-second {
+  background-color: #ffffff;
+  border-bottom: solid 1px #E5E5E5;
+  border-right: solid 1px #E5E5E5;
+  border-left: solid 1px #E5E5E5;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003127}}
+#region-header-second #block-views-novedades-listado-block-1 {
+  padding: 20px 10px 20px 15px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003132}}
+.item-slideshow-legend {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 20px 4%;
+  position: absolute;
+  background-color: rgba(118, 169, 52, 0.8);
+  width: 92%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003141}}
+.item-slideshow-legend a {
+  text-decoration: none;
+  font-family: "ptn57f";
+  font-size: 32px;
+  line-height: 36px;
+  color: #FFFFFF;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003151}}
+#region-postscript-first {
+  background-color: #ffffff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003158}}
+#block-andesbdc-projects,
+#block-andesbdc-watersheds,
+#block-andesbdc-resources,
+#block-andesbdc-news {
+  background-color: #F5F5F5;
+  border-color: #E5E5E5;
+  color: #666666;
+  padding: 20px 5px;
+  float: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003164}}
+#block-andesbdc-projects .block-shorcuts-image,
+#block-andesbdc-watersheds .block-shorcuts-image,
+#block-andesbdc-resources .block-shorcuts-image,
+#block-andesbdc-news .block-shorcuts-image {
+  float: left;
+  margin-right: 5px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003168}}
+#block-andesbdc-projects .block-shorcuts-title,
+#block-andesbdc-watersheds .block-shorcuts-title,
+#block-andesbdc-resources .block-shorcuts-title,
+#block-andesbdc-news .block-shorcuts-title {
+  font-weight: bold;
+  font-family: "ptn57f";
+  font-size: 26px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003173}}
+#block-andesbdc-projects .block-shorcuts-description,
+#block-andesbdc-watersheds .block-shorcuts-description,
+#block-andesbdc-resources .block-shorcuts-description,
+#block-andesbdc-news .block-shorcuts-description {
+  color: #666666;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003180}}
+#block-block-3 {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: lighter;
+  background-color: #222222;
+  color: #ffffff;
+  padding: 20px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003190}}
+#region-preface-first {
+  background-color: #ffffff;
+  padding: 20px 0px;
+  border-right: 1px solid #E5E5E5;
+  border-left: 1px solid #E5E5E5;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003195}}
+#region-preface-first .block-title {
+  font-family: 'PT Sans Narrow';
+  font-size: 26px;
+  border-bottom: solid 3px #76A934;
+  color: #444444;
+  margin: 10px 20px 40px 20px;
+  font-weight: normal;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000320}}
+.view-display-id-block_2 ul li {
+  float: left;
+  list-style-type: none;
+  list-style-image: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\0000324}}
+.view-display-id-block_2 ul li a {
+  text-decoration: none;
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003207}}
+.view-display-id-block_2 .views-field-field-picture, .view-display-id-block_2 li {
+  width: 370px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003210}}
+.view-display-id-block_2 .views-field-title {
+  font-family: 'PT Sans Narrow';
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003212}}
+.view-display-id-block_2 .views-field-title a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #76A934;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003216}}
+.view-display-id-block_2 .views-field-title a :hover {
+  text-decoration: underline;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003223}}
+.zone-postscript {
+  background-color: transparent;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003227}}
+.custom-zone-postscript {
+  background-color: #F5F5F5;
+  border-right: 1px solid #E5E5E5;
+  border-left: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
 }
