@@ -309,10 +309,33 @@
   border-right: 1px solid #E5E5E5;
   border-left: 1px solid #E5E5E5;
   border-bottom: 1px solid #E5E5E5;
+  border-top: 1px solid #E5E5E5;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003234}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003235}}
 #zone-content {
   background-color: #ffffff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.09);
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003241}}
+#region-preface-first--2,
+#region-header-second--2 {
+  background-color: #ffffff;
+  border-right: 1px solid #E5E5E5;
+  border-left: 1px solid #E5E5E5;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003248}}
+#block-views-novedades-listado-block-2 .block-title {
+  border-bottom: solid 1px #76A934;
+  color: #444444;
+  font-family: 'PT Sans Narrow';
+  font-size: 22px;
+  margin: 20px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003257}}
+#block-views-novedades-listado-block-1 {
+  padding: 15px 10px 15px 15px;
 }

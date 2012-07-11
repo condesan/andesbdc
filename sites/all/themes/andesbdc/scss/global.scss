@@ -229,9 +229,31 @@ background-color:#F5F5F5;
   border-right:1px solid #E5E5E5;
   border-left:1px solid #E5E5E5;
   border-bottom:1px solid #E5E5E5;
+  border-top:1px solid #E5E5E5;
 }
 
 #zone-content {
 background-color:#ffffff;
 box-shadow:0 0 20px rgba(0, 0, 0, 0.09);
+}
+
+#region-preface-first--2,
+#region-header-second--2 {
+  background-color:#ffffff;
+  border-right:1px solid #E5E5E5;
+  border-left:1px solid #E5E5E5;
+}
+
+#block-views-novedades-listado-block-2 {
+  .block-title {
+    border-bottom:solid 1px #76A934;
+    color:#444444;
+    font-family:'PT Sans Narrow';
+    font-size:22px;
+    margin:20px;
+  }
+}
+
+#block-views-novedades-listado-block-1 {
+padding:15px 10px 15px 15px;
 }
