@@ -57,3 +57,21 @@ function andesbdc_alpha_preprocess_zone(&$vars) {
       }
   }  
 }
+
+
+/**
+ * Implements hook_preprocess_region().
+ */
+function andesbdc_alpha_preprocess_region(&$vars) {
+  $vars['attributes_array']['id'] = drupal_html_id('region-' . $vars['region']);
+  $vars['content_attributes_array']['class'][] = 'region-inner';
+  $vars['content_attributes_array']['class'][] = $vars['attributes_array']['id'] . '-inner';
+  if ($vars['region'] == 'sidebar_second' && !drupal_is_front_page()) {
+    $node = menu_get_object('node', 1);
+    // render image with slideshow widget come from field_slideshow module
+    $output  = render(field_view_field('node', $node, 'field_picture', 'slideshow'));
+    $output .= render(field_view_field('node', $node, 'field_related_project'));
+    $output .= render(field_view_field('node', $node, 'field_related_sitio'));
+    $vars['content'] = $output;
+  }
+}
