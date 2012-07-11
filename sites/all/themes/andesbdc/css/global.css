@@ -310,3 +310,9 @@
   border-left: 1px solid #E5E5E5;
   border-bottom: 1px solid #E5E5E5;
 }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003234}}
+#zone-content {
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.09);
+}
