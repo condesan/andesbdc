@@ -1,0 +1,5 @@
+name = exportables_all_context export module
+description = Export objects from CTools
+dependencies[] = context
+package = Chaos tool suite
+core = 7.x

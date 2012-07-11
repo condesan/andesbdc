@@ -1,0 +1,5 @@
+name = exportables_all_deltas export module
+description = Export objects from CTools
+dependencies[] = delta
+package = Chaos tool suite
+core = 7.x
