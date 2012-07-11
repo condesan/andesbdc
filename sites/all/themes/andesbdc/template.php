@@ -68,10 +68,64 @@ function andesbdc_alpha_preprocess_region(&$vars) {
   $vars['content_attributes_array']['class'][] = $vars['attributes_array']['id'] . '-inner';
   if ($vars['region'] == 'sidebar_second' && !drupal_is_front_page()) {
     $node = menu_get_object('node', 1);
+    if ($node->type == 'news') {
     // render image with slideshow widget come from field_slideshow module
     $output  = render(field_view_field('node', $node, 'field_picture', 'slideshow'));
     $output .= render(field_view_field('node', $node, 'field_related_project'));
     $output .= render(field_view_field('node', $node, 'field_related_sitio'));
     $vars['content'] = $output;
+    }
+    if ($node->type == 'project') {
+    // render image with slideshow widget come from field_slideshow module
+    $output  = render(field_view_field('node', $node, 'field_picture', 'slideshow'));
+    $output .= render(field_view_field('node', $node, 'field_related_institution'));
+    $output .= render(field_view_field('node', $node, 'field_related_sitio'));
+    $output .= render(field_view_field('node', $node, 'field_related_recursos'));
+    $output .= render(field_view_field('node', $node, 'field_related_investigadores')); 
+    $output .= render(field_view_field('node', $node, 'field_related_novedades'));    
+    $output .= render(field_view_field('node', $node, 'taxonomy_vocabulary_8'));        
+    $vars['content'] = $output;
+    }
+    if ($node->type == 'watershed') {
+    // render image with slideshow widget come from field_slideshow module
+    $output  = render(field_view_field('node', $node, 'field_picture', 'slideshow'));
+    $output .= render(field_view_field('node', $node, 'field_related_institution'));
+    $output .= render(field_view_field('node', $node, 'field_related_project'));
+    $output .= render(field_view_field('node', $node, 'field_related_recursos'));
+    $output .= render(field_view_field('node', $node, 'field_related_investigadores')); 
+    $output .= render(field_view_field('node', $node, 'taxonomy_vocabulary_8'));  
+    $vars['content'] = $output;
+    }
+    if ($node->type == 'resource') {
+    // render image with slideshow widget come from field_slideshow module
+    $output  = render(field_view_field('node', $node, 'field_picture', 'slideshow'));
+    $output .= render(field_view_field('node', $node, 'field_file'));
+    $output .= render(field_view_field('node', $node, 'field_year'));
+    $output .= render(field_view_field('node', $node, 'field_related_project'));
+    $output .= render(field_view_field('node', $node, 'field_related_sitio'));
+    $output .= render(field_view_field('node', $node, 'field_related_author')); 
+    $output .= render(field_view_field('node', $node, 'taxonomy_vocabulary_7'));  
+    $vars['content'] = $output;
+    }
+    if ($node->type == 'researcher') {
+    // render image with slideshow widget come from field_slideshow module
+    $output  = render(field_view_field('node', $node, 'field_picture', 'slideshow'));
+    $output .= render(field_view_field('node', $node, 'field_related_institution'));
+    $output .= render(field_view_field('node', $node, 'field_url'));
+    $output .= render(field_view_field('node', $node, 'field_related_project'));
+    $output .= render(field_view_field('node', $node, 'field_job_position'));
+    $output .= render(field_view_field('node', $node, 'field_related_recursos')); 
+    $vars['content'] = $output;
+    }
+
+    if ($node->type == 'institution') {
+    // render image with slideshow widget come from field_slideshow module
+    $output  = render(field_view_field('node', $node, 'field_logo'));
+    $output .= render(field_view_field('node', $node, 'field_related_project'));
+    $output .= render(field_view_field('node', $node, 'field_related_sitio'));    
+    $output .= render(field_view_field('node', $node, 'field_type_institution'));    
+    $output .= render(field_view_field('node', $node, 'field_url'));
+    $vars['content'] = $output;
+    }
   }
 }

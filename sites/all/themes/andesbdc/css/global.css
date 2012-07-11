@@ -339,3 +339,35 @@
 .view-slideshow-homepage {
   padding: 15px 10px 15px 15px;
 }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003261}}
+#block-system-main {
+  font-family: 'Droid Sans';
+  color: #444444;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003267}}
+#region-sidebar-second--2 .field {
+  margin: 20px 0px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003269}}
+#region-sidebar-second--2 .field .field-label {
+  color: #ffffff;
+  font-family: 'Droid Sans';
+  background: url("../images/tag.png") #76a934 no-repeat 2% 50%;
+  padding: 10px 10px 10px 30px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003276}}
+#region-sidebar-second--2 .field .field-items .field-item {
+  margin-top: 10px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003278}}
+#region-sidebar-second--2 .field .field-items .field-item a {
+  text-decoration: none;
+  color: #444444;
+  text-transform: uppercase;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003282}}
+#region-sidebar-second--2 .field .field-items .field-item a:hover {
+  text-decoration: underline;
+}

@@ -257,3 +257,32 @@ box-shadow:0 0 20px rgba(0, 0, 0, 0.09);
 .view-slideshow-homepage {
 padding:15px 10px 15px 15px;
 }
+
+#block-system-main {
+font-family:'Droid Sans';
+color:#444444;
+}
+
+#region-sidebar-second--2 {
+  .field  {
+    margin:20px 0px;
+    .field-label {
+       color:#ffffff;
+       font-family:	'Droid Sans';
+       background:url('../images/tag.png') #76A934 no-repeat 2% 50%;
+       padding:10px 10px 10px 30px;
+     }
+
+    .field-items .field-item {
+       margin-top:10px;
+       a {
+         text-decoration:none;
+         color:#444444;
+         text-transform:uppercase;
+         &:hover {
+           text-decoration:underline;
+         }
+       }
+     }
+  }
+}
