@@ -14,6 +14,79 @@ function exportables_all_context_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'about_us';
+  $context->description = '';
+  $context->tag = 'Site';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'node/165' => 'node/165',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-investigadores-block_1' => array(
+          'module' => 'views',
+          'delta' => 'investigadores-block_1',
+          'region' => 'footer_first',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+    'delta' => array(
+      'delta_template' => 'fulltext2',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Site');
+  $contexts['about_us'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'always_active';
+  $context->description = '';
+  $context->tag = 'Site';
+  $context->conditions = array(
+    'sitewide' => array(
+      'values' => array(
+        1 => 1,
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'menu-menu-redes' => array(
+          'module' => 'menu',
+          'delta' => 'menu-redes',
+          'region' => 'user_first',
+          'weight' => '-10',
+        ),
+        'locale-language' => array(
+          'module' => 'locale',
+          'delta' => 'language',
+          'region' => 'user_second',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Site');
+  $contexts['always_active'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'home';
   $context->description = '';
   $context->tag = 'Site';
@@ -27,12 +100,6 @@ function exportables_all_context_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'menu-menu-redes' => array(
-          'module' => 'menu',
-          'delta' => 'menu-redes',
-          'region' => 'user_second',
-          'weight' => '-10',
-        ),
         'views-novedades-block' => array(
           'module' => 'views',
           'delta' => 'novedades-block',
@@ -81,6 +148,25 @@ function exportables_all_context_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('Site');
   $contexts['home'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'novedades';
+  $context->description = '';
+  $context->tag = 'Site';
+  $context->conditions = array();
+  $context->reactions = array(
+    'delta' => array(
+      'delta_template' => 'fulltext',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Site');
+  $contexts['novedades'] = $context;
 
   return $contexts;
 }

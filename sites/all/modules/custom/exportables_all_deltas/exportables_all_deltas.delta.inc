@@ -14,14 +14,52 @@ function exportables_all_deltas_delta_default_templates() {
   $delta = new stdClass();
   $delta->disabled = FALSE; /* Edit this to true to make a default delta disabled initially */
   $delta->api_version = 3;
-  $delta->machine_name = 'fulltext';
-  $delta->name = 'Fulltext';
-  $delta->description = 'Fulltext layout ';
+  $delta->machine_name = 'always_active';
+  $delta->name = 'Always_Active';
+  $delta->description = 'Always_Active';
   $delta->theme = 'andesbdc';
   $delta->mode = 'preserve';
   $delta->parent = '';
+  $delta->settings = array(
+    'theme_andesbdc_settings' => array(
+      'alpha_region_user_first_prefix' => '8',
+      'alpha_region_user_first_columns' => '2',
+      'alpha_region_user_first_equal_height_element' => 0,
+      'alpha_region_user_second_prefix' => '0',
+    ),
+  );
+  $deltas['always_active'] = $delta;
+
+  $delta = new stdClass();
+  $delta->disabled = FALSE; /* Edit this to true to make a default delta disabled initially */
+  $delta->api_version = 3;
+  $delta->machine_name = 'fulltext';
+  $delta->name = 'Fulltext';
+  $delta->description = 'Fulltext layout | 2 sides';
+  $delta->theme = 'andesbdc';
+  $delta->mode = 'preserve';
+  $delta->parent = 'always_active';
   $delta->settings = array();
   $deltas['fulltext'] = $delta;
+
+  $delta = new stdClass();
+  $delta->disabled = FALSE; /* Edit this to true to make a default delta disabled initially */
+  $delta->api_version = 3;
+  $delta->machine_name = 'fulltext2';
+  $delta->name = 'Fulltext2';
+  $delta->description = 'Fulltext layout | 1 side';
+  $delta->theme = 'andesbdc';
+  $delta->mode = 'preserve';
+  $delta->parent = 'always_active';
+  $delta->settings = array(
+    'theme_andesbdc_settings' => array(
+      'alpha_region_sidebar_second_zone' => NULL,
+      'alpha_region_sidebar_second_equal_height_element' => FALSE,
+      'alpha_zone_postscript_section' => NULL,
+      'alpha_region_content_columns' => '12',
+    ),
+  );
+  $deltas['fulltext2'] = $delta;
 
   $delta = new stdClass();
   $delta->disabled = FALSE; /* Edit this to true to make a default delta disabled initially */
@@ -31,7 +69,7 @@ function exportables_all_deltas_delta_default_templates() {
   $delta->description = 'homepage';
   $delta->theme = 'andesbdc';
   $delta->mode = 'preserve';
-  $delta->parent = '';
+  $delta->parent = 'always_active';
   $delta->settings = array(
     'theme_andesbdc_settings' => array(
       'alpha_region_sidebar_second_zone' => NULL,
