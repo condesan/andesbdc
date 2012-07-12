@@ -26,6 +26,20 @@ function exportables_all_deltas_delta_default_templates() {
       'alpha_region_user_first_columns' => '2',
       'alpha_region_user_first_equal_height_element' => 0,
       'alpha_region_user_second_prefix' => '0',
+      'alpha_zone_footer_columns' => '24',
+      'alpha_region_preface_first_zone' => 'footer',
+      'alpha_region_preface_first_columns' => '6',
+      'alpha_region_preface_first_equal_height_element' => 0,
+      'alpha_region_preface_second_zone' => 'footer',
+      'alpha_region_preface_second_columns' => '6',
+      'alpha_region_preface_second_equal_height_element' => 0,
+      'alpha_region_preface_third_zone' => 'footer',
+      'alpha_region_preface_third_columns' => '6',
+      'alpha_region_preface_third_equal_height_element' => 0,
+      'alpha_region_footer_first_columns' => '6',
+      'alpha_region_footer_first_weight' => '40',
+      'alpha_region_footer_second_columns' => '24',
+      'alpha_region_footer_second_weight' => '50',
     ),
   );
   $deltas['always_active'] = $delta;
@@ -74,7 +88,6 @@ function exportables_all_deltas_delta_default_templates() {
     'theme_andesbdc_settings' => array(
       'alpha_region_sidebar_second_zone' => NULL,
       'alpha_region_sidebar_second_equal_height_element' => FALSE,
-      'alpha_region_preface_third_columns' => '8',
       'alpha_zone_content_section' => NULL,
       'alpha_region_content_columns' => '12',
       'alpha_region_header_second_zone' => 'header',
@@ -83,9 +96,7 @@ function exportables_all_deltas_delta_default_templates() {
       'alpha_region_postscript_first_css' => 'alpha',
       'alpha_region_postscript_fourth_css' => 'omega',
       'alpha_zone_preface_weight' => '5',
-      'alpha_region_preface_first_zone' => 'preface',
-      'alpha_region_preface_first_columns' => '12',
-      'alpha_region_preface_first_equal_height_element' => 0,
+      'alpha_region_footer_second_weight' => '45',
     ),
   );
   $deltas['homepage'] = $delta;
