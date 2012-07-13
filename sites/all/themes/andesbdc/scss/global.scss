@@ -244,12 +244,6 @@ background-color:#ffffff;
 box-shadow:0 0 20px rgba(0, 0, 0, 0.09);
 }
 
-#region-preface-first--2,
-#region-header-second--2 {
-  background-color:#ffffff;
-  border-right:1px solid #E5E5E5;
-  border-left:1px solid #E5E5E5;
-}
 
 #block-views-novedades-listado-block-2 {
   .block-title {
@@ -391,5 +385,38 @@ padding:15px 10px 15px 15px;
         opacity:1.0;
         filter:alpha(opacity=100); /* For IE8 and earlier */
       }    
+  }
+}
+
+.block-instituciones-projects  {
+  .views-row {
+    clear:both;
+    margin:20px 0px;
+    overflow:auto;
+  }
+  .views-field-field-item {
+    width:176px;
+    float:right;
+    display:block;
+    a {
+      text-decoration:none;
+      color:#ffffff;
+    }
+      color:#ffffff;
+    .views-field-body {
+      font-family:$font_sans_narrow;
+      color:#999999;
+    }
+  }
+  .views-field-field-picture {
+    float:right;
+    margin-right:10px;
+  }
+  .block-title {
+    font-family:$font_sans_narrow;
+    font-weight:lighter;
+    color:#76A934;
+    border-bottom:solid 1px #76A934;
+    margin:20px 0px;
   }
 }
