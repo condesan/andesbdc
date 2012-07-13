@@ -8,7 +8,7 @@
 /**
  * Implements hook_context_default_contexts().
  */
-function exportables_all_deltas_context_default_contexts() {
+function exportables_all_context_context_default_contexts() {
   $contexts = array();
 
   $context = new stdClass();
