@@ -377,31 +377,31 @@
   text-decoration: underline;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003303}}
-#section-footer #block-views-investigadores-block-1 .block-title {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003300}}
+.block-investigadores .block-title {
   font-family: "PT Sans Narrow";
   font-size: 22px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003307}}
-#section-footer #block-views-investigadores-block-1 table {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003304}}
+.block-investigadores table {
   border: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003311}}
-#section-footer #block-views-investigadores-block-1 .view-content .views-field-field-picture {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003308}}
+.block-investigadores .view-content .views-field-field-picture {
   float: left;
   margin-right: 10px;
   opacity: 0.4;
   filter: alpha(opacity=40);
   /* For IE8 and earlier */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003316}}
-#section-footer #block-views-investigadores-block-1 .view-content .views-field-field-picture:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003313}}
+.block-investigadores .view-content .views-field-field-picture:hover {
   opacity: 1.0;
   filter: alpha(opacity=100);
   /* For IE8 and earlier */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003321}}
-#section-footer #block-views-investigadores-block-1 .view-content .views-td-wrapper {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003318}}
+.block-investigadores .view-content .views-td-wrapper {
   background-color: #F5F5F5;
   border: solid 1px #E5E5E5;
   color: #666666;
@@ -409,26 +409,26 @@
   padding: 10px;
   margin: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003329}}
-#section-footer #block-views-investigadores-block-1 .view-content .views-field-field-title a {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003326}}
+.block-investigadores .view-content .views-field-field-title a {
   border: none;
   color: #76A934;
   font-family: "PT Sans Narrow";
   text-decoration: none;
   font-weight: bold;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003336}}
-#section-footer #block-views-investigadores-block-1 .view-content td {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003333}}
+.block-investigadores .view-content td {
   padding: 0px;
   vertical-align: top;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003341}}
 #block-menu-menu-redes {
   float: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003345}}
 #block-locale-language {
   float: left;
 }
@@ -443,31 +443,31 @@
   text-decoration: none;
   display: block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003348}}
 #block-locale-language .language-switcher-locale-url {
   margin-bottom: 5px;
   font-family: "PT Sans Narrow";
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003352}}
 #block-locale-language li {
   border-left: solid 1px #444444;
   padding: 0px 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003359}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003356}}
 #block-locale-language li.first {
   border: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003362}}
 #section-footer {
   background-color: #222222;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003371}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003368}}
 .block-instituciones-logos table {
   border: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003374}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003371}}
 .block-instituciones-logos .block-title {
   font-family: "PT Sans Narrow";
   font-weight: lighter;
@@ -475,54 +475,54 @@
   border-bottom: solid 1px #76A934;
   margin: 20px 0px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003378}}
 .block-instituciones-logos .views-field-field-logo {
   opacity: 0.4;
   filter: alpha(opacity=40);
   /* For IE8 and earlier */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003384}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003381}}
 .block-instituciones-logos .views-field-field-logo:hover {
   opacity: 1.0;
   filter: alpha(opacity=100);
   /* For IE8 and earlier */
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003387}}
 .block-tweets {
   color: #ffffff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003389}}
 .block-tweets li.views-row {
   clear: both;
   font-family: "PT Sans Narrow";
   background: url("../images/twitter.png") no-repeat;
   height: 100px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003397}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003394}}
 .block-tweets li.views-row .views-field-text {
   padding-left: 60px;
   width: 85%;
   display: block;
   color: #999999;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003402}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003399}}
 .block-tweets li.views-row .views-field-text a {
   text-decoration: none;
   color: #ffffff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003407}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003404}}
 .block-tweets li.views-row .views-field-created-time {
   padding-left: 45%;
   width: 200px;
   display: block;
   color: ffffff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003412}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003409}}
 .block-tweets li.views-row .views-field-created-time .field-content {
   float: right;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003417}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003414}}
 .block-tweets .block-title {
   font-family: "PT Sans Narrow";
   font-weight: lighter;
@@ -531,35 +531,35 @@
   margin: 20px 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003427}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003424}}
 .block-instituciones-projects .views-row {
   clear: both;
   margin: 20px 0px;
   overflow: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003432}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003429}}
 .block-instituciones-projects .views-field-field-item {
   width: 77%;
   float: right;
   display: block;
   color: #ffffff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003436}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003433}}
 .block-instituciones-projects .views-field-field-item a {
   text-decoration: none;
   color: #ffffff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003441}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003438}}
 .block-instituciones-projects .views-field-field-item .views-field-body {
   font-family: "PT Sans Narrow";
   color: #999999;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003446}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003443}}
 .block-instituciones-projects .views-field-field-picture {
   float: right;
   margin-right: 2%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003450}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003447}}
 .block-instituciones-projects .block-title {
   font-family: "PT Sans Narrow";
   font-weight: lighter;
