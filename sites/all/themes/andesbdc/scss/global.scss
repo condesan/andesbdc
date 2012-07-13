@@ -110,6 +110,7 @@ $font_sans_narrow: 'PT Sans Narrow';
   }
 }
 
+
 //introduction in home
 
 #introduction {
@@ -155,6 +156,7 @@ background-color:#F5F5F5;
   }
 }
 
+
 #region-postscript-first {
   background-color:#ffffff;
 }
@@ -182,7 +184,6 @@ background-color:#F5F5F5;
   }
 }
 
-
 //footer
 #block-block-3 {
   font-family: 'Droid Sans';
@@ -209,24 +210,6 @@ background-color:#F5F5F5;
   }
 }
 
-.view-display-id-block_2 {
-  @include linline;
-  .views-field-field-picture, li {
-    width:370px;
-  }
-  .views-field-title {
-    font-family:'PT Sans Narrow';
-    & a {
-      text-decoration: none;
-      font-size:16px;
-      color:#76A934;
-      & :hover {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
 .zone-postscript {
  background-color:transparent;
 }
@@ -239,11 +222,28 @@ background-color:#F5F5F5;
   border-top:1px solid #E5E5E5;
 }
 
+.view-display-id-block_2 {
+  @include linline;
+  & .views-field-field-picture, & li {
+    width:370px;
+  }
+  .views-field-title {
+    font-family:$font_sans_narrow;
+    & a {
+      text-decoration: none;
+      font-size:16px;
+      color:#76A934;
+      &:hover {
+        text-decoration: underline;
+        }
+      }
+    }
+ }
+
 #zone-content {
 background-color:#ffffff;
 box-shadow:0 0 20px rgba(0, 0, 0, 0.09);
 }
-
 
 #block-views-novedades-listado-block-2 {
   .block-title {
@@ -269,12 +269,13 @@ padding:15px 10px 15px 15px;
   }
 }
 
+
 #region-sidebar-second--2 {
   .field  {
     margin:20px 0px;
     .field-label {
        color:#ffffff;
-       font-family:	'Droid Sans';
+       font-family: 'Droid Sans';
        background:url('../images/tag.png') #76A934 no-repeat 2% 50%;
        padding:10px 10px 10px 30px;
      }
@@ -300,7 +301,7 @@ padding:15px 10px 15px 15px;
   }
   #block-views-investigadores-block-1 {
     .block-title {
-      font-family:	$font_sans_narrow;
+      font-family:  $font_sans_narrow;
       font-size:22px;   
     }
     table {
@@ -328,7 +329,7 @@ padding:15px 10px 15px 15px;
       .views-field-field-title a {
         border:none;
         color:#76A934;
-        font-family:	$font_sans_narrow;
+        font-family:  $font_sans_narrow;
         text-decoration:none;
         font-weight:bold;
       }
@@ -338,7 +339,6 @@ padding:15px 10px 15px 15px;
       }
     }
   }
-  
 }
 
 #block-menu-menu-redes {
@@ -387,6 +387,41 @@ padding:15px 10px 15px 15px;
       }    
   }
 }
+.block-tweets {
+  color:#ffffff;
+  li.views-row {
+    clear:both;
+    font-family:$font_sans_narrow;
+    background:url('../images/twitter.png') no-repeat;
+    height:100px;
+    & .views-field-text {
+      padding-left:60px;
+      width:85%;
+      display:block;
+      color:#999999;
+      a {
+        text-decoration:none;
+        color:#ffffff;
+      }
+    }
+    & .views-field-created-time {
+      padding-left:45%;
+      width:200px;
+      display:block;
+      color:ffffff;
+      .field-content {
+        float:right;
+      }
+    }
+  }
+  .block-title {
+    font-family:$font_sans_narrow;
+    font-weight:lighter;
+    color:#76A934;
+    border-bottom:solid 1px #76A934;
+    margin:20px 0px;
+  }
+}
 
 .block-instituciones-projects  {
   .views-row {
@@ -395,7 +430,7 @@ padding:15px 10px 15px 15px;
     overflow:auto;
   }
   .views-field-field-item {
-    width:176px;
+    width:77%;
     float:right;
     display:block;
     a {
@@ -410,7 +445,7 @@ padding:15px 10px 15px 15px;
   }
   .views-field-field-picture {
     float:right;
-    margin-right:10px;
+    margin-right:2%;
   }
   .block-title {
     font-family:$font_sans_narrow;
@@ -420,3 +455,5 @@ padding:15px 10px 15px 15px;
     margin:20px 0px;
   }
 }
+
+
