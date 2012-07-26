@@ -161,24 +161,5 @@ function exportables_all_context_context_default_contexts() {
   t('Site');
   $contexts['home'] = $context;
 
-  $context = new stdClass();
-  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
-  $context->api_version = 3;
-  $context->name = 'novedades';
-  $context->description = '';
-  $context->tag = 'Site';
-  $context->conditions = array();
-  $context->reactions = array(
-    'delta' => array(
-      'delta_template' => 'fulltext',
-    ),
-  );
-  $context->condition_mode = 0;
-
-  // Translatables
-  // Included for use with string extractors like potx.
-  t('Site');
-  $contexts['novedades'] = $context;
-
   return $contexts;
 }
