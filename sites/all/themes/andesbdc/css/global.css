@@ -378,16 +378,16 @@
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003300}}
-.block-investigadores .block-title {
+.andesbdc-investigadores .block-title {
   font-family: "PT Sans Narrow";
   font-size: 22px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003304}}
-.block-investigadores table {
+.andesbdc-investigadores table {
   border: none;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003308}}
-.block-investigadores .view-content .views-field-field-picture {
+.andesbdc-investigadores .view-content .views-field-field-picture {
   float: left;
   margin-right: 10px;
   opacity: 0.4;
@@ -395,13 +395,13 @@
   /* For IE8 and earlier */
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003313}}
-.block-investigadores .view-content .views-field-field-picture:hover {
+.andesbdc-investigadores .view-content .views-field-field-picture:hover {
   opacity: 1.0;
   filter: alpha(opacity=100);
   /* For IE8 and earlier */
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003318}}
-.block-investigadores .view-content .views-td-wrapper {
+.andesbdc-investigadores .view-content .views-td-wrapper {
   background-color: #F5F5F5;
   border: solid 1px #E5E5E5;
   color: #666666;
@@ -410,7 +410,7 @@
   margin: 10px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003326}}
-.block-investigadores .view-content .views-field-field-title a {
+.andesbdc-investigadores .view-content .views-field-field-title a {
   border: none;
   color: #76A934;
   font-family: "PT Sans Narrow";
@@ -418,7 +418,7 @@
   font-weight: bold;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003333}}
-.block-investigadores .view-content td {
+.andesbdc-investigadores .view-content td {
   padding: 0px;
   vertical-align: top;
 }
