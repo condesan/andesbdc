@@ -454,3 +454,29 @@ padding:15px 10px 15px 15px;
 }
 
 
+.andesbdc-panels-projects {
+  h2 {
+    color:#76A934;
+    font-family: $font_sans_narrow;
+    font-size: 26px;
+  }
+}
+
+.andesbdc-block-proyectos {
+  table, tr, td, tr:hover, td:hover {
+    background-color: #ffffff;
+    border:none;
+  }
+  .views-field-field-picture {
+    float:left;
+    margin-right: 10px;
+  }
+  .andesbdc-field-body {
+    float:left;
+    a {
+      font-size:16px;
+      font-family: $font_sans_narrow;
+      font-weight: lighter;
+    }
+  }
+}

@@ -567,3 +567,31 @@
   border-bottom: solid 1px #76A934;
   margin: 20px 0px;
 }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003458}}
+.andesbdc-panels-projects h2 {
+  color: #76A934;
+  font-family: "PT Sans Narrow";
+  font-size: 26px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003466}}
+.andesbdc-block-proyectos table, .andesbdc-block-proyectos tr, .andesbdc-block-proyectos td, .andesbdc-block-proyectos tr:hover, .andesbdc-block-proyectos td:hover {
+  background-color: #ffffff;
+  border: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003470}}
+.andesbdc-block-proyectos .views-field-field-picture {
+  float: left;
+  margin-right: 10px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003474}}
+.andesbdc-block-proyectos .andesbdc-field-body {
+  float: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/andesbdc\/sites\/all\/themes\/andesbdc\/scss\/global\.scss}line{font-family:\00003476}}
+.andesbdc-block-proyectos .andesbdc-field-body a {
+  font-size: 16px;
+  font-family: "PT Sans Narrow";
+  font-weight: lighter;
+}
