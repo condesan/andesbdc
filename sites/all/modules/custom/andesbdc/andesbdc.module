@@ -32,7 +32,7 @@ function andesbdc_block_view($delta = '') {
       $block['subject'] = t('Projects');
       $block['content'] = array(
         '#type' => 'markup', 
-        '#markup' => andesbdc_display_blocks_shorcuts('projects.png', t('Projects'), 'Nosotros trabajamos en muchos proyectos'), 
+        '#markup' => andesbdc_display_blocks_shorcuts('projects.png', t('Projects'), 'Nosotros trabajamos en muchos proyectos', 'projects'), 
       );
       break;
 
@@ -40,7 +40,7 @@ function andesbdc_block_view($delta = '') {
       $block['subject'] = t('Watersheds');
       $block['content'] = array(
         '#type' => 'markup', 
-        '#markup' => andesbdc_display_blocks_shorcuts('watersheds.png', t('Watersheds'), 'Nosotros trabajamos en muchas cuencas'),
+        '#markup' => andesbdc_display_blocks_shorcuts('watersheds.png', t('Watersheds'), 'Nosotros trabajamos en muchas cuencas', 'watersheds'),
       );
       break;
 
@@ -48,7 +48,7 @@ function andesbdc_block_view($delta = '') {
       $block['subject'] = t('Resources');
       $block['content'] = array(
         '#type' => 'markup', 
-        '#markup' => andesbdc_display_blocks_shorcuts('resources.png', t('Resources'), 'Nosotros trabajamos en muchas cuencas'),
+        '#markup' => andesbdc_display_blocks_shorcuts('resources.png', t('Resources'), 'Nosotros trabajamos en muchas cuencas', 'resources'),
       );
       break;
 
@@ -56,7 +56,7 @@ function andesbdc_block_view($delta = '') {
       $block['subject'] = t('News');
       $block['content'] = array(
         '#type' => 'markup', 
-        '#markup' => andesbdc_display_blocks_shorcuts('news.png', t('News'), 'Nosotros trabajamos en muchas cuencas'),
+        '#markup' => andesbdc_display_blocks_shorcuts('news.png', t('News'), 'Nosotros trabajamos en muchas cuencas', 'news'),
       );
       break;      
   }
@@ -64,10 +64,10 @@ function andesbdc_block_view($delta = '') {
 }
 
 
-function andesbdc_display_blocks_shorcuts($image, $title, $description) {
+function andesbdc_display_blocks_shorcuts($image, $title, $description, $link) {
   $output  = "<div id=\"display_blocks_shorcut\">";
-  $output .= "<div class=\"block-shorcuts-image\">" .  theme('image', array('path' => base_path() . path_to_theme() .  '/images/' . $image)) ."</div>";  
-  $output .= "<div class=\"block-shorcuts-text\"><div class=\"block-shorcuts-title\">" .  $title ."</div><div class=\"block-shorcuts-description\">" .  $description . "</div></div>";
+  $output .= "<div class=\"block-shorcuts-image\">" .  l(theme('image', array('path' => base_path() . path_to_theme() .  '/images/' . $image)), $link, array('html' => TRUE)) ."</div>";  
+  $output .= "<div class=\"block-shorcuts-text\"><div class=\"block-shorcuts-title\">" .  l($title, $link) ."</div><div class=\"block-shorcuts-description\">" .  $description . "</div></div>";
   $output .= "</div>";  
   return $output;
 }

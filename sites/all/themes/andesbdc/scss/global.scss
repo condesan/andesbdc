@@ -178,6 +178,10 @@ background-color:#F5F5F5;
     font-weight:bold;
     font-family:$font;
     font-size:26px;
+    a {
+      text-decoration: none;
+      color: #666666; 
+    }
   }
   .block-shorcuts-description {
     color:#666666;
@@ -454,7 +458,10 @@ padding:15px 10px 15px 15px;
 }
 
 
-.andesbdc-panels-projects {
+.andesbdc-panels-projects, 
+.andesbdc-panels-watersheds, 
+.andesbdc-panels-news,
+.andesbdc-panels-resources {
   h2 {
     color:#76A934;
     font-family: $font_sans_narrow;
@@ -467,9 +474,16 @@ padding:15px 10px 15px 15px;
     background-color: #ffffff;
     border:none;
   }
+  tr.even td {
+    background: none repeat scroll 0 0 #ffffff;
+  }
+  th {
+    display: none;
+  }
   .views-field-field-picture {
     float:left;
     margin-right: 10px;
+    width:100%;
   }
   .andesbdc-field-body {
     float:left;
@@ -478,5 +492,11 @@ padding:15px 10px 15px 15px;
       font-family: $font_sans_narrow;
       font-weight: lighter;
     }
+  }
+}
+
+.andesbdc-block-homepage-slideshow {
+  .view-slideshow-homepage {
+    background-color: #ffffff; 
   }
 }
