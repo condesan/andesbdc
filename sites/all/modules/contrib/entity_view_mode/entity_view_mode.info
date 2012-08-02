@@ -4,9 +4,9 @@ core = 7.x
 recommends[] = field_ui
 configure = admin/config/system/entity-view-modes
 
-; Information added by drupal.org packaging script on 2011-08-11
-version = "7.x-1.0-beta1"
+; Information added by drupal.org packaging script on 2012-07-31
+version = "7.x-1.0-beta2"
 core = "7.x"
 project = "entity_view_mode"
-datestamp = "1313098317"
+datestamp = "1343767335"
 

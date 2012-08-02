@@ -1,11 +1,7 @@
-files
-*.tar.gz
-*.zip
-*.mysql
-*.sql
-*.tgz
-*.rar
-sites/default/settings.php
-sites/default/default.settings.php
-sites/all/modules/devel_themer/
-*.scssc
+# Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
+
+# Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+sites/all/themes/andesbdc/.sass-cache
